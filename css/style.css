@@ -239,6 +239,19 @@ ul {
   color: var(--color-accent);
 }
 
+/* ── Typewriter cursor ── */
+.typewriter-cursor {
+  display: inline;
+  color: #DF1463;
+  font-weight: 400;
+  animation: tw-blink 800ms step-end infinite;
+}
+
+@keyframes tw-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 /* ============================================
    Section Headers
    ============================================ */

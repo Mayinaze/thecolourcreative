@@ -167,40 +167,82 @@ function initCardTilt() {
 }
 
 // ============================================
-// Typewriter effect (hero headline accent)
+// Typewriter — hero headline
 // ============================================
 function initTypewriter() {
-  const el = document.querySelector('[data-typewriter]');
+  const el = document.getElementById('hero-headline');
   if (!el) return;
 
-  const words  = el.dataset.typewriter.split(',').map(w => w.trim());
-  let wordIdx  = 0;
-  let charIdx  = 0;
-  let deleting = false;
+  // ── Segments: the headline broken into typed chunks ──────────────
+  // Each segment is { text, accent } or { linebreak: true }
+  const segments = [
+    { text: '10 years ',                        accent: false },
+    { text: 'designing',                         accent: true  },
+    { text: ' scalable products',               accent: false },
+    { linebreak: true },
+    { text: 'across SAAS, Fintech and Proptech', accent: false },
+  ];
 
-  el.style.borderRight = '2px solid var(--color-accent)';
-  el.style.paddingRight = '2px';
+  // ── Step 1: reserve height so nothing below shifts ───────────────
+  // The h1 is fully rendered on load; capture its height then clear.
+  const reservedHeight = el.offsetHeight;
+  el.style.minHeight   = reservedHeight + 'px';
+  el.innerHTML         = '';
 
-  function tick() {
-    const word = words[wordIdx];
-    if (!deleting) {
-      el.textContent = word.slice(0, ++charIdx);
-      if (charIdx === word.length) {
-        deleting = true;
-        setTimeout(tick, 1800);
-        return;
-      }
+  // ── Step 2: append the persistent blinking cursor ────────────────
+  const cursor = document.createElement('span');
+  cursor.className   = 'typewriter-cursor';
+  cursor.textContent = '|';
+  el.appendChild(cursor);
+
+  // ── Step 3: build a flat list of tokens to type ──────────────────
+  const tokens = [];
+  for (const seg of segments) {
+    if (seg.linebreak) {
+      tokens.push({ linebreak: true });
     } else {
-      el.textContent = word.slice(0, --charIdx);
-      if (charIdx === 0) {
-        deleting = false;
-        wordIdx  = (wordIdx + 1) % words.length;
+      for (const char of seg.text) {
+        tokens.push({ char, accent: seg.accent });
       }
     }
-    setTimeout(tick, deleting ? 60 : 100);
   }
 
-  tick();
+  // ── Step 4: type one token at a time ─────────────────────────────
+  let idx         = 0;
+  let activeNode  = null;   // current text node or span being filled
+  let activeAccent = null;  // tracks whether activeNode is an accent span
+
+  function typeNext() {
+    if (idx >= tokens.length) return; // finished — cursor keeps blinking
+
+    const token = tokens[idx++];
+
+    if (token.linebreak) {
+      // Insert <br> before the cursor
+      el.insertBefore(document.createElement('br'), cursor);
+      activeNode   = null;
+      activeAccent = null;
+    } else {
+      // If the accent state changed, start a new node/span
+      if (token.accent !== activeAccent) {
+        if (token.accent) {
+          activeNode = document.createElement('span');
+          activeNode.className = 'accent';
+        } else {
+          activeNode = document.createTextNode('');
+        }
+        el.insertBefore(activeNode, cursor);
+        activeAccent = token.accent;
+      }
+      // Append the character
+      activeNode.textContent += token.char;
+    }
+
+    setTimeout(typeNext, 50);
+  }
+
+  // Small delay so the page is visually settled before typing starts
+  setTimeout(typeNext, 200);
 }
 
 // ============================================
