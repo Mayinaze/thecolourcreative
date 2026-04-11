@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Colour Creative — Home</title>
+  <meta name="description" content="Jake — AI systems designer, accessibility advocate & teacher. 10 years designing scalable products across SAAS, Fintech and Proptech." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- ============================
+       Navigation — links only, no brand
+       ============================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <!-- Brand shown only on mobile via CSS -->
+    <span class="nav__brand"><span>The</span> Colour Creative</span>
+
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="index.html" class="nav__link active">Home</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="case-studies.html" class="nav__link">Case studies</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="playground.html" class="nav__link">Playground</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="ux-ui-improvements.html" class="nav__link">UX/UI improvements</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================
+       Main Content
+       ============================ -->
+  <main>
+
+    <!-- ── Hero — flush container (no left/right padding) ── -->
+    <section class="hero">
+      <div class="container container--flush">
+
+        <!-- Avatar + Name block -->
+        <div class="hero__intro reveal">
+          <img
+            src="avatar.svg"
+            alt="Jake's avatar"
+            class="hero__avatar"
+          />
+          <div class="hero__intro-text">
+            <p class="hero__name">Hi, I'm Jake</p>
+            <p class="hero__subtitle">AI systems designer, accessibility advocate &amp; teacher</p>
+          </div>
+        </div>
+
+        <!-- Headline — stays on 2 lines at full 1200px width -->
+        <h1 class="hero__headline reveal">
+          10 years <span class="accent">designing</span> scalable products<br />
+          across SAAS, Fintech and Proptech
+        </h1>
+
+      </div>
+    </section>
+
+    <!-- ── Project Cards — flush container so 575+50+575 = 1200px ── -->
+    <section class="section">
+      <div class="container container--flush">
+        <div class="card-grid reveal-stagger">
+
+          <!-- Card 1 -->
+          <article class="card">
+            <div class="card__image-wrap">
+              <img
+                src="https://placehold.co/575x504/211e20/434343?text=Solving+real+availability"
+                alt="Solving real availability — project screenshot"
+              />
+            </div>
+            <div class="card__body">
+              <h2 class="card__title">Solving real availability</h2>
+              <div class="card__badges">
+                <span class="badge">User availability</span>
+                <span class="badge">B2B</span>
+                <span class="badge">Web</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <div class="card__image-wrap">
+              <img
+                src="https://placehold.co/575x504/211e20/434343?text=Property+management"
+                alt="Property management — project screenshot"
+              />
+            </div>
+            <div class="card__body">
+              <h2 class="card__title">Property management</h2>
+              <div class="card__badges">
+                <span class="badge">Property</span>
+                <span class="badge">B2B</span>
+                <span class="badge">Web &amp; App</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <div class="card__image-wrap">
+              <img
+                src="https://placehold.co/575x504/211e20/434343?text=AI+Design+Systems"
+                alt="AI Design Systems — project screenshot"
+              />
+            </div>
+            <div class="card__body">
+              <h2 class="card__title">AI-powered design systems</h2>
+              <div class="card__badges">
+                <span class="badge">AI</span>
+                <span class="badge">Design Systems</span>
+                <span class="badge">SAAS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card">
+            <div class="card__image-wrap">
+              <img
+                src="https://placehold.co/575x504/211e20/434343?text=Fintech+Onboarding"
+                alt="Fintech Onboarding — project screenshot"
+              />
+            </div>
+            <div class="card__body">
+              <h2 class="card__title">Fintech onboarding redesign</h2>
+              <div class="card__badges">
+                <span class="badge">Fintech</span>
+                <span class="badge">Mobile</span>
+                <span class="badge">Accessibility</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /card-grid -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__brand"><span>The</span> Colour Creative</span>
+        <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
+        <div class="footer__links">
+          <a href="case-studies.html" class="footer__link">Case studies</a>
+          <a href="playground.html" class="footer__link">Playground</a>
+          <a href="ux-ui-improvements.html" class="footer__link">UX/UI improvements</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
