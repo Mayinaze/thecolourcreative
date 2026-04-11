@@ -291,45 +291,45 @@ ul {
   border-radius: var(--card-radius);
   overflow: hidden;
   position: relative;
-  /* Inside stroke */
-  box-shadow: inset 0 0 0 1.3px var(--color-card-stroke);
-  /* Background blur (glass effect) */
+  /* Gradient background on the wrapper, not the image */
+  background: linear-gradient(to right, rgba(54, 54, 54, 0.4), rgba(62, 62, 62, 0));
+  /* Border on the wrapper */
+  border: 1.4px solid #404040;
+  /* Breathing room around the image */
+  padding: 32px;
+  /* Backdrop blur */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: box-shadow var(--transition-med), transform var(--transition-med);
 }
 
-/* Gradient overlay — dark to transparent, 40% opacity */
-.card__image-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    160deg,
-    rgba(10, 8, 9, 0.4) 0%,
-    rgba(10, 8, 9, 0) 60%
-  );
-  border-radius: var(--card-radius);
-  pointer-events: none;
-  z-index: 1;
-}
-
 .card:hover .card__image-wrap {
-  box-shadow:
-    inset 0 0 0 1.3px var(--color-card-stroke),
-    0 32px 80px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
 }
 
 .card__image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  border-radius: var(--card-radius);
   transition: transform var(--transition-med);
 }
 
 .card:hover .card__image-wrap img {
   transform: scale(1.03);
+}
+
+/* Image pinned to the right — dark gradient space bleeds in from the left */
+.card__image-wrap--right {
+  padding: 32px 0 32px 60px;
+}
+
+.card__image-wrap--right img {
+  object-fit: contain;
+  object-position: right center;
+  /* Square off the right corners so they sit flush against the card wall */
+  border-radius: 20px 0 0 20px;
 }
 
 /* ── Card body (title + badges) ── */
@@ -679,19 +679,12 @@ ul {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     padding: 16px 24px;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(67, 67, 67, 0.4);
+    justify-content: flex-end;
+    border-bottom: none;
   }
 
   .nav__brand {
-    display: block;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--color-text);
-  }
-
-  .nav__brand span {
-    color: var(--color-accent);
+    display: none;
   }
 
   .nav__toggle {
