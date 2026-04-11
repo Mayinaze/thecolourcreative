@@ -27,41 +27,6 @@ function initScrollReveal() {
   targets.forEach(el => observer.observe(el));
 }
 
-// ============================================
-// Cursor Glow
-// ============================================
-function initCursorGlow() {
-  const glow = document.createElement('div');
-  glow.classList.add('cursor-glow');
-  document.body.appendChild(glow);
-
-  let mouseX = -9999, mouseY = -9999;
-  let glowX = -9999, glowY = -9999;
-  let raf;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  document.addEventListener('mouseleave', () => {
-    glow.style.opacity = '0';
-  });
-
-  document.addEventListener('mouseenter', () => {
-    glow.style.opacity = '1';
-  });
-
-  function animate() {
-    glowX += (mouseX - glowX) * 0.08;
-    glowY += (mouseY - glowY) * 0.08;
-    glow.style.left = glowX + 'px';
-    glow.style.top  = glowY + 'px';
-    raf = requestAnimationFrame(animate);
-  }
-
-  animate();
-}
 
 // ============================================
 // Mobile Nav Toggle
@@ -267,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initMobileNav();
   initScrollReveal();
-  initCursorGlow();
   initPlayground();
   initCardTilt();
   initTypewriter();

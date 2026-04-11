@@ -63,7 +63,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: none !important;
 }
 
 html {
@@ -745,20 +744,6 @@ ul {
 .reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.24s; }
 .reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.36s; }
 
-/* ============================================
-   Cursor Glow Effect
-   ============================================ */
-.cursor-glow {
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(223,20,99,0.06) 0%, transparent 70%);
-  transition: opacity 0.3s ease;
-}
 
 /* ============================================
    Responsive — Tablet (≤ 1024px)
