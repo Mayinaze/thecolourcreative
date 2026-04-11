@@ -254,17 +254,48 @@ ul {
   color: var(--color-accent);
 }
 
-/* ── Typewriter cursor ── */
-.typewriter-cursor {
-  display: inline;
-  color: #DF1463;
-  font-weight: 400;
-  animation: tw-blink 800ms step-end infinite;
+/* ── Typewriter dot cursor ── */
+.tw-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: #DF1463;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 6px;
+  flex-shrink: 0;
+  animation: tw-pulse 1.5s ease-in-out infinite;
 }
 
-@keyframes tw-blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+@keyframes tw-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.15); }
+}
+
+/* ── Spotlight overlay — sits exactly over the h1, clipped to a circle ── */
+.hero-spotlight-overlay {
+  position: absolute;
+  pointer-events: none;
+  background: #DF1463;
+  clip-path: circle(0px at -200px -200px);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Inverted text inside the spotlight */
+.hero__headline--inverted {
+  margin: 0;
+  min-height: 0 !important;
+  color: #191617;
+}
+
+.hero__headline--inverted .accent {
+  color: #191617;
+}
+
+.hero__headline--inverted .tw-dot {
+  background: #191617;
+  animation: none;
 }
 
 /* ============================================
