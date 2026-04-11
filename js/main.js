@@ -238,11 +238,26 @@ function initTypewriter() {
       activeNode.textContent += token.char;
     }
 
-    setTimeout(typeNext, 50);
+    setTimeout(typeNext, 22);
   }
 
   // Small delay so the page is visually settled before typing starts
   setTimeout(typeNext, 200);
+}
+
+// ============================================
+// Nav — frosted glass on scroll
+// ============================================
+function initNavScroll() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+
+  function update() {
+    nav.classList.toggle('nav--scrolled', window.scrollY > 20);
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update(); // set correct state on load
 }
 
 // ============================================
@@ -256,4 +271,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initPlayground();
   initCardTilt();
   initTypewriter();
+  initNavScroll();
 });
