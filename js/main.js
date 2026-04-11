@@ -189,9 +189,10 @@ function initTypewriter() {
   el.style.minHeight   = reservedHeight + 'px';
   el.innerHTML         = '';
 
-  // ── Step 2: append the pulsing dot cursor ────────────────────────
+  // ── Step 2: append the persistent blinking cursor ────────────────
   const cursor = document.createElement('span');
-  cursor.className = 'tw-dot';
+  cursor.className   = 'typewriter-cursor';
+  cursor.textContent = '|';
   el.appendChild(cursor);
 
   // ── Step 3: build a flat list of tokens to type ──────────────────
@@ -245,77 +246,6 @@ function initTypewriter() {
 }
 
 // ============================================
-// Hero headline spotlight effect
-// ============================================
-function initHeroSpotlight() {
-  const h1 = document.getElementById('hero-headline');
-  if (!h1) return;
-
-  // Ensure the h1's parent is a positioning context for the overlay
-  const parent = h1.parentNode;
-  if (getComputedStyle(parent).position === 'static') {
-    parent.style.position = 'relative';
-  }
-
-  // ── Build the overlay ─────────────────────────────────────────────
-  const overlay = document.createElement('div');
-  overlay.className = 'hero-spotlight-overlay';
-  overlay.setAttribute('aria-hidden', 'true');
-
-  const clone = document.createElement('h1');
-  clone.className = 'hero__headline hero__headline--inverted';
-  overlay.appendChild(clone);
-  parent.appendChild(overlay);
-
-  // ── Position overlay to exactly match the h1 pixel-for-pixel ─────
-  function positionOverlay() {
-    const h1Rect     = h1.getBoundingClientRect();
-    const parentRect = parent.getBoundingClientRect();
-    overlay.style.top    = (h1Rect.top  - parentRect.top)  + 'px';
-    overlay.style.left   = (h1Rect.left - parentRect.left) + 'px';
-    overlay.style.width  = h1Rect.width  + 'px';
-    overlay.style.height = h1Rect.height + 'px';
-  }
-
-  // Wait for typewriter to reserve height before first measure
-  setTimeout(positionOverlay, 250);
-  window.addEventListener('resize', positionOverlay, { passive: true });
-
-  // ── Keep clone in sync with the typewriter ────────────────────────
-  function syncClone() {
-    clone.innerHTML = h1.innerHTML;
-    // Clone's dot should not pulse — it's just a visual mirror
-    const dot = clone.querySelector('.tw-dot');
-    if (dot) dot.style.animation = 'none';
-  }
-
-  const mo = new MutationObserver(syncClone);
-  mo.observe(h1, { childList: true, subtree: true, characterData: true });
-
-  // ── Spotlight follows mouse ───────────────────────────────────────
-  let raf = null;
-
-  h1.addEventListener('mouseenter', positionOverlay);
-
-  h1.addEventListener('mousemove', (e) => {
-    const rect = h1.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      overlay.style.clipPath = `circle(30px at ${x}px ${y}px)`;
-      raf = null;
-    });
-  });
-
-  h1.addEventListener('mouseleave', () => {
-    if (raf) { cancelAnimationFrame(raf); raf = null; }
-    overlay.style.clipPath = 'circle(0px at -200px -200px)';
-  });
-}
-
-// ============================================
 // Nav — frosted glass on scroll
 // ============================================
 function initNavScroll() {
@@ -341,6 +271,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initPlayground();
   initCardTilt();
   initTypewriter();
-  initHeroSpotlight();
   initNavScroll();
 });
