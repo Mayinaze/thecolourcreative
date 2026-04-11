@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Colour Creative — Playground</title>
+  <meta name="description" content="Just a designer, designing cool stuff." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
 <body>
 
+  <!-- ============================
+       Navigation
+       ============================ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <span class="nav__brand"><span>The</span> Colour Creative</span>
     <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -34,20 +38,90 @@
     </ul>
   </nav>
 
-  <main class="not-found">
-    <p class="not-found__code" data-code="404">404</p>
-    <h1 class="not-found__title">Still making a mess</h1>
-    <p class="not-found__desc">
-      The Playground is being built — come back when it's a little more organised. Or not.
-    </p>
-    <a href="index.html" class="not-found__back">
-      ← Back to home
-    </a>
-    <div class="not-found__nav-links">
-      <a href="case-studies.html" class="not-found__nav-link">Case studies</a>
-      <a href="ux-ui-improvements.html" class="not-found__nav-link">UX/UI improvements</a>
-    </div>
+  <!-- ============================
+       Main Content
+       ============================ -->
+  <main>
+
+    <!-- ── Page Hero ── -->
+    <section class="pg-hero">
+      <div class="container container--flush">
+        <h1 class="pg-hero__title">Playground</h1>
+        <p class="pg-hero__subtitle">Just a designer, designing cool s**t</p>
+      </div>
+    </section>
+
+    <!-- ── Card Grid — flush container ── -->
+    <section>
+      <div class="container container--flush">
+        <div class="pg-grid">
+
+          <!-- Row 1: Full-width, 600px tall -->
+          <div class="pg-row pg-row--full">
+            <div class="pg-card" style="height: 600px;">
+              <img src="assets/hypergiant.png" alt="Hypergiant" />
+            </div>
+          </div>
+
+          <!-- Row 2: Two asymmetric cards, 700px tall -->
+          <div class="pg-row pg-row--two">
+            <div class="pg-card" style="height: 700px; flex: 1.45 1 0;">
+              <img src="assets/Tesla.png" alt="Tesla" />
+            </div>
+            <div class="pg-card" style="height: 700px; flex: 1 1 0;">
+              <img src="assets/plants.jpg" alt="Plantz" />
+            </div>
+          </div>
+
+          <!-- Row 3: Full-width — EightyNine -->
+          <div class="pg-row pg-row--full">
+            <div class="pg-card" style="height: 500px;">
+              <img src="assets/eightnine.png" alt="The EightyNine" />
+            </div>
+          </div>
+
+          <!-- Row 4: Three equal cards — Mountain, Glasses, Plants -->
+          <div class="pg-row pg-row--three">
+            <div class="pg-card" style="height: 580px;">
+              <img src="assets/mountain.jpg" alt="Mountain" style="padding: 56px;" />
+            </div>
+            <div class="pg-card" style="height: 580px;">
+              <img src="assets/glasses.png" alt="Glasses" />
+            </div>
+            <div class="pg-card" style="height: 580px;">
+              <img src="assets/plants.png" alt="Plants" />
+            </div>
+          </div>
+
+          <!-- Row 5: Full-width — Polestar -->
+          <div class="pg-row pg-row--full">
+            <div class="pg-card" style="height: 500px;">
+              <img src="assets/polestar.png" alt="Polestar" />
+            </div>
+          </div>
+
+        </div><!-- /pg-grid -->
+      </div>
+    </section>
+
   </main>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__brand"><span>The</span> Colour Creative</span>
+        <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="case-studies.html" class="footer__link">Case studies</a>
+          <a href="ux-ui-improvements.html" class="footer__link">UX/UI improvements</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
