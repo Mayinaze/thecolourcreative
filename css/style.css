@@ -39,7 +39,7 @@
   --nav-right:         32px;
   --hero-top:          152px;
   --section-gap:       80px;
-  --card-gap:          40px;
+  --card-gap:          50px;   /* exact gap between 2×575px cards = 1200px */
   --grid-gap:          24px;
 
   /* Card dimensions */
@@ -959,7 +959,7 @@ ul {
     --line-height-hero: 42px;
     --font-size-card:  20px;
     --section-gap:     56px;
-    --card-gap:        24px;
+    --card-gap:        40px;
     --card-img-h:      320px;
   }
 
