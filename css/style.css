@@ -39,7 +39,7 @@
   --nav-right:         32px;
   --hero-top:          152px;
   --section-gap:       80px;
-  --card-gap:          50px;   /* exact gap between 2×575px cards = 1200px */
+  --card-gap:          40px;
   --grid-gap:          24px;
 
   /* Card dimensions */
