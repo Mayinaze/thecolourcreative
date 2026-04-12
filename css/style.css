@@ -746,6 +746,77 @@ ul {
 
 
 /* ============================================
+   Case Study — Hero (two-column, right bleed)
+   ============================================ */
+.cs-hero {
+  display: flex;
+  align-items: stretch;
+  padding-top: 88px;
+  overflow: hidden; /* clips right bleed without a scrollbar */
+  min-height: calc(720px + 88px);
+}
+
+/* Left: text column, vertically centred, aligned to container grid */
+.cs-hero__left {
+  flex: 0 0 50%;
+  /* Left padding mirrors the container: half the leftover + container-px */
+  padding-left: max(var(--container-px), calc((100vw - var(--container-max)) / 2 + var(--container-px)));
+  padding-right: 80px;
+  height: 720px;
+  display: flex;
+  align-items: center;
+}
+
+.cs-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cs-hero__label {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 500;
+  color: #EB216F;
+  letter-spacing: 0;
+  line-height: 40px;
+  display: block;
+}
+
+.cs-hero__title {
+  font-family: var(--font-family);
+  font-size: 56px;
+  font-weight: 700;
+  color: #F9F9F9;
+  letter-spacing: 0;
+  line-height: 72px;
+}
+
+/* Right: image starts ~centre and bleeds off the right edge */
+.cs-hero__right {
+  flex: 0 0 50%;
+  height: 720px;
+  overflow: visible;
+}
+
+.cs-hero__image {
+  display: block;
+  /* Slightly wider than the column so it bleeds past the viewport right edge */
+  width: calc(100% + 200px);
+  height: 720px;
+  object-fit: cover;
+  /* Rounded left corners only — right side bleeds off screen */
+  border-radius: 20px 0 0 20px;
+}
+
+/* ── Card link wrapper ── */
+.card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
    Responsive — Tablet (≤ 1024px)
    ============================================ */
 @media (max-width: 1024px) {
@@ -784,6 +855,18 @@ ul {
 
   .hero__subtitle {
     font-size: 16px;
+  }
+}
+
+/* ── Case study hero — tablet ── */
+@media (max-width: 1024px) {
+  .cs-hero__left {
+    padding-right: 40px;
+  }
+
+  .cs-hero__title {
+    font-size: 40px;
+    line-height: 52px;
   }
 }
 
@@ -906,5 +989,46 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+  }
+
+  /* ── Case study hero — mobile: stack vertically ── */
+  .cs-hero {
+    flex-direction: column;
+    min-height: unset;
+    padding-top: 72px;
+    overflow: hidden;
+  }
+
+  .cs-hero__left {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 48px;
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
+
+  .cs-hero__title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .cs-hero__label {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .cs-hero__right {
+    flex: none;
+    width: 100%;
+    height: 300px;
+  }
+
+  .cs-hero__image {
+    width: 100%;
+    height: 300px;
+    border-radius: 0;
   }
 }
