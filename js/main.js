@@ -74,6 +74,54 @@ function initMobileNav() {
 }
 
 // ============================================
+// FAB Mobile Navigation
+// ============================================
+function initFabNav() {
+  const fab      = document.querySelector('.fab-nav');
+  if (!fab) return;
+
+  const btn      = fab.querySelector('.fab-nav__btn');
+  const menu     = fab.querySelector('.fab-nav__menu');
+  const backdrop = fab.querySelector('.fab-nav__backdrop');
+
+  // Mark the active page link
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  fab.querySelectorAll('.fab-nav__link').forEach(link => {
+    if (link.getAttribute('href') === currentPage ||
+        (currentPage === '' && link.getAttribute('href') === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+
+  function openMenu() {
+    fab.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close navigation');
+    menu.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeMenu() {
+    fab.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open navigation');
+    menu.setAttribute('aria-hidden', 'true');
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    fab.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Dismiss on backdrop tap
+  backdrop.addEventListener('click', closeMenu);
+
+  // Close when a nav link is tapped (page is navigating away)
+  fab.querySelectorAll('.fab-nav__link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+}
+
+// ============================================
 // Active Nav Link
 // ============================================
 function initActiveNav() {
@@ -306,6 +354,7 @@ function initAvatarNav() {
 document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initMobileNav();
+  initFabNav();
   initScrollReveal();
   initPlayground();
   initCardTilt();
