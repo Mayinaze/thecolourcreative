@@ -226,6 +226,44 @@ function initNavScroll() {
 }
 
 // ============================================
+// Custom cursor — outline ring + difference blend
+// ============================================
+function initCustomCursor() {
+  // Only on pointer devices — skip touch-only screens
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor';
+
+  const blend = document.createElement('div');
+  blend.className = 'cursor-blend';
+
+  document.body.appendChild(cursor);
+  document.body.appendChild(blend);
+
+  // Half the diameter, used to centre the circle on the hot-spot
+  const OFFSET = -20;
+
+  // Direct transform update — no rAF, no easing, pixel-perfect follow
+  document.addEventListener('mousemove', (e) => {
+    const tx = `${e.clientX + OFFSET}px`;
+    const ty = `${e.clientY + OFFSET}px`;
+    cursor.style.transform = `translate(${tx}, ${ty})`;
+    blend.style.transform  = `translate(${tx}, ${ty})`;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    blend.style.opacity  = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    blend.style.opacity  = '1';
+  });
+}
+
+// ============================================
 // Init all
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -236,4 +274,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardTilt();
   initTypewriter();
   initNavScroll();
+  initCustomCursor();
 });

@@ -63,6 +63,43 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
+}
+
+/* ============================================
+   Custom Cursor
+   ============================================ */
+
+/* Outline ring — #DF1463 border, transparent fill */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #DF1463;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  /* Start off-screen until first mousemove */
+  transform: translate(-100px, -100px);
+}
+
+/* Blend circle — white fill + mix-blend-mode: difference inverts content below */
+.cursor-blend {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 99998;
+  mix-blend-mode: difference;
+  will-change: transform;
+  transform: translate(-100px, -100px);
 }
 
 html {
