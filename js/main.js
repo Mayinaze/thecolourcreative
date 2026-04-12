@@ -264,6 +264,43 @@ function initCustomCursor() {
 }
 
 // ============================================
+// Avatar — appears in nav when hero scrolls out
+// ============================================
+function initAvatarNav() {
+  const heroAvatar = document.querySelector('.hero__avatar');
+  const nav = document.querySelector('.nav');
+  if (!heroAvatar || !nav) return;
+
+  // Create nav avatar clone
+  const navAvatar = document.createElement('img');
+  navAvatar.src = heroAvatar.src;
+  navAvatar.alt = heroAvatar.alt;
+  navAvatar.className = 'nav__avatar';
+  nav.appendChild(navAvatar);
+
+  // Click scrolls to top
+  navAvatar.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Use IntersectionObserver to detect when hero section leaves viewport
+  const heroSection = document.querySelector('.hero');
+  if (!heroSection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        nav.classList.add('nav--has-avatar');
+      } else {
+        nav.classList.remove('nav--has-avatar');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(heroSection);
+}
+
+// ============================================
 // Init all
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -275,4 +312,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initNavScroll();
   initCustomCursor();
+  initAvatarNav();
 });
