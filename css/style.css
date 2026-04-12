@@ -689,8 +689,8 @@ ul {
   .pg-hero { padding-top: 100px; padding-bottom: 40px; }
   .pg-hero__title { font-size: 34px; margin-bottom: 16px; }
   .pg-hero__subtitle { font-size: 15px; }
-  .pg-grid { gap: 16px; }
-  .pg-row { flex-direction: column; gap: 16px; }
+  .pg-grid { gap: 24px; }
+  .pg-row { flex-direction: column; gap: 24px; }
   .pg-row--full,
   .pg-row--two,
   .pg-row--three { flex-direction: column; }
@@ -699,13 +699,16 @@ ul {
   .pg-card {
     flex-shrink: 1 !important;
     width: 100% !important;
-    height: 250px !important;
+    height: auto !important;
+    min-height: 250px !important;
   }
   .pg-card img {
     width: 100%;
-    height: 250px !important;
+    height: 250px;
+    min-height: 250px;
     object-fit: cover;
-    padding: 0;
+    display: block;
+    padding: 0 !important;
   }
 }
 
