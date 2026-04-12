@@ -795,7 +795,7 @@ ul {
 
 /* Left: text column, vertically centred, aligned to container grid */
 .cs-hero__left {
-  flex: 0 0 50%;
+  flex: 0 0 40%;
   /* Left padding mirrors the container: half the leftover + container-px */
   padding-left: max(var(--container-px), calc((100vw - var(--container-max)) / 2 + var(--container-px)));
   padding-right: 80px;
@@ -831,7 +831,7 @@ ul {
 
 /* Right: image starts ~centre and bleeds off the right edge */
 .cs-hero__right {
-  flex: 0 0 50%;
+  flex: 0 0 60%;
   height: 720px;
   overflow: visible;
 }
