@@ -318,6 +318,26 @@ ul {
   color: var(--color-accent);
 }
 
+/* ── Word rotation ── */
+.word-rotate-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* height matches the line-height so clipping is clean */
+  line-height: inherit;
+}
+
+.word-rotate-slot {
+  display: inline-block;
+  color: #DF1463;
+  font-weight: 700;
+  font-size: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+  transform: translateY(0);
+  opacity: 1;
+}
+
 /* ── Typewriter cursor ── */
 .typewriter-cursor {
   display: inline;

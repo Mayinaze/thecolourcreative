@@ -222,7 +222,6 @@ function initTypewriter() {
   if (!el) return;
 
   // ── Segments: the headline broken into typed chunks ──────────────
-  // Each segment is { text, accent } or { linebreak: true }
   const segments = [
     { text: '10 years ',                        accent: false },
     { text: 'designing',                         accent: true  },
@@ -232,7 +231,6 @@ function initTypewriter() {
   ];
 
   // ── Step 1: reserve height so nothing below shifts ───────────────
-  // The h1 is fully rendered on load; capture its height then clear.
   const reservedHeight = el.offsetHeight;
   el.style.minHeight   = reservedHeight + 'px';
   el.innerHTML         = '';
@@ -256,41 +254,119 @@ function initTypewriter() {
   }
 
   // ── Step 4: type one token at a time ─────────────────────────────
-  let idx         = 0;
-  let activeNode  = null;   // current text node or span being filled
-  let activeAccent = null;  // tracks whether activeNode is an accent span
+  let idx          = 0;
+  let activeNode   = null;
+  let activeAccent = null;
+  let accentSpan   = null; // reference to the accent span for word rotation
 
   function typeNext() {
-    if (idx >= tokens.length) return; // finished — cursor keeps blinking
+    if (idx >= tokens.length) {
+      // Typing complete — hand the accent span to word rotation
+      initWordRotation(accentSpan, cursor);
+      return;
+    }
 
     const token = tokens[idx++];
 
     if (token.linebreak) {
-      // Insert <br> before the cursor
       el.insertBefore(document.createElement('br'), cursor);
       activeNode   = null;
       activeAccent = null;
     } else {
-      // If the accent state changed, start a new node/span
       if (token.accent !== activeAccent) {
         if (token.accent) {
           activeNode = document.createElement('span');
           activeNode.className = 'accent';
+          accentSpan = activeNode; // save reference
         } else {
           activeNode = document.createTextNode('');
         }
         el.insertBefore(activeNode, cursor);
         activeAccent = token.accent;
       }
-      // Append the character
       activeNode.textContent += token.char;
     }
 
     setTimeout(typeNext, 22);
   }
 
-  // Small delay so the page is visually settled before typing starts
   setTimeout(typeNext, 200);
+}
+
+// ============================================
+// Word rotation — cycles accent word after typewriter
+// ============================================
+function initWordRotation(accentSpan, cursor) {
+  if (!accentSpan) return;
+
+  const words = ['Designing', 'Sweating', 'Grafting', 'Creating', 'Swearing', 'Polishing', 'Solving'];
+  const STAY     = 2500; // ms each word is visible
+  const DURATION = 400;  // ms slide transition
+
+  // ── Measure the widest word at the current font ───────────────────
+  // Create an off-screen clone to measure natural widths
+  const measurer = document.createElement('span');
+  measurer.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;';
+  measurer.style.font    = getComputedStyle(accentSpan).font;
+  document.body.appendChild(measurer);
+
+  let maxWidth = 0;
+  words.forEach(w => {
+    measurer.textContent = w;
+    maxWidth = Math.max(maxWidth, measurer.offsetWidth);
+  });
+  document.body.removeChild(measurer);
+
+  // ── Build the clipping wrapper ────────────────────────────────────
+  // Replace the <span class="accent"> with a fixed-width overflow:hidden container
+  const wrapper = document.createElement('span');
+  wrapper.className = 'word-rotate-wrap';
+  wrapper.style.width = maxWidth + 'px';
+
+  // The visible word slot
+  const slot = document.createElement('span');
+  slot.className   = 'word-rotate-slot';
+  slot.textContent = words[0]; // 'Designing' — already typed
+
+  wrapper.appendChild(slot);
+  accentSpan.replaceWith(wrapper);
+  // Move cursor after wrapper (it was after accentSpan)
+  wrapper.after(cursor);
+
+  // ── Rotation logic ────────────────────────────────────────────────
+  let current = 0;
+
+  function rotateTo(nextIdx) {
+    // Slide current word out downward
+    slot.style.transition = `transform ${DURATION}ms ease-in-out, opacity ${DURATION}ms ease-in-out`;
+    slot.style.transform  = 'translateY(100%)';
+    slot.style.opacity    = '0';
+
+    setTimeout(() => {
+      // Snap to top (hidden above), update text
+      slot.style.transition = 'none';
+      slot.style.transform  = 'translateY(-100%)';
+      slot.style.opacity    = '0';
+      slot.textContent      = words[nextIdx];
+
+      // Force reflow so the no-transition snap registers
+      void slot.offsetHeight;
+
+      // Slide in from top
+      slot.style.transition = `transform ${DURATION}ms ease-in-out, opacity ${DURATION}ms ease-in-out`;
+      slot.style.transform  = 'translateY(0)';
+      slot.style.opacity    = '1';
+
+      current = nextIdx;
+    }, DURATION);
+  }
+
+  // Start cycling after the first word has been visible for STAY ms
+  setTimeout(function cycle() {
+    const next = (current + 1) % words.length;
+    rotateTo(next);
+    setTimeout(cycle, STAY + DURATION);
+  }, STAY);
 }
 
 // ============================================
