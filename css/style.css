@@ -186,20 +186,12 @@ ul {
 }
 
 .nav__link {
-  color: var(--color-text);
+  color: #FFF0F5;
   font-size: var(--font-size-nav);
   font-weight: 400;
   padding: 0 20px;
   transition: color var(--transition-fast);
   white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.nav__icon {
-  flex-shrink: 0;
-  display: block;
 }
 
 .nav__link:hover {
