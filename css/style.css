@@ -235,20 +235,9 @@ ul {
   transition: var(--transition-fast);
 }
 
-/* ── Nav avatar (appears when hero scrolls out) ── */
+/* ── Nav avatar (mobile only — hidden on desktop) ── */
 .nav__avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  left: 32px;
-  top: 50%;
-  transform: translateY(-50%) scale(0.8);
-  opacity: 0;
-  cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  pointer-events: none;
+  display: none;
 }
 
 .nav--has-avatar .nav__avatar {
