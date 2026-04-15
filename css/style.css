@@ -961,6 +961,135 @@ ul {
 }
 
 /* ============================================
+   Mobile Floating Nav
+   ============================================ */
+
+/* Overlay */
+.mob-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.mob-nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* FAB button */
+.mob-nav-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e8197d;
+  border: none;
+  cursor: pointer;
+  z-index: 9100;
+  display: none; /* shown only on mobile via media query */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(232, 25, 125, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mob-nav-fab:active {
+  transform: scale(0.93);
+}
+
+/* Hamburger icon lines */
+.mob-nav-fab__icon {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: opacity 0.15s ease;
+}
+
+.mob-nav-fab__icon span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.15s ease;
+}
+
+/* Close X state */
+.mob-nav-fab.open .mob-nav-fab__icon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mob-nav-fab.open .mob-nav-fab__icon span:nth-child(2) {
+  opacity: 0;
+}
+.mob-nav-fab.open .mob-nav-fab__icon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Pills container */
+.mob-nav-pills {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  z-index: 9100;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+/* Individual pill */
+.mob-nav-pill {
+  display: block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.15s ease;
+  pointer-events: none;
+}
+
+.mob-nav-pill.active {
+  background: #e8197d;
+  border-color: #e8197d;
+}
+
+/* Staggered open state — JS adds .visible with inline transition-delay */
+.mob-nav-pill.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (max-width: 767px) {
+  .mob-nav-fab {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .mob-nav-fab,
+  .mob-nav-overlay,
+  .mob-nav-pills {
+    display: none !important;
+  }
+}
+
+/* ============================================
    Responsive — Mobile (≤ 768px)
    ============================================ */
 @media (max-width: 768px) {
@@ -974,62 +1103,17 @@ ul {
     --card-img-h:      320px;
   }
 
-  /* ── Nav: full-width bar ── */
+  /* ── Nav: hidden on mobile (replaced by floating pill nav) ── */
   .nav {
-    top: 0;
-    right: 0;
-    left: 0;
-    background: rgba(25, 22, 23, 0.96);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 16px 24px;
-    justify-content: flex-end;
-    border-bottom: none;
-  }
-
-  .nav__brand {
     display: none;
   }
 
   .nav__toggle {
-    display: flex;
+    display: none;
   }
 
   .nav__list {
-    display: none;
-    position: fixed;
-    top: 57px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    background: rgba(18, 18, 18, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 24px;
-    gap: 0;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid var(--color-border);
-    align-items: flex-start;
-  }
-
-  .nav__list.open {
-    display: flex;
-  }
-
-  .nav__item {
-    width: 100%;
-  }
-
-  .nav__link {
-    display: block;
-    padding: 14px 0;
-    font-size: 18px;
-    width: 100%;
-  }
-
-  .nav__divider {
-    display: none;
+    display: none !important;
   }
 
   /* ── Hero ── */

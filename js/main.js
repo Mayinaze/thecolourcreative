@@ -32,45 +32,128 @@ function initScrollReveal() {
 // Mobile Nav Toggle
 // ============================================
 function initMobileNav() {
+  // ── Desktop hamburger (existing behaviour, 768px+) ─────────────
   const toggle = document.querySelector('.nav__toggle');
   const list   = document.querySelector('.nav__list');
 
-  if (!toggle || !list) return;
-
-  toggle.addEventListener('click', () => {
-    const open = list.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-    // Animate hamburger lines
-    const spans = toggle.querySelectorAll('span');
-    if (open) {
-      spans[0].style.transform = 'translateY(7px) rotate(45deg)';
-      spans[1].style.opacity   = '0';
-      spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-    } else {
-      spans[0].style.transform = '';
-      spans[1].style.opacity   = '';
-      spans[2].style.transform = '';
-    }
-  });
-
-  // Close on link click
-  list.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      list.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
+  if (toggle && list) {
+    toggle.addEventListener('click', () => {
+      const open = list.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
       const spans = toggle.querySelectorAll('span');
-      spans[0].style.transform = '';
-      spans[1].style.opacity   = '';
-      spans[2].style.transform = '';
+      if (open) {
+        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+        spans[1].style.opacity   = '0';
+        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity   = '';
+        spans[2].style.transform = '';
+      }
     });
+
+    list.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        list.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        const spans = toggle.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity   = '';
+        spans[2].style.transform = '';
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav')) {
+        list.classList.remove('open');
+      }
+    });
+  }
+
+  // ── Mobile floating pill nav ──────────────────────────────────
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  const navItems = [
+    { href: 'index.html',              label: 'Home' },
+    { href: 'case-studies.html',       label: 'Case studies' },
+    { href: 'playground.html',         label: 'Playground' },
+    { href: 'ux-ui-improvements.html', label: 'UX/UI improvements' },
+  ];
+
+  // Overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'mob-nav-overlay';
+  document.body.appendChild(overlay);
+
+  // Pills container
+  const pillsContainer = document.createElement('div');
+  pillsContainer.className = 'mob-nav-pills';
+
+  // Build pills — order in DOM is bottom-to-top (flex-direction: column-reverse)
+  // so we add them in nav order (Home first) and column-reverse flips them visually
+  navItems.forEach(item => {
+    const pill = document.createElement('a');
+    pill.href      = item.href;
+    pill.className = 'mob-nav-pill';
+    pill.textContent = item.label;
+
+    const href = item.href;
+    if (href === currentPage ||
+       (currentPage === '' && href === 'index.html')) {
+      pill.classList.add('active');
+    }
+
+    pill.addEventListener('click', () => closeMobNav());
+    pillsContainer.appendChild(pill);
   });
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav')) {
-      list.classList.remove('open');
-    }
+  document.body.appendChild(pillsContainer);
+
+  // FAB button
+  const fab = document.createElement('button');
+  fab.className   = 'mob-nav-fab';
+  fab.setAttribute('aria-label', 'Open navigation');
+  fab.innerHTML = `
+    <span class="mob-nav-fab__icon">
+      <span></span><span></span><span></span>
+    </span>`;
+  document.body.appendChild(fab);
+
+  let isOpen = false;
+
+  function openMobNav() {
+    isOpen = true;
+    fab.classList.add('open');
+    overlay.classList.add('open');
+    fab.setAttribute('aria-label', 'Close navigation');
+
+    const pills = pillsContainer.querySelectorAll('.mob-nav-pill');
+    pills.forEach((pill, i) => {
+      pill.style.transitionDelay = `${i * 50}ms`;
+      pill.classList.add('visible');
+    });
+  }
+
+  function closeMobNav() {
+    isOpen = false;
+    fab.classList.remove('open');
+    overlay.classList.remove('open');
+    fab.setAttribute('aria-label', 'Open navigation');
+
+    const pills = pillsContainer.querySelectorAll('.mob-nav-pill');
+    const total = pills.length;
+    pills.forEach((pill, i) => {
+      pill.style.transitionDelay = `${(total - 1 - i) * 40}ms`;
+      pill.classList.remove('visible');
+    });
+  }
+
+  fab.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isOpen ? closeMobNav() : openMobNav();
   });
+
+  overlay.addEventListener('click', closeMobNav);
 }
 
 // ============================================
