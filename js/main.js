@@ -262,7 +262,7 @@ function initTypewriter() {
   function typeNext() {
     if (idx >= tokens.length) {
       // Typing complete — hand the accent span to word rotation
-      initWordRotation(accentSpan, cursor);
+      initWordRotation(accentSpan);
       return;
     }
 
@@ -296,15 +296,16 @@ function initTypewriter() {
 // ============================================
 // Word rotation — cycles accent word after typewriter
 // ============================================
-function initWordRotation(accentSpan, cursor) {
+function initWordRotation(accentSpan) {
   if (!accentSpan) return;
 
-  const words = ['Designing', 'Sweating', 'Grafting', 'Creating', 'Swearing', 'Polishing', 'Solving'];
+  // All lowercase — cycle through once and stop back on 'designing'
+  const words    = ['designing', 'sweating', 'grafting', 'creating', 'swearing', 'polishing', 'solving', 'designing'];
+  const LAST_IDX = words.length - 1; // index of final 'designing' — stop here
   const STAY     = 2500; // ms each word is visible
   const DURATION = 400;  // ms slide transition
 
   // ── Measure the widest word at the current font ───────────────────
-  // Create an off-screen clone to measure natural widths
   const measurer = document.createElement('span');
   measurer.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;';
   measurer.style.font    = getComputedStyle(accentSpan).font;
@@ -318,55 +319,79 @@ function initWordRotation(accentSpan, cursor) {
   document.body.removeChild(measurer);
 
   // ── Build the clipping wrapper ────────────────────────────────────
-  // Replace the <span class="accent"> with a fixed-width overflow:hidden container
+  // Fixed width = longest word; cursor stays at end of headline, untouched
   const wrapper = document.createElement('span');
-  wrapper.className = 'word-rotate-wrap';
+  wrapper.className  = 'word-rotate-wrap';
   wrapper.style.width = maxWidth + 'px';
 
-  // The visible word slot
   const slot = document.createElement('span');
   slot.className   = 'word-rotate-slot';
-  slot.textContent = words[0]; // 'Designing' — already typed
+  slot.textContent = words[0]; // 'designing'
 
   wrapper.appendChild(slot);
   accentSpan.replaceWith(wrapper);
-  // Move cursor after wrapper (it was after accentSpan)
-  wrapper.after(cursor);
+  // DO NOT move cursor — it stays at the very end of the h1 after 'Proptech'
 
   // ── Rotation logic ────────────────────────────────────────────────
-  let current = 0;
+  let current  = 0;
+  let animating = false;
+  let timer     = null;
+  let done      = false;
 
   function rotateTo(nextIdx) {
+    if (animating) return;
+    animating = true;
+
     // Slide current word out downward
     slot.style.transition = `transform ${DURATION}ms ease-in-out, opacity ${DURATION}ms ease-in-out`;
     slot.style.transform  = 'translateY(100%)';
     slot.style.opacity    = '0';
 
     setTimeout(() => {
-      // Snap to top (hidden above), update text
+      // Snap to top (no transition), update text
       slot.style.transition = 'none';
       slot.style.transform  = 'translateY(-100%)';
       slot.style.opacity    = '0';
       slot.textContent      = words[nextIdx];
 
-      // Force reflow so the no-transition snap registers
-      void slot.offsetHeight;
+      void slot.offsetHeight; // force reflow
 
       // Slide in from top
       slot.style.transition = `transform ${DURATION}ms ease-in-out, opacity ${DURATION}ms ease-in-out`;
       slot.style.transform  = 'translateY(0)';
       slot.style.opacity    = '1';
 
-      current = nextIdx;
+      current   = nextIdx;
+      animating = false;
+
+      // Stop permanently once we land on the final 'designing'
+      if (current === LAST_IDX) {
+        done = true;
+        if (timer) clearTimeout(timer);
+      }
     }, DURATION);
   }
 
-  // Start cycling after the first word has been visible for STAY ms
-  setTimeout(function cycle() {
-    const next = (current + 1) % words.length;
+  function scheduleNext() {
+    if (done) return;
+    timer = setTimeout(() => {
+      rotateTo(current + 1);
+      if (current + 1 < LAST_IDX) scheduleNext();
+    }, STAY);
+  }
+
+  // Click on wrapper advances one word (no-op when on final word)
+  wrapper.style.cursor = 'pointer';
+  wrapper.addEventListener('click', () => {
+    if (done || animating) return;
+    if (timer) clearTimeout(timer);
+    const next = current + 1;
     rotateTo(next);
-    setTimeout(cycle, STAY + DURATION);
-  }, STAY);
+    if (next < LAST_IDX) scheduleNext();
+  });
+
+  // Start after first word has been shown for STAY ms
+  scheduleNext();
 }
 
 // ============================================
