@@ -694,7 +694,7 @@ ul {
 }
 
 @media (max-width: 768px) {
-  .pg-hero { padding-top: 100px; padding-bottom: 40px; }
+  .pg-hero { padding-top: 32px; padding-bottom: 40px; }
   .pg-hero__title { font-size: 34px; margin-bottom: 16px; }
   .pg-hero__subtitle { font-size: 15px; }
   .pg-grid { gap: 24px; }
@@ -1118,7 +1118,7 @@ ul {
 
   /* ── Hero ── */
   .hero {
-    padding-top: 100px;
+    padding-top: 32px;
   }
 
   .hero__name {
