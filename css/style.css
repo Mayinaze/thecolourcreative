@@ -318,12 +318,11 @@ ul {
   color: var(--color-accent);
 }
 
-/* ── Word rotation ── */
+/* WORD ROTATION STYLES - commented out, re-enable when ready
 .word-rotate-wrap {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
-  /* height matches the line-height so clipping is clean */
   line-height: inherit;
 }
 
@@ -337,6 +336,7 @@ ul {
   transform: translateY(0);
   opacity: 1;
 }
+*/
 
 /* ── Typewriter cursor ── */
 .typewriter-cursor {

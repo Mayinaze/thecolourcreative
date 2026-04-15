@@ -261,8 +261,8 @@ function initTypewriter() {
 
   function typeNext() {
     if (idx >= tokens.length) {
-      // Typing complete — hand the accent span to word rotation
-      initWordRotation(accentSpan);
+      /* WORD ROTATION - commented out, re-enable when ready */
+      // initWordRotation(accentSpan);
       return;
     }
 
@@ -293,6 +293,7 @@ function initTypewriter() {
   setTimeout(typeNext, 200);
 }
 
+/* WORD ROTATION - commented out, re-enable when ready
 // ============================================
 // Word rotation — cycles accent word after typewriter
 // ============================================
@@ -393,6 +394,7 @@ function initWordRotation(accentSpan) {
   // Start after first word has been shown for STAY ms
   scheduleNext();
 }
+*/
 
 // ============================================
 // Nav — frosted glass on scroll
