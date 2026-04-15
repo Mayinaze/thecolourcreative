@@ -487,6 +487,221 @@ function initAvatarNav() {
 }
 
 // ============================================
+// Draw Canvas — glow brush stroke drawing
+// ============================================
+function initDrawCanvas() {
+  // Desktop only — skip touch-only devices
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  // ── Canvas setup ─────────────────────────────────────────────────
+  const canvas = document.createElement('canvas');
+  canvas.className = 'draw-canvas';
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    // Preserve existing drawing across resize by copying to temp
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.putImageData(imgData, 0, 0);
+  }
+
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+
+  // ── Indicator UI ─────────────────────────────────────────────────
+  const indicator = document.createElement('div');
+  indicator.className = 'draw-indicator';
+  indicator.innerHTML = `
+    <span class="draw-indicator__dot"></span>
+    <span class="draw-indicator__label">Draw</span>
+    <button class="draw-indicator__clear" aria-label="Clear drawing">Clear</button>
+  `;
+  document.body.appendChild(indicator);
+
+  const clearBtn = indicator.querySelector('.draw-indicator__clear');
+
+  // ── State ─────────────────────────────────────────────────────────
+  let drawMode  = false;
+  let isDrawing = false;
+  let lastX     = 0;
+  let lastY     = 0;
+  let lastTime  = 0;
+  let lastSpeed = 0;
+
+  // Each stroke is an array of segments: { x0, y0, x1, y1, width, alpha }
+  // alpha starts at 1 and decays
+  let strokes = []; // [ { segments: [...], alpha: 1, fadeStart: null, rafId: null } ]
+
+  // ── Toggle draw mode ─────────────────────────────────────────────
+  function enableDraw() {
+    drawMode = true;
+    canvas.classList.add('draw-canvas--active');
+    indicator.classList.add('draw-indicator--visible');
+  }
+
+  function disableDraw() {
+    drawMode = false;
+    isDrawing = false;
+    canvas.classList.remove('draw-canvas--active');
+    indicator.classList.remove('draw-indicator--visible');
+  }
+
+  document.addEventListener('keydown', (e) => {
+    // Ignore if focus is in an input/textarea
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    if (e.key === 'd' || e.key === 'D') {
+      drawMode ? disableDraw() : enableDraw();
+    }
+
+    if (e.key === 'Escape') {
+      clearAll();
+      disableDraw();
+    }
+  });
+
+  clearBtn.addEventListener('click', clearAll);
+
+  function clearAll() {
+    // Cancel any pending fade rAFs
+    strokes.forEach(s => { if (s.rafId) cancelAnimationFrame(s.rafId); });
+    strokes = [];
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  // ── Mouse drawing ─────────────────────────────────────────────────
+  let currentStroke = null; // reference to the stroke being drawn
+
+  canvas.addEventListener('mousedown', (e) => {
+    if (!drawMode) return;
+    isDrawing   = true;
+    lastX       = e.clientX;
+    lastY       = e.clientY;
+    lastTime    = performance.now();
+    lastSpeed   = 0;
+
+    currentStroke = { segments: [], alpha: 1, fadeStart: null, rafId: null };
+    strokes.push(currentStroke);
+  });
+
+  canvas.addEventListener('mousemove', (e) => {
+    if (!drawMode || !isDrawing) return;
+
+    const x    = e.clientX;
+    const y    = e.clientY;
+    const now  = performance.now();
+    const dt   = now - lastTime || 1;
+
+    const dx   = x - lastX;
+    const dy   = y - lastY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const speed = dist / dt; // px/ms
+
+    // Smooth speed with an EMA
+    lastSpeed = lastSpeed * 0.6 + speed * 0.4;
+
+    // Map speed → width: slow = 12px, fast = 2px
+    const MIN_W = 2;
+    const MAX_W = 12;
+    const SPEED_MAX = 1.2; // px/ms considered "fast"
+    const t = Math.min(lastSpeed / SPEED_MAX, 1);
+    const width = MAX_W - t * (MAX_W - MIN_W);
+
+    // Draw segment immediately at full opacity
+    drawSegment(ctx, lastX, lastY, x, y, width, 1);
+
+    // Store segment for fade redraw
+    currentStroke.segments.push({ x0: lastX, y0: lastY, x1: x, y1: y, width });
+
+    lastX    = x;
+    lastY    = y;
+    lastTime = now;
+  });
+
+  canvas.addEventListener('mouseup',    endStroke);
+  canvas.addEventListener('mouseleave', endStroke);
+
+  function endStroke() {
+    if (!isDrawing || !currentStroke) return;
+    isDrawing     = false;
+    const stroke  = currentStroke;
+    currentStroke = null;
+
+    // Begin fade after 3000ms
+    stroke.fadeStart = performance.now() + 3000;
+    scheduleFade(stroke);
+  }
+
+  // ── Draw a single segment with glow ──────────────────────────────
+  function drawSegment(context, x0, y0, x1, y1, width, globalAlpha) {
+    context.save();
+    context.globalAlpha     = globalAlpha;
+    context.globalCompositeOperation = 'source-over';
+    context.lineCap         = 'round';
+    context.lineJoin        = 'round';
+    context.lineWidth       = width;
+    context.strokeStyle     = '#df1463';
+    context.shadowBlur      = 20;
+    context.shadowColor     = '#df1463';
+    context.beginPath();
+    context.moveTo(x0, y0);
+    context.lineTo(x1, y1);
+    context.stroke();
+    context.restore();
+  }
+
+  // ── Fade logic ────────────────────────────────────────────────────
+  const FADE_DURATION = 3000; // ms
+
+  function scheduleFade(stroke) {
+    stroke.rafId = requestAnimationFrame(() => fadeStroke(stroke));
+  }
+
+  function fadeStroke(stroke) {
+    const now     = performance.now();
+    const elapsed = now - stroke.fadeStart;
+
+    if (elapsed < 0) {
+      // Not yet time to start fading
+      stroke.rafId = requestAnimationFrame(() => fadeStroke(stroke));
+      return;
+    }
+
+    const progress = Math.min(elapsed / FADE_DURATION, 1);
+    stroke.alpha   = 1 - progress;
+
+    // Redraw everything
+    redrawAll();
+
+    if (progress < 1) {
+      stroke.rafId = requestAnimationFrame(() => fadeStroke(stroke));
+    } else {
+      // Stroke fully faded — remove and do a final redraw
+      strokes = strokes.filter(s => s !== stroke);
+      redrawAll();
+    }
+  }
+
+  function redrawAll() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    strokes.forEach(stroke => {
+      // Active stroke (still being drawn) or alpha not yet started = 1
+      const alpha = stroke.fadeStart === null ? 1 : stroke.alpha;
+      if (alpha <= 0) return;
+
+      stroke.segments.forEach(seg => {
+        drawSegment(ctx, seg.x0, seg.y0, seg.x1, seg.y1, seg.width, alpha);
+      });
+    });
+  }
+}
+
+// ============================================
 // Init all
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -499,4 +714,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavScroll();
   initCustomCursor();
   initAvatarNav();
+  initDrawCanvas();
 });
