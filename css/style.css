@@ -904,7 +904,7 @@ ul {
    Case Study — Project Overview
    ============================================ */
 .cs-overview {
-  padding: 80px 0;
+  padding: 0;
 }
 
 .cs-overview__divider {
@@ -1326,5 +1326,19 @@ ul {
     width: 100%;
     height: 300px;
     border-radius: 0;
+  }
+
+  /* ── Project overview — mobile padding ── */
+  .cs-overview {
+    padding: 60px 0;
+  }
+
+  .cs-overview__inner {
+    flex-direction: column;
+  }
+
+  .cs-overview__right {
+    flex: none;
+    width: 100%;
   }
 }
