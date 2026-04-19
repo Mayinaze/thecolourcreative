@@ -900,6 +900,127 @@ ul {
   border-radius: 20px 0 0 20px;
 }
 
+/* ============================================
+   Case Study — Project Overview
+   ============================================ */
+.cs-overview {
+  padding: 80px 0;
+}
+
+.cs-overview__divider {
+  height: 1px;
+  background: #2a2a2a;
+  margin-bottom: 80px;
+}
+
+.cs-overview__inner {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* Left column */
+.cs-overview__left {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.cs-overview__label-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.cs-overview__label {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 500;
+  color: #EB216F;
+  line-height: 1.4;
+}
+
+.cs-overview__title {
+  font-family: var(--font-family);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 50px;
+  color: #D1CFD3;
+}
+
+.cs-overview__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cs-overview__body p {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #D1CFD3;
+  margin: 0;
+}
+
+/* Right column */
+.cs-overview__right {
+  flex: 0 0 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Info cards */
+.cs-overview__card {
+  background: #1D1B1C;
+  border: 1px solid #1E1E1E;
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.cs-overview__card-icon {
+  background: #181818;
+  border: 1px solid #272727;
+  border-radius: 8px;
+  padding: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-overview__card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.cs-overview__card-label {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  color: #D1CFD3;
+  display: block;
+}
+
+.cs-overview__card-value {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: #D1CFD3;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cs-overview__card-value strong {
+  font-weight: 700;
+}
+
 /* ── Card link wrapper ── */
 .card__link {
   display: block;
