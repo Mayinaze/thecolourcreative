@@ -842,6 +842,7 @@ ul {
   align-items: stretch;
   overflow: hidden; /* clips right bleed without a horizontal scrollbar */
   background: var(--color-bg);
+  min-height: 640px; /* ensures breathing room below the title */
 }
 
 /* Left: label + title, top-aligned, 120px left padding */
@@ -879,13 +880,16 @@ ul {
   line-height: 1.2;
 }
 
-/* Right: image starts at ~50% across, bleeds fully off the right edge */
+/* Right: starts at 50%, image fills full column height and bleeds right */
 .cs-hero__right {
   flex: 0 0 50%;
+  position: relative; /* anchor for the absolutely-placed image */
 }
 
 .cs-hero__image {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1283,9 +1287,9 @@ ul {
   }
 
   /* ── Case study hero — mobile: stack vertically ── */
-  /* ── Case study hero — mobile: stack vertically ── */
   .cs-hero {
     flex-direction: column;
+    min-height: unset;
     overflow: hidden;
   }
 
@@ -1311,11 +1315,10 @@ ul {
     flex: none;
     width: 100%;
     height: 300px;
+    position: relative; /* keep relative so absolute image still fills it */
   }
 
   .cs-hero__image {
-    width: 100%;
-    height: 300px;
     border-radius: 20px;
   }
 
