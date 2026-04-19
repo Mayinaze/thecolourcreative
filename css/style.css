@@ -917,6 +917,7 @@ ul {
   display: flex;
   gap: var(--card-gap);
   align-items: flex-start;
+  padding-left: var(--container-px);
 }
 
 /* Left column */
@@ -1328,13 +1329,16 @@ ul {
     border-radius: 0;
   }
 
-  /* ── Project overview — mobile padding ── */
+  /* ── Project overview — mobile ── */
   .cs-overview {
     padding: 60px 0;
   }
 
   .cs-overview__inner {
     flex-direction: column;
+    padding-left: var(--container-px);  /* 24px on mobile */
+    padding-right: var(--container-px);
+    gap: 32px;
   }
 
   .cs-overview__right {
