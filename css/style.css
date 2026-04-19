@@ -915,7 +915,7 @@ ul {
 
 .cs-overview__inner {
   display: flex;
-  gap: 80px;
+  gap: var(--card-gap);
   align-items: flex-start;
 }
 
@@ -965,7 +965,7 @@ ul {
 
 /* Right column */
 .cs-overview__right {
-  flex: 0 0 480px;
+  flex: 0 0 var(--card-w);
   display: flex;
   flex-direction: column;
   gap: 20px;
