@@ -839,16 +839,16 @@ ul {
    ============================================ */
 .cs-hero {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   padding-top: 88px;
   overflow: hidden; /* clips right bleed without a scrollbar */
-  min-height: calc(720px + 88px);
+  height: calc(720px + 88px);
 }
 
-/* Left: text column, vertically centred, aligned to container grid */
+/* Left: text column, vertically centred to the 720px image height */
 .cs-hero__left {
-  flex: 0 0 60%;
-  /* Left padding mirrors the container: half the leftover + container-px */
+  flex: 0 0 45%;
+  /* Left padding mirrors the container grid */
   padding-left: max(var(--container-px), calc((100vw - var(--container-max)) / 2 + var(--container-px)));
   padding-right: 80px;
   height: 720px;
@@ -866,9 +866,9 @@ ul {
   font-family: var(--font-family);
   font-size: 20px;
   font-weight: 500;
-  color: #EB216F;
+  color: #DF1463;
   letter-spacing: 0;
-  line-height: 40px;
+  line-height: 28px;
   display: block;
 }
 
@@ -881,21 +881,19 @@ ul {
   line-height: 72px;
 }
 
-/* Right: image starts ~centre and bleeds off the right edge */
+/* Right: image starts roughly at page centre, bleeds off the right edge */
 .cs-hero__right {
-  flex: 0 0 40%;
+  flex: 0 0 55%;
   height: 720px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+  overflow: visible;
 }
 
 .cs-hero__image {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: left center;
+  height: 720px;
+  object-fit: cover;
+  object-position: center;
   /* Rounded left corners only — right side bleeds off screen */
   border-radius: 20px 0 0 20px;
 }
