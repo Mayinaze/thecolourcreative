@@ -835,66 +835,50 @@ ul {
 
 
 /* ============================================
-   Case Study — Hero (two-column, right bleed)
+   Case Study — Hero
    ============================================ */
-.cs-hero {
-  display: flex;
-  align-items: stretch;
-  overflow: hidden; /* clips right bleed without a horizontal scrollbar */
-  background: var(--color-bg);
-  min-height: 640px; /* ensures breathing room below the title */
-}
-
-/* Left: label + title, top-aligned, 120px left padding */
-.cs-hero__left {
-  flex: 0 0 50%;
+.case-study-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
   padding-top: 88px;
-  padding-left: var(--container-px); /* 120px — aligns with site grid */
-  padding-right: 60px;
-  padding-bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  overflow: hidden;
 }
 
-.cs-hero__text {
+.case-study-hero__content {
+  padding-left: 120px;
+  padding-right: 60px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.cs-hero__label {
-  font-family: var(--font-family);
-  font-size: 20px;
+.case-study-hero__label {
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
+  font-size: 20px;
   color: #DF1463;
-  line-height: 1.4;
-  display: block;
 }
 
-.cs-hero__title {
-  font-family: var(--font-family);
-  font-size: 56px;
+.case-study-hero__title {
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
-  color: #F9F9F9;
+  font-size: 56px;
   line-height: 1.2;
+  color: #F9F9F9;
+  margin: 0;
 }
 
-/* Right: starts at 50%, image fills full column height and bleeds right */
-.cs-hero__right {
-  flex: 0 0 50%;
-  position: relative; /* anchor for the absolutely-placed image */
+.case-study-hero__image {
+  overflow: visible;
 }
 
-.cs-hero__image {
-  position: absolute;
-  top: 0;
-  left: 0;
+.case-study-hero__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left center;
   border-radius: 20px 0 0 20px;
+  display: block;
 }
 
 /* ============================================
@@ -1070,14 +1054,13 @@ ul {
 
 /* ── Case study hero — tablet ── */
 @media (max-width: 1024px) {
-  .cs-hero__left {
+  .case-study-hero__content {
     padding-left: 40px;
     padding-right: 32px;
   }
 
-  .cs-hero__title {
+  .case-study-hero__title {
     font-size: 40px;
-    line-height: 1.2;
   }
 }
 
@@ -1287,38 +1270,32 @@ ul {
   }
 
   /* ── Case study hero — mobile: stack vertically ── */
-  .cs-hero {
-    flex-direction: column;
+  .case-study-hero {
+    grid-template-columns: 1fr;
     min-height: unset;
-    overflow: hidden;
+    padding-top: 0;
   }
 
-  .cs-hero__left {
-    flex: none;
-    width: 100%;
+  .case-study-hero__content {
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 88px;
     padding-bottom: 40px;
   }
 
-  .cs-hero__title {
+  .case-study-hero__title {
     font-size: 32px;
-    line-height: 1.2;
   }
 
-  .cs-hero__label {
+  .case-study-hero__label {
     font-size: 16px;
   }
 
-  .cs-hero__right {
-    flex: none;
-    width: 100%;
+  .case-study-hero__image {
     height: 300px;
-    position: relative; /* keep relative so absolute image still fills it */
   }
 
-  .cs-hero__image {
+  .case-study-hero__image img {
     border-radius: 20px;
   }
 
