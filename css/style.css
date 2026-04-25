@@ -1166,9 +1166,9 @@ ul {
 
 .cs-overview__copy p {
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.9;
   color: var(--color-text-sub);
-  margin: 0 0 24px 0;
+  margin: 0 0 32px 0;
 }
 
 .cs-overview__copy p:last-child {
@@ -1176,41 +1176,55 @@ ul {
 }
 
 .cs-overview__cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .cs-info-card {
-  border: 1px solid var(--color-card-stroke);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border: 1px solid #272727;
   border-radius: 16px;
-  padding: 24px;
-  background: var(--color-surface);
+  padding: 20px 24px;
+  background: rgba(24, 24, 24, 0.4);
 }
 
 .cs-info-card__icon {
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.cs-info-card__text {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
 }
 
 .cs-info-card__label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-sub);
-  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
   letter-spacing: 0;
+  line-height: 1.3;
 }
 
 .cs-info-card__value {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-text);
-  line-height: 1.4;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-sub);
+  line-height: 1.5;
   margin: 0;
+}
+
+.cs-info-card__value strong {
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 @media (max-width: 768px) {
