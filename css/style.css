@@ -1228,6 +1228,14 @@ ul {
   color: var(--color-text);
 }
 
+/* Section divider — used between case study sections */
+.cs-section-divider {
+  height: 1px;
+  width: 100%;
+  background: #2B2B2B;
+  margin-bottom: 80px;
+}
+
 /* ── Problem statement ── */
 .cs-problem {
   padding-top: 40px;
