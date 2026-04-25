@@ -1471,7 +1471,7 @@ ul {
 
 @media (max-width: 768px) {
   .cs-hero {
-    padding-top: 112px;
+    padding-top: 32px;
     padding-bottom: 48px;
   }
   .cs-hero__title {
