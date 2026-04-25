@@ -1083,3 +1083,168 @@ ul {
   }
 
 }
+
+/* ============================================
+   Card link wrapper (for clickable home cards)
+   ============================================ */
+.card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   Case Study — Public Holidays
+   ============================================ */
+.cs-hero {
+  padding-top: 160px;
+  padding-bottom: 64px;
+}
+
+.cs-eyebrow {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  text-transform: none;
+  margin-bottom: 20px;
+}
+
+.cs-hero__title {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-text);
+  margin: 0;
+  max-width: 980px;
+}
+
+.cs-hero__image-wrap {
+  margin-top: 64px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--color-card-stroke);
+  background: var(--color-surface);
+}
+
+.cs-hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Project Overview ── */
+.cs-overview {
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+
+.cs-overview__divider {
+  height: 1px;
+  width: 100%;
+  background: var(--color-border);
+  margin-bottom: 56px;
+}
+
+.cs-overview__title {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-text);
+  margin: 0 0 48px 0;
+}
+
+.cs-overview__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cs-overview__copy p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--color-text-sub);
+  margin: 0 0 24px 0;
+}
+
+.cs-overview__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.cs-overview__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cs-info-card {
+  border: 1px solid var(--color-card-stroke);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--color-surface);
+}
+
+.cs-info-card__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cs-info-card__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-sub);
+  margin: 0 0 8px 0;
+  letter-spacing: 0;
+}
+
+.cs-info-card__value {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cs-hero {
+    padding-top: 112px;
+    padding-bottom: 48px;
+  }
+  .cs-hero__title {
+    font-size: 36px;
+  }
+  .cs-hero__image-wrap {
+    margin-top: 40px;
+    border-radius: 16px;
+  }
+  .cs-overview {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+  .cs-overview__title {
+    font-size: 36px;
+    margin-bottom: 32px;
+  }
+  .cs-overview__divider {
+    margin-bottom: 40px;
+  }
+  .cs-overview__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .cs-overview__cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .cs-overview__copy p {
+    font-size: 16px;
+  }
+}
