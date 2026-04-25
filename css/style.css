@@ -1177,7 +1177,7 @@ ul {
 @media (max-width: 768px) {
   .cut-toggle {
     left: 24px;
-    bottom: 88px; /* clear of mobile FAB */
+    bottom: 28px; /* align baseline with mobile FAB (bottom: 28px, height: 52px) */
   }
 }
 
@@ -1407,6 +1407,68 @@ ul {
   height: auto;
 }
 
+.cs-pain-list li strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ── Discovery & user testing ── */
+.cs-discovery {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 120px;
+  /* Dotted SVG pattern — 24px grid, 1.5px dots, #2D2D2D */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='1.5' cy='1.5' r='1.5' fill='%232D2D2D'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-position: 0 0;
+}
+
+.cs-discovery .cs-section-divider {
+  margin-bottom: 80px;
+}
+
+.cs-discovery__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cs-discovery__title {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 32px 0;
+  max-width: 560px;
+}
+
+.cs-discovery__body p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--color-text-sub);
+  margin: 0 0 16px 0;
+}
+
+.cs-discovery__body p:last-child {
+  margin-bottom: 0;
+}
+
+.cs-discovery__visual {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.cs-discovery__visual img {
+  display: block;
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+}
+
 @media (max-width: 768px) {
   .cs-hero {
     padding-top: 112px;
@@ -1458,6 +1520,28 @@ ul {
     font-size: 16px;
   }
   .cs-problem__visual {
+    order: -1;
+  }
+
+  /* Discovery (mobile) */
+  .cs-discovery {
+    padding-bottom: 64px;
+  }
+  .cs-discovery .cs-section-divider {
+    margin-bottom: 48px;
+  }
+  .cs-discovery__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .cs-discovery__title {
+    font-size: 32px;
+  }
+  .cs-discovery__body p {
+    font-size: 16px;
+  }
+  .cs-discovery__visual {
+    padding-top: 0;
     order: -1;
   }
 }
