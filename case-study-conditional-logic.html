@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Colour Creative — Conditional Logic Case Study</title>
+  <meta name="description" content="Reducing form complexity to improve data accuracy — Conditional Logic case study." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- ============================
+       Navigation
+       ============================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <span class="nav__brand"><span>The</span> Colour Creative</span>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="index.html" class="nav__link">Home</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="case-studies.html" class="nav__link">Case studies</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="playground.html" class="nav__link">Playground</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="ux-ui-improvements.html" class="nav__link">UX/UI improvements</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================
+       Main Content
+       ============================ -->
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="cs-hero">
+      <div class="container container--flush">
+        <p class="cs-eyebrow">Forms — Conditional logic</p>
+        <h1 class="cs-hero__title">Reducing form complexity to improve data accuracy</h1>
+        <div class="cs-hero__image-wrap">
+          <img
+            src="assets/hero-image.png"
+            alt="Conditional logic forms editor interface"
+            class="cs-hero__image"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Project overview ── -->
+    <section class="cs-overview">
+      <div class="container container--flush">
+        <div class="cs-overview__divider" aria-hidden="true"></div>
+        <p class="cs-eyebrow">Quick read</p>
+        <h2 class="cs-overview__title">Project overview</h2>
+
+        <div class="cs-overview__grid">
+          <div class="cs-overview__copy">
+            <p>
+              Teamwork Forms had no way to adapt based on user input. To capture all possible scenarios, form creators had to include every question upfront — resulting in extremely long forms where respondents were forced to answer irrelevant questions, and teams received submissions filled with empty or unnecessary data that required manual cleanup.
+            </p>
+            <p>
+              With conditional logic, users could show or hide questions based on responses. Forms became shorter, easier to complete, and far more accurate. Only relevant questions were presented to respondents, and only meaningful data flowed through to tasks — reducing friction, eliminating redundant inputs, and improving confidence in submitted data.
+            </p>
+          </div>
+
+          <div class="cs-overview__cards">
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M20.0095 10.8511C22.2552 10.8511 24.0757 12.6716 24.0757 14.9172C24.0757 17.1629 22.2552 18.9834 20.0095 18.9834C17.7638 18.9834 15.9434 17.1629 15.9434 14.9172C15.9434 12.6716 17.7638 10.8511 20.0095 10.8511Z" stroke="#EB216F" stroke-width="1.7022"/>
+                <path d="M13.9374 25.5707L13.5386 26.9382C13.2162 28.0436 14.0452 29.149 15.1966 29.149H24.8226C25.974 29.149 26.803 28.0436 26.4806 26.9382L26.0818 25.5707C25.2946 22.872 22.8208 21.0166 20.0096 21.0166C17.1984 21.0166 14.7246 22.872 13.9374 25.5707Z" stroke="#EB216F" stroke-width="1.7022"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Responsibilities</p>
+                <p class="cs-info-card__value">Discovery, research, strategy, design</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M12 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M24 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M15 15L15 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M21 15L21 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M27 15L27 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M18 12L18 27" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Target users</p>
+                <p class="cs-info-card__value">Project managers and team leads building and managing complex workflows</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M10.8495 22.7429H29.1504" stroke="#EB216F" stroke-width="1.69904" stroke-linecap="round"/>
+                <path d="M11.7645 19.9978L14.6634 15.6495C15.0255 15.1062 15.8239 15.1062 16.1861 15.6495L18.1699 18.6252M19.0849 19.9978L18.1699 18.6252M18.1699 18.6252L22.3706 12.1331C22.7467 11.5519 23.6071 11.5826 23.9407 12.1892L28.2354 19.9978" stroke="#EB216F" stroke-width="1.69904" stroke-linecap="round"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Adoption</p>
+                <p class="cs-info-card__value"><strong>40%</strong> increased adoption rate of Forms within 2 months of launching conditional logic</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M25.1903 10C27.6809 10 29.7 12.0192 29.7001 14.5098V20C29.7001 20.4692 29.3196 20.8496 28.8505 20.8496C28.3814 20.8495 28.0009 20.4691 28.0009 20V14.5098C28.0008 12.9576 26.7425 11.6992 25.1903 11.6992H14.5096C12.9575 11.6993 11.6992 12.9576 11.6991 14.5098V25.4902C11.6991 27.0425 12.9574 28.3007 14.5096 28.3008H19.8495C20.3186 28.3008 20.6989 28.6814 20.6991 29.1504C20.6991 29.6196 20.3187 30 19.8495 30H14.5096C12.0191 29.9999 9.99988 27.9808 9.99988 25.4902V14.5098C9.99996 12.0193 12.0191 10.0001 14.5096 10H25.1903Z" fill="#EB216F"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Revenue unlocked</p>
+                <p class="cs-info-card__value"><strong>$147,581</strong> in revenue unblocked by dynamic forms powered by conditional logic</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Problem statement ── -->
+    <section class="cs-problem">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-problem__grid">
+          <div class="cs-problem__copy">
+            <p class="cs-eyebrow">Problem statement</p>
+            <h2 class="cs-problem__title">Users were forced through irrelevant questions, leading to inaccurate data and manual cleanup.</h2>
+            <div class="cs-problem__body">
+              <p>
+                Forms were increasingly used to support complex workflows, but the system couldn't adapt questions based on user responses. To cover every possible scenario, form creators were forced to include all questions upfront, resulting in long, static forms.
+              </p>
+              <p>
+                The issue continued after submission. All questions — relevant or not — were returned as part of the task data, leaving teams to manually review and remove unnecessary fields. This extra effort slowed workflows, reduced trust in submissions, and ultimately led to unreliable data.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Current known pains</h3>
+            <ul class="cs-pain-list">
+              <li>Forms could not adapt to user input</li>
+              <li>Respondents were forced to complete irrelevant questions</li>
+              <li>Submitted data included empty or unnecessary fields</li>
+              <li>Teams manually cleaned data after every submission</li>
+              <li>Trust in form outputs decreased as complexity increased</li>
+              <li>Users abandoned the tool in favour of alternative solutions</li>
+            </ul>
+          </div>
+          <div class="cs-problem__visual">
+            <img src="assets/flow.png" alt="Flow diagram showing the broken form lifecycle — from creating to submitting to cleaning up data" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Discovery ── -->
+    <section class="cs-discovery">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-discovery__grid">
+          <div class="cs-discovery__copy">
+            <p class="cs-eyebrow">Discovery &amp; research</p>
+            <h2 class="cs-discovery__title">
+              Validating the right problem.<br />
+              Building the right thing.
+            </h2>
+            <div class="cs-discovery__body">
+              <p>
+                To understand whether this was a real and widespread problem, we focused on how users were actually building and using Forms. We gathered feedback directly within the Forms experience, reviewed recurring support requests, and spoke with users creating complex, multi-step forms.
+              </p>
+              <p>
+                A consistent pattern emerged: users were designing forms defensively — adding every question upfront because they had no way to control what was shown based on responses. Conditional behaviour came up repeatedly as a top unmet need.
+              </p>
+              <p>
+                Rather than assuming which direction was right, I designed a concept test to validate two distinct approaches — a nested question-level logic model and a rule-based logic model — each representing different trade-offs in usability and scalability.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Concept directions tested</h3>
+            <ul class="cs-pain-list">
+              <li><strong>Nested logic</strong> — easier to learn and quicker to configure, but limited in scalability</li>
+              <li><strong>Rule-based logic</strong> — more powerful and flexible, but introduced a higher learning curve</li>
+              <li>Users preferred complexity in setup over complexity during form completion</li>
+              <li>Flexibility outweighed initial simplicity — control mattered more than ease of entry</li>
+              <li>Complexity was acceptable when it reduced downstream effort for the form creator</li>
+            </ul>
+          </div>
+          <div class="cs-discovery__visual">
+            <img src="assets/comp.png" alt="Research and competitive analysis board showing survey data, pain points and competitor flows" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Idea → concept → test ── -->
+    <section class="cs-idea">
+      <div class="container container--flush">
+        <div class="cs-idea__header">
+          <img src="assets/light-bulb.png" alt="" class="cs-idea__icon" aria-hidden="true" />
+          <span class="cs-idea__label">Concept 1 vs Concept 2 — tested with real users</span>
+        </div>
+        <div class="cs-idea__flow">
+          <img src="assets/wireframe.png" alt="Two wireframe concepts showing nested logic vs rule-based logic approaches" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Solution ── -->
+    <section class="cs-solution">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-solution__grid">
+          <div class="cs-solution__copy">
+            <p class="cs-eyebrow">Solution</p>
+            <h2 class="cs-solution__title">Design &amp; Build</h2>
+            <div class="cs-solution__body">
+              <p>
+                The final solution introduced Conditional Logic as a first-class capability within Forms — allowing questions and sections to dynamically appear based on user responses. Instead of presenting every possible question upfront, Forms could now adapt in real time.
+              </p>
+              <p>
+                The system was built around a rule-based logic model, reflecting the concept testing outcomes. While this introduced more complexity during setup, it provided the flexibility needed to support both simple and highly complex workflows without forcing workarounds later.
+              </p>
+              <p>
+                To manage complexity for form creators, logic rules could be grouped and collapsed. Advanced AND/OR conditions were introduced iteratively — allowing the system to grow in power without overwhelming users upfront.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-solution__cards">
+            <div class="cs-info-card">
+              <img src="assets/Activate.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Clear mental models</p>
+                <p class="cs-info-card__value">Familiar IF / THEN logic kept the interface learnable without sacrificing power</p>
+              </div>
+            </div>
+            <div class="cs-info-card">
+              <img src="assets/Shield.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Progressive disclosure</p>
+                <p class="cs-info-card__value">Advanced options only revealed when needed — keeping simple forms simple</p>
+              </div>
+            </div>
+            <div class="cs-info-card">
+              <img src="assets/Auction.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Separation of concerns</p>
+                <p class="cs-info-card__value">Complexity kept in form setup, simplicity preserved in form completion</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── High-fidelity image ── -->
+    <section class="cs-hifi">
+      <div class="container container--flush">
+        <img src="assets/hi-fi.png" alt="High-fidelity design of the conditional logic interface showing IF/THEN rule builder" class="cs-hifi__image" />
+      </div>
+    </section>
+
+    <!-- ── Metrics ── -->
+    <section class="cs-metrics">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-metrics__intro">
+          <p class="cs-eyebrow">Metrics</p>
+          <h2 class="cs-metrics__title">Unlocking new revenue and increased adoption of Forms</h2>
+          <p class="cs-metrics__lead">
+            Beyond improving the form experience, Conditional Logic delivered measurable commercial impact. It removed a key revenue blocker, drove plan adoption, and strengthened the platform's ability to support more complex workflows.
+          </p>
+        </div>
+
+        <div class="cs-metrics__grid">
+          <div class="cs-metric-card">
+            <img src="assets/percent.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value">40%</p>
+            <p class="cs-metric-card__label">Increased Forms adoption</p>
+            <p class="cs-metric-card__desc">Adoption rate of Forms increased within 2 months of launching conditional logic</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/Trophy.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">$147,581</p>
+            <p class="cs-metric-card__label">Revenue unlocked</p>
+            <p class="cs-metric-card__desc">Dynamic forms powered by conditional logic removed key revenue blockers</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/Add.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">Improved data</p>
+            <p class="cs-metric-card__label">Better data capture</p>
+            <p class="cs-metric-card__desc">Only relevant responses captured at submission — building trust in form outputs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Outcomes ── -->
+    <section class="cs-outcomes">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-outcomes__grid">
+          <div class="cs-outcomes__copy">
+            <p class="cs-eyebrow">Outcomes</p>
+            <h2 class="cs-outcomes__title">Learnings and reflection</h2>
+            <div class="cs-outcomes__body">
+              <p>
+                Conditional Logic had a clear and immediate impact on how Forms were designed and used. Respondents were no longer forced through irrelevant questions — resulting in shorter, more focused completion experiences.
+              </p>
+              <p>
+                For form creators and teams, the quality of submitted data improved significantly. Only relevant responses were captured and passed through to tasks, reducing the need for manual review and cleanup.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">What changed</h3>
+            <ul class="cs-pain-list">
+              <li>Forms adapted in real time — respondents only saw what was relevant to them</li>
+              <li>Submitted data was cleaner and required significantly less manual cleanup</li>
+              <li>Trust in form submissions increased across teams using the feature</li>
+              <li>Conditional Logic expanded with more advanced capabilities over time and remains a core part of Forms today</li>
+            </ul>
+            <h3 class="cs-problem__pains-title">What I learned</h3>
+            <ul class="cs-pain-list">
+              <li>Testing two competing concepts upfront saved significant rework later</li>
+              <li>Users will accept complexity in setup if it removes complexity elsewhere in their workflow</li>
+              <li>Progressive disclosure is only effective when the simple path is genuinely simple</li>
+              <li>Commercial impact is easier to demonstrate when success metrics are defined before design begins</li>
+            </ul>
+            <p class="cs-outcomes__closing">
+              Defining the problem clearly before moving to solutions made the direction easier to defend and faster to ship. If revisiting this work, I would explore smarter defaults for common logic patterns — reducing setup time further for users building straightforward conditional flows.
+            </p>
+          </div>
+          <div class="cs-outcomes__visual" aria-hidden="true">
+            <img src="assets/Done.png" alt="" class="cs-done-bubble" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__brand"><span>The</span> Colour Creative</span>
+        <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="case-studies.html" class="footer__link">Case studies</a>
+          <a href="playground.html" class="footer__link">Playground</a>
+          <a href="ux-ui-improvements.html" class="footer__link">UX/UI improvements</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================
+       Cut-the-crap toggle (UI-only)
+       ============================ -->
+  <label class="cut-toggle" for="cut-the-crap">
+    <input type="checkbox" id="cut-the-crap" class="cut-toggle__input" />
+    <span class="cut-toggle__label">&#9986; Cut the crap</span>
+    <span class="cut-toggle__switch" aria-hidden="true">
+      <span class="cut-toggle__knob"></span>
+    </span>
+  </label>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
