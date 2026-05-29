@@ -567,7 +567,11 @@ ul {
   letter-spacing: -0.01em;
 }
 
-.footer__brand span {
+.footer__brand .brand-the {
+  color: var(--color-text-sub);
+}
+
+.footer__brand .brand-colour {
   color: var(--color-accent);
 }
 
