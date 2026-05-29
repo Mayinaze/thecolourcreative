@@ -246,9 +246,15 @@
             <h2 class="cs-solution__title">Design &amp; Build</h2>
             <div class="cs-solution__body">
               <p>The final solution introduced Conditional Logic as a first-class capability within Forms, allowing questions and sections to dynamically appear based on user responses. Instead of presenting every possible question upfront, Forms could now adapt in real time — showing only what was relevant at each stage.</p>
-              <p>The system was designed around a rule-based logic model, reflecting the learning outcomes of concept testing. While this approach introduced more complexity during setup, it provided the flexibility needed to support both simple and highly complex workflows without forcing users into workarounds later.</p>
-              <p>Logic was designed to work consistently across all supported question and section types, ensuring predictable behaviour regardless of form complexity. Rules were evaluated in real time, allowing Forms to update instantly as respondents selected answers — without disrupting the completion flow.</p>
-              <p>Advanced capabilities such as AND / OR conditions were introduced iteratively, allowing the system to grow in power without overwhelming users upfront.</p>
+              <p>The system was designed around a rule-based logic model, reflecting the learning outcomes of our concept testing. While this approach introduced more complexity during setup, it provided the flexibility needed to support both simple and highly complex workflows without forcing users into workarounds later.</p>
+              <p><strong>To manage this complexity, the experience was built around a few core principles:</strong></p>
+              <ul class="cs-pain-list">
+                <li>Clear mental models using familiar IF / THEN logic</li>
+                <li>Progressive disclosure, so advanced options were only revealed when needed</li>
+                <li>Separation of concerns, keeping complexity in form setup and simplicity in form completion</li>
+              </ul>
+              <p>From a build perspective, logic was designed to work consistently across supported question and section types, ensuring predictable behaviour regardless of form complexity. Logic rules were evaluated in real time, allowing Forms to update instantly as respondents selected answers, without disrupting the completion flow.</p>
+              <p>To reduce cognitive load for form creators, logic rules could be grouped and collapsed, making complex configurations easier to scan and manage. Advanced capabilities such as AND / OR conditions were introduced iteratively, allowing the system to grow in power without overwhelming users upfront.</p>
             </div>
           </div>
           <div class="cs-solution__visual">
