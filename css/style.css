@@ -1242,7 +1242,11 @@ ul {
   height: 1px;
   width: 100%;
   background: var(--color-border);
-  margin-bottom: 56px;
+  margin-bottom: 48px;
+}
+
+.cs-overview__copy .cs-eyebrow {
+  margin-bottom: 12px;
 }
 
 .cs-overview__title {
