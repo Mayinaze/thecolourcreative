@@ -385,5 +385,184 @@
   </label>
 
   <script src="js/main.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  (function () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ─────────────────────────────────────────────
+    // Helpers
+    // ─────────────────────────────────────────────
+    const main = document.querySelector('main');
+
+    // Elements inside main only — skip nav / hero / footer
+    function mainQuery(selector) {
+      return Array.from(main.querySelectorAll(selector));
+    }
+
+    // ─────────────────────────────────────────────
+    // 1. Collect animated elements & set initial state via JS
+    //    (no CSS involvement — avoids flash if GSAP fails)
+    // ─────────────────────────────────────────────
+    const headings    = mainQuery('.cs-problem__title, .cs-discovery__title, .cs-solution__title, .cs-metrics__title, .cs-outcomes__title, .cs-overview__title');
+    const subHeadings = mainQuery('.cs-problem__pains-title');
+    const bodyParas   = mainQuery('.cs-problem__body p, .cs-discovery__body p, .cs-solution__body p, .cs-outcomes__body p, .cs-metrics__lead, .cs-overview__copy p');
+    const listItems   = mainQuery('.cs-pain-list li');
+    const images      = mainQuery('picture, .cs-hifi__image, .cs-solution__visual img, .cs-done-bubble');
+
+    // Stat counters — only the numeric ones
+    const statEls = mainQuery('.cs-metric-card__value:not(.cs-metric-card__value--text)');
+
+    // Hero content — visible immediately, no animation
+    const heroSkip = new Set(main.querySelectorAll('.cs-hero *'));
+
+    function shouldAnimate(el) {
+      return !heroSkip.has(el);
+    }
+
+    // Set initial invisible state
+    [...headings, ...subHeadings, ...bodyParas, ...listItems, ...images]
+      .filter(shouldAnimate)
+      .forEach(el => gsap.set(el, { opacity: 0, y: 24 }));
+
+    images.filter(shouldAnimate).forEach(el => gsap.set(el, { opacity: 0, y: 16 }));
+    statEls.forEach(el => gsap.set(el, { opacity: 0 }));
+
+    // ─────────────────────────────────────────────
+    // 2. Section h2 headings
+    // ─────────────────────────────────────────────
+    headings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+        },
+      });
+    });
+
+    // ─────────────────────────────────────────────
+    // 3. Sub-headings (h3)
+    // ─────────────────────────────────────────────
+    subHeadings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+        },
+      });
+    });
+
+    // ─────────────────────────────────────────────
+    // 4. Body paragraphs — 0.2s after their heading
+    // ─────────────────────────────────────────────
+    bodyParas.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        delay: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+        },
+      });
+    });
+
+    // ─────────────────────────────────────────────
+    // 5. List items — staggered within each list
+    // ─────────────────────────────────────────────
+    const lists = mainQuery('.cs-pain-list');
+    lists.forEach(list => {
+      const items = Array.from(list.querySelectorAll('li'));
+      gsap.to(items, {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        delay: 0.2,
+        ease: 'power2.out',
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: list,
+          start: 'top 85%',
+          once: true,
+        },
+      });
+    });
+
+    // ─────────────────────────────────────────────
+    // 6. Images / picture elements
+    // ─────────────────────────────────────────────
+    images.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+        },
+      });
+    });
+
+    // ─────────────────────────────────────────────
+    // 7. Stat counters
+    //    40%  →  number only, suffix "%" appended
+    //    $147,581  →  prefix "$", comma-formatted
+    // ─────────────────────────────────────────────
+    function formatWithCommas(n) {
+      return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    statEls.forEach((el, i) => {
+      const raw = el.textContent.trim();
+      let target, prefix, suffix;
+
+      if (raw === '40%') {
+        target = 40; prefix = ''; suffix = '%';
+      } else if (raw.replace(/[$,]/g, '') === '147581') {
+        target = 147581; prefix = '$'; suffix = '';
+      } else {
+        // Not a recognised counter — just fade it in
+        gsap.to(el, { opacity: 1, duration: 0.5, scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+        return;
+      }
+
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 1.8,
+        delay: i * 0.2,
+        ease: 'power2.out',
+        onStart: () => gsap.set(el, { opacity: 1 }),
+        onUpdate: () => {
+          el.textContent = prefix + formatWithCommas(obj.val) + suffix;
+        },
+        onComplete: () => {
+          el.textContent = prefix + formatWithCommas(target) + suffix;
+        },
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    });
+
+  })();
+  </script>
 </body>
 </html>
