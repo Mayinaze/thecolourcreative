@@ -1203,7 +1203,7 @@ ul {
 }
 
 .cs-hero__title {
-  font-size: 56px;
+  font-size: 56px; /* desktop */
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -1245,8 +1245,21 @@ ul {
   margin-bottom: 48px;
 }
 
+.cs-overview__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cs-overview__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 .cs-overview__copy .cs-eyebrow {
-  margin-bottom: 12px;
+  margin: 0 0 12px 0;
 }
 
 .cs-overview__title {
@@ -1258,21 +1271,14 @@ ul {
   margin: 0 0 24px 0;
 }
 
-.cs-overview__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.cs-overview__copy p {
+.cs-overview__copy p:not(.cs-eyebrow) {
   font-size: 18px;
   line-height: 1.9;
   color: var(--color-text-sub);
-  margin: 0 0 32px 0;
+  margin: 0 0 24px 0;
 }
 
-.cs-overview__copy p:last-child {
+.cs-overview__copy p:not(.cs-eyebrow):last-child {
   margin-bottom: 0;
 }
 
