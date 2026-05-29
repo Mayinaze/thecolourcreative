@@ -1273,6 +1273,7 @@ ul {
 .cs-hero > .container > .cs-hero__image,
 .cs-hero > .container > picture {
   margin-top: 64px;
+  display: block;
 }
 
 /* ── Project Overview ── */
