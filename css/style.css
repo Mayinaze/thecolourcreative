@@ -1499,6 +1499,238 @@ ul {
   height: auto;
 }
 
+/* ── Idea → concept → test ── */
+.cs-idea {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.cs-idea__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.cs-idea__icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.cs-idea__label {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.cs-idea__flow {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--color-card-stroke);
+  background: var(--color-surface);
+}
+
+.cs-idea__flow img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Solution / Design & Build ── */
+.cs-solution {
+  padding-top: 40px;
+  padding-bottom: 120px;
+}
+
+.cs-solution__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cs-solution__title {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 32px 0;
+}
+
+.cs-solution__body p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--color-text-sub);
+  margin: 0 0 20px 0;
+}
+
+.cs-solution__body p:last-child {
+  margin-bottom: 0;
+}
+
+.cs-solution__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 72px;
+}
+
+/* ── High-fidelity image ── */
+.cs-hifi {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+.cs-hifi__image-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--color-card-stroke);
+  background: var(--color-surface);
+}
+
+.cs-hifi__image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Metrics ── */
+.cs-metrics {
+  padding-top: 40px;
+  padding-bottom: 120px;
+}
+
+.cs-metrics__intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+
+.cs-metrics__title {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 28px 0;
+}
+
+.cs-metrics__lead {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--color-text-sub);
+  margin: 0;
+}
+
+.cs-metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cs-metric-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  border: 1px solid #272727;
+  border-radius: 20px;
+  padding: 40px 28px 36px;
+  background: rgba(24, 24, 24, 0.4);
+}
+
+.cs-metric-card__icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.cs-metric-card__value {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.cs-metric-card__value--text {
+  font-size: 36px;
+  letter-spacing: -0.02em;
+}
+
+.cs-metric-card__label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cs-metric-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-sub);
+  margin: 0;
+}
+
+/* ── Outcomes / Learnings ── */
+.cs-outcomes {
+  padding-top: 40px;
+  padding-bottom: 120px;
+}
+
+.cs-outcomes__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cs-outcomes__title {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 32px 0;
+}
+
+.cs-outcomes__body p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--color-text-sub);
+  margin: 0 0 24px 0;
+}
+
+.cs-outcomes__closing {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text-sub);
+  margin-top: 40px;
+}
+
+.cs-outcomes__visual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-top: 72px;
+}
+
+.cs-done-bubble {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+  opacity: 0.85;
+}
+
 @media (max-width: 768px) {
   .cs-hero {
     padding-top: 32px;
@@ -1573,5 +1805,79 @@ ul {
   .cs-discovery__visual {
     padding-top: 0;
     order: -1;
+  }
+
+  /* Idea (mobile) */
+  .cs-idea {
+    padding-bottom: 56px;
+  }
+  .cs-idea__label {
+    font-size: 17px;
+  }
+
+  /* Solution (mobile) */
+  .cs-solution {
+    padding-bottom: 64px;
+  }
+  .cs-solution__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .cs-solution__title {
+    font-size: 32px;
+  }
+  .cs-solution__body p {
+    font-size: 16px;
+  }
+  .cs-solution__cards {
+    padding-top: 0;
+  }
+
+  /* High-fidelity image (mobile) */
+  .cs-hifi {
+    padding-bottom: 56px;
+  }
+
+  /* Metrics (mobile) */
+  .cs-metrics {
+    padding-bottom: 64px;
+  }
+  .cs-metrics__intro {
+    margin-bottom: 40px;
+  }
+  .cs-metrics__title {
+    font-size: 28px;
+  }
+  .cs-metrics__lead {
+    font-size: 16px;
+  }
+  .cs-metrics__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .cs-metric-card__value {
+    font-size: 44px;
+  }
+  .cs-metric-card__value--text {
+    font-size: 30px;
+  }
+
+  /* Outcomes (mobile) */
+  .cs-outcomes {
+    padding-bottom: 64px;
+  }
+  .cs-outcomes__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .cs-outcomes__title {
+    font-size: 32px;
+  }
+  .cs-outcomes__body p {
+    font-size: 16px;
+  }
+  .cs-outcomes__visual {
+    padding-top: 0;
+    justify-content: center;
   }
 }
