@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Colour Creative — Boomin Design System</title>
+  <meta name="description" content="Building a scalable design system foundation for Boomin — a single source of truth for designers and developers." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- ============================
+       Navigation
+       ============================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <span class="nav__brand"><span>The</span> Colour Creative</span>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="index.html" class="nav__link">Home</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="case-studies.html" class="nav__link">Case studies</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="playground.html" class="nav__link">Playground</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="ux-ui-improvements.html" class="nav__link">UX/UI improvements</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================
+       Main Content
+       ============================ -->
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="cs-hero">
+      <div class="container container--flush">
+        <p class="cs-eyebrow">Boomin design system</p>
+        <h1 class="cs-hero__title">Building the foundation for a scalable design system</h1>
+        <div class="cs-hero__image-wrap">
+          <img
+            src="assets/main-image.png"
+            alt="Boomin design system overview"
+            class="cs-hero__image"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Project overview ── -->
+    <section class="cs-overview">
+      <div class="container container--flush">
+        <div class="cs-overview__divider" aria-hidden="true"></div>
+        <p class="cs-eyebrow">Quick read</p>
+        <h2 class="cs-overview__title">Project overview</h2>
+
+        <div class="cs-overview__grid">
+          <div class="cs-overview__copy">
+            <p>
+              Creating a system that provides a single source of truth for designers and developers is critical when building complex journeys and UI interfaces. Boomin needed solid foundations to work from when scaling existing and upcoming products.
+            </p>
+            <p>
+              I led the design and build of the Boomin design system — known internally as Mosaic — focusing on the foundations layer: colour, type, grid, space, shadow and icon systems. The goal was to reduce design and development debt while giving both teams the autonomy to move faster and with confidence.
+            </p>
+          </div>
+
+          <div class="cs-overview__cards">
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M20.0095 10.8511C22.2552 10.8511 24.0757 12.6716 24.0757 14.9172C24.0757 17.1629 22.2552 18.9834 20.0095 18.9834C17.7638 18.9834 15.9434 17.1629 15.9434 14.9172C15.9434 12.6716 17.7638 10.8511 20.0095 10.8511Z" stroke="#EB216F" stroke-width="1.7022"/>
+                <path d="M13.9374 25.5707L13.5386 26.9382C13.2162 28.0436 14.0452 29.149 15.1966 29.149H24.8226C25.974 29.149 26.803 28.0436 26.4806 26.9382L26.0818 25.5707C25.2946 22.872 22.8208 21.0166 20.0096 21.0166C17.1984 21.0166 14.7246 22.872 13.9374 25.5707Z" stroke="#EB216F" stroke-width="1.7022"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Responsibilities</p>
+                <p class="cs-info-card__value">Design system architecture, foundations design, documentation, governance, design tokens, team communication</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M12 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M24 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M15 15L15 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M21 15L21 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M27 15L27 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M18 12L18 27" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Target users</p>
+                <p class="cs-info-card__value">Product designers, frontend developers and the wider Boomin product team</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M10.8495 22.7429H29.1504" stroke="#EB216F" stroke-width="1.69904" stroke-linecap="round"/>
+                <path d="M11.7645 19.9978L14.6634 15.6495C15.0255 15.1062 15.8239 15.1062 16.1861 15.6495L18.1699 18.6252M19.0849 19.9978L18.1699 18.6252M18.1699 18.6252L22.3706 12.1331C22.7467 11.5519 23.6071 11.5826 23.9407 12.1892L28.2354 19.9978" stroke="#EB216F" stroke-width="1.69904" stroke-linecap="round"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Outcome</p>
+                <p class="cs-info-card__value">Full team adoption across Boomin — every designer and developer contributing to and building with the system</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M25.1903 10C27.6809 10 29.7 12.0192 29.7001 14.5098V20C29.7001 20.4692 29.3196 20.8496 28.8505 20.8496C28.3814 20.8495 28.0009 20.4691 28.0009 20V14.5098C28.0008 12.9576 26.7425 11.6992 25.1903 11.6992H14.5096C12.9575 11.6993 11.6992 12.9576 11.6991 14.5098V25.4902C11.6991 27.0425 12.9574 28.3007 14.5096 28.3008H19.8495C20.3186 28.3008 20.6989 28.6814 20.6991 29.1504C20.6991 29.6196 20.3187 30 19.8495 30H14.5096C12.0191 29.9999 9.99988 27.9808 9.99988 25.4902V14.5098C9.99996 12.0193 12.0191 10.0001 14.5096 10H25.1903Z" fill="#EB216F"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Scope</p>
+                <p class="cs-info-card__value">Foundations layer — colour, type, grid, space, shadow and icon systems across web and app</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Problem statement ── -->
+    <section class="cs-problem">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-problem__grid">
+          <div class="cs-problem__copy">
+            <p class="cs-eyebrow">Problem statement</p>
+            <h2 class="cs-problem__title">No system meant no consistency, no confidence, and no way to scale.</h2>
+            <div class="cs-problem__body">
+              <p>
+                Boomin had no shared design foundation. Designers and developers were making independent decisions about colour, type, spacing and components — creating fragmented UI, duplicated effort and growing debt on both sides.
+              </p>
+              <p>
+                Without a system, every new feature started from scratch. There was no single source of truth, no governance process, and no way to ensure consistency as the product and team grew. Scaling was becoming a real problem.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Core challenges</h3>
+            <ul class="cs-pain-list">
+              <li>No shared foundations — colour, type and spacing decisions made in isolation</li>
+              <li>Design and development debt accumulating with every new feature</li>
+              <li>No naming conventions — tokens and styles inconsistent across files</li>
+              <li>Designers spending time rebuilding patterns that already existed elsewhere</li>
+              <li>No governance process for contributing to or maintaining the system</li>
+              <li>Difficult to onboard new team members without documentation</li>
+            </ul>
+          </div>
+          <div class="cs-problem__visual">
+            <img src="assets/ds-structure.png" alt="Boomin design system structure showing Foundations, Components and Patterns" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Discovery ── -->
+    <section class="cs-discovery">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-discovery__grid">
+          <div class="cs-discovery__copy">
+            <p class="cs-eyebrow">Structure &amp; approach</p>
+            <h2 class="cs-discovery__title">
+              Understanding who we were<br />building the system for.
+            </h2>
+            <div class="cs-discovery__body">
+              <p>
+                Before building anything, we needed to understand the constraints — technical limitations, team workflows and what good governance looked like for Boomin. We worked closely with developers early to understand what the system needed to communicate and how it should be structured.
+              </p>
+              <p>
+                The system was structured across three libraries: Foundations, Components and Patterns. This case study focuses on Foundations — the ingredients everything else is built from.
+              </p>
+              <p>
+                Each foundation system included a getting started guide to help designers contribute correctly, system variants for internal documentation, and thorough anatomy tables so every element had a clear role and rule.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">What we established early</h3>
+            <ul class="cs-pain-list">
+              <li>Dedicated weekly time to build Mosaic alongside live product work</li>
+              <li>Close collaboration with developers to agree naming conventions and technical constraints</li>
+              <li>A Maker vs User model — clear roles for who maintains vs who consumes the system</li>
+              <li>A governance process based on the Brad Frost approach, adapted for Boomin</li>
+              <li>Loom and Slack as the communication layer for updates and changes</li>
+            </ul>
+          </div>
+          <div class="cs-discovery__visual">
+            <img src="assets/file-structure.png" alt="Boomin design system file structure showing pages and organisation" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Idea — Design tokens ── -->
+    <section class="cs-idea">
+      <div class="container container--flush">
+        <div class="cs-idea__header">
+          <img src="assets/token-structure.png" alt="" class="cs-idea__icon" aria-hidden="true" />
+          <span class="cs-idea__label">Design tokens — one naming convention, one source of truth</span>
+        </div>
+        <div class="cs-idea__flow">
+          <img src="assets/ds-palette.png" alt="Boomin colour system showing base, neutral and destructive token scales" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Solution — Foundations ── -->
+    <section class="cs-solution">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-solution__grid">
+          <div class="cs-solution__copy">
+            <p class="cs-eyebrow">Foundations</p>
+            <h2 class="cs-solution__title">Building the core systems</h2>
+            <div class="cs-solution__body">
+              <p>
+                Each foundation system was documented using a consistent anatomy table format — covering role, usage rules, accessibility requirements and token references. This gave both designers and developers a single place to make informed decisions.
+              </p>
+              <p>
+                System variants played a critical role in documentation. These internal-only components acted as a system within the system — reusable documentation components that kept every foundation section consistent and easy to maintain.
+              </p>
+              <p>
+                Scalability was a priority from day one. Every system was built to grow — whether that meant adding new token scales, extending the colour palette, or introducing new type roles — without breaking what already existed.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-solution__cards">
+            <div class="cs-info-card">
+              <img src="assets/Activate.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Faster delivery</p>
+                <p class="cs-info-card__value">Reusable foundations enabling design decisions to be made faster without rebuilding from scratch</p>
+              </div>
+            </div>
+            <div class="cs-info-card">
+              <img src="assets/Shield.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Accessibility built in</p>
+                <p class="cs-info-card__value">Contrast ratios and accessibility rules documented alongside every colour and type decision</p>
+              </div>
+            </div>
+            <div class="cs-info-card">
+              <img src="assets/Auction.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Scalable by design</p>
+                <p class="cs-info-card__value">Every system built to extend without breaking existing decisions or requiring a rebuild</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── High-fidelity image — Type system ── -->
+    <section class="cs-hifi">
+      <div class="container container--flush">
+        <img src="assets/type-structure.png" alt="Boomin type system showing heading, body and button ranges" class="cs-hifi__image" />
+      </div>
+    </section>
+
+    <!-- ── Metrics — qualitative outcomes ── -->
+    <section class="cs-metrics">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-metrics__intro">
+          <p class="cs-eyebrow">Outcomes</p>
+          <h2 class="cs-metrics__title">A system the whole team owned and used</h2>
+          <p class="cs-metrics__lead">
+            Mosaic went from zero to a fully adopted system across the Boomin product team. Designers and developers were contributing, maintaining and building with it — reducing the reliance on one-off decisions and giving everyone a shared language to work from.
+          </p>
+        </div>
+
+        <div class="cs-metrics__grid">
+          <div class="cs-metric-card">
+            <img src="assets/Trophy.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">Full adoption</p>
+            <p class="cs-metric-card__label">Whole team contributing</p>
+            <p class="cs-metric-card__desc">Every designer and developer across Boomin using and contributing to the system</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/percent.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">One system</p>
+            <p class="cs-metric-card__label">Single source of truth</p>
+            <p class="cs-metric-card__desc">Fragmented design decisions replaced by a shared, documented foundation</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/Add.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">Less debt</p>
+            <p class="cs-metric-card__label">Reduced design &amp; dev debt</p>
+            <p class="cs-metric-card__desc">Reusable foundations meant faster delivery and fewer one-off solutions across the product</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Governance ── -->
+    <section class="cs-solution">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-solution__grid">
+          <div class="cs-solution__copy">
+            <p class="cs-eyebrow">Governance</p>
+            <h2 class="cs-solution__title">Maker vs User — clear roles, clear process</h2>
+            <div class="cs-solution__body">
+              <p>
+                Governance was central to the system working at scale. We established a clear Maker vs User model — the Maker maintains and future-proofs the system, the User builds with it and feeds back through a structured process.
+              </p>
+              <p>
+                The governance flow ensured designers always checked whether a component existed before creating something new. If it didn't exist, a conversation was started — keeping the backlog managed and the system intentional rather than sprawling.
+              </p>
+              <p>
+                Updates were communicated via Loom recordings and a dedicated Slack channel, keeping the whole team informed of changes without requiring synchronous time together.
+              </p>
+            </div>
+          </div>
+          <div class="cs-solution__cards">
+            <div class="cs-info-card">
+              <img src="assets/Activate.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Maker role</p>
+                <p class="cs-info-card__value">Maintains, approves and future-proofs the system — communicates updates to the wider team</p>
+              </div>
+            </div>
+            <div class="cs-info-card">
+              <img src="assets/Shield.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">User role</p>
+                <p class="cs-info-card__value">Builds features using the system — flags new patterns and problems through the feedback loop</p>
+              </div>
+            </div>
+            <div class="cs-info-card">
+              <img src="assets/Auction.svg" alt="" class="cs-info-card__icon" aria-hidden="true" />
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Communication</p>
+                <p class="cs-info-card__value">Loom videos and a dedicated Slack channel kept the team in sync on all system changes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-hifi">
+      <div class="container container--flush">
+        <img src="assets/governance.png" alt="Governance process flow showing Maker vs User roles and component decision tree" class="cs-hifi__image" />
+      </div>
+    </section>
+
+    <!-- ── Outcomes — Learnings ── -->
+    <section class="cs-outcomes">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-outcomes__grid">
+          <div class="cs-outcomes__copy">
+            <p class="cs-eyebrow">Learnings</p>
+            <h2 class="cs-outcomes__title">What building Mosaic taught me</h2>
+            <div class="cs-outcomes__body">
+              <p>
+                Building a design system from scratch while working on live product taught me that process matters as much as craft. The system only worked because the team understood it, trusted it and felt ownership over it.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">What worked</h3>
+            <ul class="cs-pain-list">
+              <li>Involving developers from the start meant token naming conventions were practical, not just design-side thinking</li>
+              <li>System variants made documentation consistent and fast to maintain</li>
+              <li>Loom updates kept the team informed without eating into delivery time</li>
+              <li>The Maker vs User model gave the system a clear owner while keeping it open to contribution</li>
+            </ul>
+            <h3 class="cs-problem__pains-title">What I'd do differently</h3>
+            <ul class="cs-pain-list">
+              <li>Establish governance earlier — retrofitting a process onto an existing system is harder than building it in from day one</li>
+              <li>Track adoption metrics from the start — qualitative feedback is valuable but numbers make the case more clearly</li>
+              <li>Invest more in onboarding documentation for new joiners</li>
+            </ul>
+            <p class="cs-outcomes__closing">
+              Mosaic became more than a Figma file — it became a shared language for the whole product team. If extending it further, I'd look to formalise the component contribution process and introduce automated token sync between design and code.
+            </p>
+          </div>
+          <div class="cs-outcomes__visual" aria-hidden="true">
+            <img src="assets/Done.png" alt="" class="cs-done-bubble" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__brand"><span>The</span> Colour Creative</span>
+        <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="case-studies.html" class="footer__link">Case studies</a>
+          <a href="playground.html" class="footer__link">Playground</a>
+          <a href="ux-ui-improvements.html" class="footer__link">UX/UI improvements</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================
+       Cut-the-crap toggle (UI-only)
+       ============================ -->
+  <label class="cut-toggle" for="cut-the-crap">
+    <input type="checkbox" id="cut-the-crap" class="cut-toggle__input" />
+    <span class="cut-toggle__label">&#9986; Cut the crap</span>
+    <span class="cut-toggle__switch" aria-hidden="true">
+      <span class="cut-toggle__knob"></span>
+    </span>
+  </label>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
