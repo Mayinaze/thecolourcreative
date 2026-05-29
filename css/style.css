@@ -1730,18 +1730,9 @@ ul {
 
 .cs-outcomes__visual {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
+  align-items: flex-end;
+  justify-content: flex-end;
   padding-top: 72px;
-}
-
-.cs-outcomes__done-icon {
-  width: 48px;
-  height: 48px;
-  display: block;
-  opacity: 0.85;
 }
 
 .cs-done-bubble {
