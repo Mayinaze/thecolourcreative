@@ -1268,6 +1268,9 @@ ul {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.cs-hero > .container > .cs-hero__image {
   margin-top: 64px;
 }
 
