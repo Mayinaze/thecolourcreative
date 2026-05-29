@@ -1601,7 +1601,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-top: 0;
+  padding-top: 80px;
 }
 
 /* ── High-fidelity image ── */
