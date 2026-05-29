@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Colour Creative — Home</title>
   <meta name="description" content="Jake — AI systems designer, accessibility advocate & teacher. 10 years designing scalable products across SAAS, Fintech and Proptech." />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
@@ -62,6 +62,9 @@
             src="avatar.svg"
             alt="Jake's avatar"
             class="hero__avatar"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
           />
           <div class="hero__intro-text">
             <p class="hero__name">Hi, I'm Jake</p>
@@ -84,14 +87,53 @@
         <div class="card-grid reveal-stagger">
 
           <!-- Card 1 -->
+          <a href="case-study-boomin-design-system.html" class="card__link">
+            <article class="card">
+              <div class="card__image-wrap">
+                <picture>
+                  <source srcset="assets/project-2.webp" type="image/webp" />
+                  <img src="assets/project-2.png" alt="Boomin design system Mosaic — component library overview in Figma" loading="eager" />
+                </picture>
+              </div>
+              <div class="card__body">
+                <h2 class="card__title">Boomin Design system</h2>
+                <div class="card__badges">
+                  <span class="badge">Property management</span>
+                  <span class="badge">Design system</span>
+                  <span class="badge">Web &amp; App</span>
+                </div>
+              </div>
+            </article>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="case-study-conditional-logic.html" class="card__link">
+            <article class="card">
+              <div class="card__image-wrap">
+                <picture>
+                  <source srcset="assets/conditional-logic.webp" type="image/webp" />
+                  <img src="assets/conditional-logic.png" alt="Teamwork Forms editor showing IF/THEN conditional logic rule builder" loading="lazy" />
+                </picture>
+              </div>
+              <div class="card__body">
+                <h2 class="card__title">Conditional logic</h2>
+                <div class="card__badges">
+                  <span class="badge">Data accuracy</span>
+                  <span class="badge">Design Systems</span>
+                  <span class="badge">SAAS</span>
+                </div>
+              </div>
+            </article>
+          </a>
+
+          <!-- Card 3 -->
           <a href="case-study-public-holidays.html" class="card__link">
             <article class="card">
               <div class="card__image-wrap">
-                <img
-                  src="assets/project-1.png"
-                  alt="Solving real availability — project screenshot"
-                  loading="eager"
-                />
+                <picture>
+                  <source srcset="assets/project-1.webp" type="image/webp" />
+                  <img src="assets/project-1.png" alt="Teamwork planning view with public holidays highlighted across a team calendar" loading="lazy" />
+                </picture>
               </div>
               <div class="card__body">
                 <h2 class="card__title">Solving real availability</h2>
@@ -104,60 +146,19 @@
             </article>
           </a>
 
-          <!-- Card 2 -->
-          <article class="card">
-            <div class="card__image-wrap">
-              <img
-                src="assets/project-2.png"
-                alt="Property management — project screenshot"
-                loading="lazy"
-              />
-            </div>
-            <div class="card__body">
-              <h2 class="card__title">Property management</h2>
-              <div class="card__badges">
-                <span class="badge">Property</span>
-                <span class="badge">B2B</span>
-                <span class="badge">Web &amp; App</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="card">
-            <div class="card__image-wrap">
-              <img
-                src="assets/project-3.png"
-                alt="Conditional logic — project screenshot"
-                loading="lazy"
-                style="padding: 32px;"
-              />
-            </div>
-            <div class="card__body">
-              <h2 class="card__title">Conditional logic</h2>
-              <div class="card__badges">
-                <span class="badge">Data accuracy</span>
-                <span class="badge">Design Systems</span>
-                <span class="badge">SAAS</span>
-              </div>
-            </div>
-          </article>
-
           <!-- Card 4 -->
           <article class="card">
             <div class="card__image-wrap">
-              <img
-                src="assets/project-4.jpg"
-                alt="Fintech Onboarding — project screenshot"
-                loading="lazy"
-              />
+              <picture>
+                <source srcset="assets/pantry-app.webp" type="image/webp" />
+                <img src="assets/pantry-app.png" alt="Pantry mobile app showing food inventory management and expiry tracking screens" loading="lazy" />
+              </picture>
             </div>
             <div class="card__body">
-              <h2 class="card__title">Fintech onboarding redesign</h2>
+              <h2 class="card__title">Pantry app</h2>
               <div class="card__badges">
-                <span class="badge">Fintech</span>
-                <span class="badge">Mobile</span>
-                <span class="badge">Accessibility</span>
+                <span class="badge">Mobile app</span>
+                <span class="badge">Food management</span>
               </div>
             </div>
           </article>
@@ -174,7 +175,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <span class="footer__brand"><span>The</span> Colour Creative</span>
+        <span class="footer__brand"><span class="brand-the">The</span> <span class="brand-colour">Colour</span> Creative</span>
         <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
         <div class="footer__links">
           <a href="case-studies.html" class="footer__link">Case studies</a>

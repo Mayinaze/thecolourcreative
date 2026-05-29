@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Colour Creative — Playground</title>
   <meta name="description" content="Just a designer, designing cool stuff." />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
@@ -70,44 +70,77 @@
           <!-- Row 1: Full-width, 600px tall -->
           <div class="pg-row pg-row--full">
             <div class="pg-card" style="height: 700px;">
-              <img src="assets/hypergiant.png" alt="Hypergiant" loading="eager" />
+              <picture>
+                <source srcset="assets/hypergiant.webp" type="image/webp" />
+                <img src="assets/hypergiant.png" alt="Hypergiant brand design concept" loading="eager" />
+              </picture>
             </div>
           </div>
 
           <!-- Row 2: Two asymmetric cards, 700px tall -->
           <div class="pg-row pg-row--two">
             <div class="pg-card" style="height: 700px; flex: 1.45 1 0;">
-              <img src="assets/Tesla.png" alt="Tesla" loading="lazy" />
+              <picture>
+                <source srcset="assets/Tesla.webp" type="image/webp" />
+                <img src="assets/Tesla.png" alt="Tesla UI redesign concept" loading="lazy" />
+              </picture>
             </div>
             <div class="pg-card" style="height: 700px; flex: 1 1 0;">
-              <img src="assets/plants.jpg" alt="Plantz" loading="lazy" />
+              <picture>
+                <source srcset="assets/plants.webp" type="image/webp" />
+                <img src="assets/plants.jpg" alt="Plantz app — plant care mobile app design concept" loading="lazy" />
+              </picture>
             </div>
           </div>
 
-          <!-- Row 3: Full-width — EightyNine -->
+          <!-- Row 3: Full-width — Figma Prototype -->
+          <div class="pg-row pg-row--full">
+            <div class="pg-card pg-card--figma">
+              <div class="pg-figma-wrapper">
+                <iframe style="border: none;" width="800" height="450" src="https://embed.figma.com/proto/KfYQageAzYySXPs3q0ZdBe/Polestar-animation?node-id=1-178&p=f&viewport=1440%2C404%2C0.22&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A178&page-id=0%3A1&embed-host=share&hide-ui=1&hotspot-hints=0" allowfullscreen title="Polestar interactive UI animation prototype"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4: Full-width — EightyNine -->
           <div class="pg-row pg-row--full">
             <div class="pg-card" style="height: 700px;">
-              <img src="assets/eightnine.png" alt="The EightyNine" loading="lazy" />
+              <picture>
+                <source srcset="assets/eightnine.webp" type="image/webp" />
+                <img src="assets/eightnine.png" alt="The EightyNine brand and visual identity design concept" loading="lazy" />
+              </picture>
             </div>
           </div>
 
           <!-- Row 4: Three equal cards — Mountain, Glasses, Plants -->
           <div class="pg-row pg-row--three">
             <div class="pg-card" style="height: 700px;">
-              <img src="assets/mountain.jpg" alt="Mountain" loading="lazy" style="padding: 56px;" />
+              <picture>
+                <source srcset="assets/mountain.webp" type="image/webp" />
+                <img src="assets/mountain.jpg" alt="Minimalist mountain landscape illustration" loading="lazy" style="padding: 56px;" />
+              </picture>
             </div>
             <div class="pg-card" style="height: 700px;">
-              <img src="assets/glasses.png" alt="Glasses" loading="lazy" />
+              <picture>
+                <source srcset="assets/glasses.webp" type="image/webp" />
+                <img src="assets/glasses.png" alt="Eyewear product design or glasses illustration" loading="lazy" />
+              </picture>
             </div>
             <div class="pg-card" style="height: 700px;">
-              <img src="assets/plants.png" alt="Plants" loading="lazy" />
+              <picture>
+                <source srcset="assets/plants.webp" type="image/webp" />
+                <img src="assets/plants.png" alt="Plant illustration or botanical design graphic" loading="lazy" />
+              </picture>
             </div>
           </div>
 
           <!-- Row 5: Full-width — Polestar -->
           <div class="pg-row pg-row--full">
             <div class="pg-card" style="height: 700px;">
-              <img src="assets/polestar.png" alt="Polestar" loading="lazy" />
+              <picture>
+                <source srcset="assets/polestar.webp" type="image/webp" />
+                <img src="assets/polestar.png" alt="Polestar EV brand UI concept design" loading="lazy" />
+              </picture>
             </div>
           </div>
 
@@ -137,7 +170,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <span class="footer__brand"><span>The</span> Colour Creative</span>
+        <span class="footer__brand"><span class="brand-the">The</span> <span class="brand-colour">Colour</span> Creative</span>
         <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
         <div class="footer__links">
           <a href="index.html" class="footer__link">Home</a>
