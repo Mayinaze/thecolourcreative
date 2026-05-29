@@ -440,5 +440,101 @@
   </label>
 
   <script src="js/main.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  (function () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const main = document.querySelector('main');
+
+    function mainQuery(selector) {
+      return Array.from(main.querySelectorAll(selector));
+    }
+
+    const headings    = mainQuery('.cs-problem__title, .cs-discovery__title, .cs-solution__title, .cs-metrics__title, .cs-outcomes__title, .cs-overview__title');
+    const subHeadings = mainQuery('.cs-problem__pains-title');
+    const bodyParas   = mainQuery('.cs-problem__body p, .cs-discovery__body p, .cs-solution__body p, .cs-outcomes__body p, .cs-metrics__lead, .cs-overview__copy p');
+    const listItems   = mainQuery('.cs-pain-list li');
+    const images      = mainQuery('picture, .cs-hifi__image, .cs-solution__visual img, .cs-done-bubble');
+    const statEls     = mainQuery('.cs-metric-card__value:not(.cs-metric-card__value--text)');
+
+    const heroSkip = new Set(main.querySelectorAll('.cs-hero *'));
+    function shouldAnimate(el) { return !heroSkip.has(el); }
+
+    [...headings, ...subHeadings, ...bodyParas, ...listItems, ...images]
+      .filter(shouldAnimate)
+      .forEach(el => gsap.set(el, { opacity: 0, y: 24 }));
+
+    images.filter(shouldAnimate).forEach(el => gsap.set(el, { opacity: 0, y: 16 }));
+    statEls.forEach(el => gsap.set(el, { opacity: 0 }));
+
+    headings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+    });
+
+    subHeadings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+
+    bodyParas.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.7, delay: 0.2, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+    });
+
+    mainQuery('.cs-pain-list').forEach(list => {
+      const items = Array.from(list.querySelectorAll('li'));
+      gsap.to(items, { opacity: 1, y: 0, duration: 0.6, delay: 0.2, ease: 'power2.out', stagger: 0.08,
+        scrollTrigger: { trigger: list, start: 'top 85%', once: true } });
+    });
+
+    images.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+    });
+
+    function formatWithCommas(n) {
+      return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    statEls.forEach((el, i) => {
+      const raw = el.textContent.trim();
+      const pctMatch = raw.match(/^(\d+(?:\.\d+)?)%$/);
+      const dollarMatch = raw.match(/^\$[\d,]+$/);
+
+      if (pctMatch) {
+        const target = parseFloat(pctMatch[1]);
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target, duration: 1.8, delay: i * 0.2, ease: 'power2.out',
+          onStart: () => gsap.set(el, { opacity: 1 }),
+          onUpdate: () => { el.textContent = formatWithCommas(obj.val) + '%'; },
+          onComplete: () => { el.textContent = target + '%'; },
+          scrollTrigger: { trigger: el, start: 'top 80%', once: true },
+        });
+      } else if (dollarMatch) {
+        const target = parseInt(raw.replace(/[$,]/g, ''), 10);
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target, duration: 1.8, delay: i * 0.2, ease: 'power2.out',
+          onStart: () => gsap.set(el, { opacity: 1 }),
+          onUpdate: () => { el.textContent = '$' + formatWithCommas(obj.val); },
+          onComplete: () => { el.textContent = '$' + formatWithCommas(target); },
+          scrollTrigger: { trigger: el, start: 'top 80%', once: true },
+        });
+      } else {
+        gsap.to(el, { opacity: 1, duration: 0.5,
+          scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+      }
+    });
+
+  })();
+  </script>
 </body>
 </html>
