@@ -1604,14 +1604,7 @@ ul {
   padding-bottom: 80px;
 }
 
-.cs-hifi__image-wrap {
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--color-card-stroke);
-  background: var(--color-surface);
-}
-
-.cs-hifi__image-wrap img {
+.cs-hifi__image {
   display: block;
   width: 100%;
   height: auto;
@@ -1712,17 +1705,6 @@ ul {
   align-items: start;
 }
 
-.cs-outcomes__eyebrow-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.cs-outcomes__eyebrow-row .cs-eyebrow {
-  margin-bottom: 0;
-}
-
 .cs-outcomes__title {
   font-size: var(--font-size-cs-h2);
   font-weight: 600;
@@ -1748,9 +1730,18 @@ ul {
 
 .cs-outcomes__visual {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
   padding-top: 72px;
+}
+
+.cs-outcomes__done-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  opacity: 0.85;
 }
 
 .cs-done-bubble {
