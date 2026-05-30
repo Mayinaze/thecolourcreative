@@ -192,27 +192,6 @@ function initPlayground() {
 // ============================================
 // Card hover — subtle parallax on image
 // ============================================
-function initCardTilt() {
-  const cards = document.querySelectorAll('.card');
-
-  cards.forEach(card => {
-    const img = card.querySelector('.card__image-wrap');
-    if (!img) return;
-
-    card.addEventListener('mousemove', (e) => {
-      const rect  = card.getBoundingClientRect();
-      const xPct  = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
-      const yPct  = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
-      const rotX  = -(yPct * 4);
-      const rotY  =  (xPct * 4);
-      img.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      img.style.transform = '';
-    });
-  });
-}
 
 // ============================================
 // Typewriter — hero headline
@@ -494,7 +473,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initScrollReveal();
   initPlayground();
-  initCardTilt();
   initTypewriter();
   initNavScroll();
   initCustomCursor();
