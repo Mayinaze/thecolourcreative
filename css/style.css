@@ -747,15 +747,16 @@ ul {
     flex-shrink: 1 !important;
     width: 100% !important;
     height: auto !important;
-    min-height: 250px !important;
+    min-height: unset !important;
   }
   .pg-card img {
     width: 100%;
-    height: 250px;
-    min-height: 250px;
-    object-fit: cover;
-    display: block;
-    padding: 0 !important;
+    height: auto;
+    min-height: unset;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    padding: 24px !important;
+    box-sizing: border-box;
   }
 }
 
