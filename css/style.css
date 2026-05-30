@@ -661,12 +661,6 @@ ul {
   -webkit-backdrop-filter: blur(12px);
   overflow: hidden;
   flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pg-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
 }
 
 .pg-card img {
