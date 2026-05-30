@@ -735,22 +735,27 @@ ul {
   .pg-row--full,
   .pg-row--two,
   .pg-row--three { flex-direction: column; }
-  .pg-row--two .pg-card,
-  .pg-row--three .pg-card { width: 100%; flex-shrink: 1; }
+  .pg-row {
+    flex-direction: column !important;
+    gap: 16px;
+  }
   .pg-card {
-    flex-shrink: 1 !important;
+    flex: none !important;
     width: 100% !important;
     height: auto !important;
     min-height: unset !important;
   }
   .pg-card img {
     width: 100%;
-    height: auto;
-    min-height: unset;
+    height: auto !important;
+    min-height: unset !important;
     object-fit: contain;
     padding: 24px !important;
     box-sizing: border-box;
     display: block;
+  }
+  .pg-card--figma {
+    min-height: 220px;
   }
 }
 
