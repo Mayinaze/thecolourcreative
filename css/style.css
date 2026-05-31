@@ -574,10 +574,14 @@ h1.page-hero-title {
    ============================================ */
 .next-case-study {
   display: block;
-  border-top: 1px solid var(--color-border);
   background: var(--color-bg);
-  padding: 64px 0;
+  padding-bottom: 64px;
   text-decoration: none;
+}
+
+.next-case-study .container {
+  border-top: 1px solid var(--color-border);
+  padding-top: 64px;
 }
 
 .next-case-study__eyebrow {
@@ -591,8 +595,7 @@ h1.page-hero-title {
 .next-case-study__row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
 }
 
 .next-case-study__title {
