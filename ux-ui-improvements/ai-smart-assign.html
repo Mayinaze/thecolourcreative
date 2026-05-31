@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Colour Creative — Scheduler Modal Improvements</title>
-  <meta name="description" content="Small but impactful changes to two modals within the scheduler — reducing the number of required interactions and letting data drive the defaults." />
+  <title>The Colour Creative — AI Smart Assign</title>
+  <meta name="description" content="AI-powered work reassignment — surfacing the best-fit people ranked by role, skills and availability." />
   <link rel="stylesheet" href="../css/style.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -156,6 +156,17 @@
       font-style: italic;
     }
 
+    /* ── Hackathon win callout (prominent) ── */
+    .impact-win {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text);
+      background: rgba(223, 20, 99, 0.06);
+      border-radius: 6px;
+      padding: 12px 16px;
+      display: inline-block;
+    }
+
     /* ── Section divider ── */
     .section-divider {
       width: 100%;
@@ -254,21 +265,21 @@
         <!-- ── Page header ── -->
         <header class="detail-header reveal">
           <span class="detail-header__label">Scheduler</span>
-          <h1 class="detail-header__title">Scheduler modal improvements</h1>
-          <p class="detail-header__context">Small but impactful changes to two modals within the scheduler — reducing the number of required interactions and letting data drive the defaults.</p>
+          <h1 class="detail-header__title">AI Smart Assign</h1>
+          <p class="detail-header__context">An AI-powered enhancement to work reassignment — surfacing the best-fit people to take on a piece of work, ranked by role, skills and availability. Built at the company hackathon and shipped to production.</p>
         </header>
 
         <!-- ── Improvement 01 ── -->
         <article class="improvement reveal">
 
           <p class="improvement__number">01</p>
-          <h2 class="improvement__title">Add allocation</h2>
+          <h2 class="improvement__title">Finding the right person to take on the work</h2>
 
-          <p class="improvement__problem">Users were required to manually complete every field in the Add Allocation modal before an allocation could be created — increasing time-to-create and the chance of drop-off.</p>
+          <p class="improvement__problem">When reassigning work from one person to another, users had to manually scan the entire list of people — checking each individual's role, skills and availability by hand to judge who could realistically take it on. The process was slow, easy to get wrong, and got harder as teams grew.</p>
 
           <div class="what-changed">
             <p class="what-changed__label">What Changed</p>
-            <p class="what-changed__body">Smart defaults were introduced across the required fields, pre-populating the most logical values based on context. Users can now open the modal and hit Create immediately.</p>
+            <p class="what-changed__body">AI Smart Assign reads the work being transferred and the person it's moving from, then evaluates the wider team against three signals — role, skills and current availability. Rather than leaving users to search, it pre-ranks the people best suited to take on the work and surfaces them first.</p>
           </div>
 
           <div class="before-after">
@@ -286,7 +297,7 @@
             </div>
           </div>
 
-          <p class="impact-stat">Reduced average time-to-create by X% — placeholder stat, to be updated</p>
+          <p class="impact-stat">[X%] reduction in time to reassign work — placeholder stat, to be updated</p>
 
         </article>
 
@@ -297,13 +308,13 @@
         <article class="improvement reveal">
 
           <p class="improvement__number">02</p>
-          <h2 class="improvement__title">Add unavailable time</h2>
+          <h2 class="improvement__title">From suggestion to assignment in one step</h2>
 
-          <p class="improvement__problem">When blocking out unavailable time, users were expected to manually select a reason from a dropdown — with Paid Time Off buried lower in the list despite being the most commonly selected option.</p>
+          <p class="improvement__problem">Even once a suitable person was identified, assigning still meant stepping back out into the full list to make the change — adding friction to what should be a quick decision.</p>
 
           <div class="what-changed">
             <p class="what-changed__label">What Changed</p>
-            <p class="what-changed__body">Usage data showed Paid Time Off was the most selected option by a significant margin. It was set as the default, removing the need for the majority of users to interact with the dropdown at all.</p>
+            <p class="what-changed__body">The top AI matches are presented in a dedicated suggestion banner, with the full list of people still available below for full control. Users can assign the work directly from the AI suggestion without leaving the flow — turning a manual search into a single confident action.</p>
           </div>
 
           <div class="before-after">
@@ -321,13 +332,13 @@
             </div>
           </div>
 
-          <p class="impact-stat">X% of users no longer needed to interact with the dropdown — placeholder stat, to be updated</p>
+          <p class="impact-win">Shipped to production · winning entry at the company hackathon</p>
 
         </article>
 
         <!-- ── Footer nav ── -->
         <nav class="detail-footer-nav" aria-label="Improvement navigation">
-          <a href="/ux-ui-improvements/ai-smart-assign.html" class="detail-footer-nav__next">Next improvement →</a>
+          <a href="#" class="detail-footer-nav__next">Next improvement →</a>
         </nav>
 
       </div>
