@@ -39,13 +39,13 @@
     }
 
     .case-row {
-      padding-bottom: 72px;
+      padding-bottom: 96px;
     }
     .case-row + .case-row {
       border-top: 1px solid var(--color-border);
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      padding-top: 72px;
+      padding-top: 96px;
     }
     .case-row:last-child {
       padding-bottom: 0;
@@ -199,8 +199,8 @@
 
     /* ── Responsive ── */
     @media (max-width: 1024px) {
-      .case-row { padding-bottom: 56px; }
-      .case-row + .case-row { padding-top: 56px; }
+      .case-row { padding-bottom: 72px; }
+      .case-row + .case-row { padding-top: 72px; }
       .case-row,
       .case-row--reverse { gap: 32px; }
     }
@@ -210,8 +210,8 @@
       .cases-header__title { font-size: 34px; }
       .cases-header__subtitle { font-size: 16px; }
 
-      .case-row { padding-bottom: 40px; }
-      .case-row + .case-row { padding-top: 40px; }
+      .case-row { padding-bottom: 56px; }
+      .case-row + .case-row { padding-top: 56px; }
 
       /* Stack to single column — image always on top, drop alternating order */
       .case-row,
