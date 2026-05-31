@@ -477,6 +477,21 @@ ul {
   color: var(--color-accent);
 }
 
+/* Coming soon pill — static, non-interactive status indicator */
+.coming-soon-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-badge);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-sub);
+  background: transparent;
+  white-space: nowrap;
+}
+
 /* ============================================
    Page Sections
    ============================================ */
@@ -552,6 +567,67 @@ h1.page-hero-title {
   background: var(--color-border);
   opacity: 0.5;
   margin: var(--section-gap) 0;
+}
+
+/* ============================================
+   Next Case Study (shared across case study pages)
+   ============================================ */
+.next-case-study {
+  display: block;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+  padding: 64px 0;
+  text-decoration: none;
+}
+
+.next-case-study__eyebrow {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.next-case-study__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.next-case-study__title {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.next-case-study:hover .next-case-study__title {
+  color: var(--color-accent);
+}
+
+.next-case-study__arrow {
+  font-size: 32px;
+  line-height: 1;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.next-case-study:hover .next-case-study__arrow {
+  transform: translateX(8px);
+}
+
+.next-case-study:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+@media (max-width: 768px) {
+  .next-case-study { padding: 48px 0; }
+  .next-case-study__title { font-size: 26px; }
 }
 
 /* ============================================
