@@ -79,7 +79,7 @@
     .case-row__media img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       transition: transform var(--transition-med);
     }
 
@@ -103,14 +103,6 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-    }
-
-    .case-row__eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-text-sub);
     }
 
     .case-row__title {
@@ -152,7 +144,7 @@
       font-size: 22px;
       font-weight: 700;
       letter-spacing: -0.01em;
-      color: var(--color-text);
+      color: var(--color-accent);
       line-height: 1.2;
     }
 
@@ -167,7 +159,7 @@
       color: var(--color-text-sub);
     }
 
-    /* ── Ghost button CTA ── */
+    /* ── Subtle filled button CTA ── */
     .case-row__read {
       display: inline-flex;
       align-items: center;
@@ -175,26 +167,22 @@
       align-self: flex-start;
       padding: 10px 20px;
       border-radius: 8px;
-      border: 1px solid var(--color-accent);
-      color: var(--color-accent);
+      color: var(--color-text);
       font-size: 14px;
       font-weight: 500;
-      background: transparent;
-      transition: background var(--transition-fast), color var(--transition-fast);
+      background: #262223;
+      transition: background var(--transition-fast);
     }
     .case-row:hover .case-row__read {
-      background: rgba(223, 20, 99, 0.08);
+      background: #302b2c;
     }
 
-    /* ── Headline row (first) — accent metrics ── */
+    /* ── Headline row (first) — taller image ── */
     .case-row--headline {
       padding-bottom: 8px;
     }
     .case-row--headline .case-row__media {
       aspect-ratio: 16 / 11;
-    }
-    .case-row--headline .case-metric__value {
-      color: var(--color-accent);
     }
 
     /* ── Coming soon row — muted, non-interactive ── */
@@ -265,8 +253,8 @@
     <!-- ── Page header ── -->
     <section class="cases-header">
       <div class="container container--flush">
-        <p class="cases-header__eyebrow">Selected work</p>
-        <h1 class="cases-header__title">Case studies</h1>
+        <p class="cases-header__eyebrow">Case studies</p>
+        <h1 class="cases-header__title">Work that earns its keep</h1>
         <p class="cases-header__subtitle">Selected work across design systems, SAAS and B2B products.</p>
       </div>
     </section>
@@ -289,7 +277,6 @@
               </picture>
             </div>
             <div class="case-row__content">
-              <span class="case-row__eyebrow">Forms · SAAS</span>
               <h2 class="case-row__title">Reducing form complexity to improve data accuracy</h2>
               <p class="case-row__outcome">Introduced rule-based conditional logic to Teamwork Forms, turning long static forms into dynamic experiences that only ask what's relevant.</p>
               <div class="case-metrics">
@@ -320,7 +307,6 @@
               </picture>
             </div>
             <div class="case-row__content">
-              <span class="case-row__eyebrow">User availability · B2B</span>
               <h2 class="case-row__title">Solving availability to restore planning confidence</h2>
               <p class="case-row__outcome">Designed a system-wide public holidays solution with bulk management and automated recurrence, cutting manual entry and making planning data trustworthy.</p>
               <div class="case-metrics">
@@ -351,7 +337,6 @@
               </picture>
             </div>
             <div class="case-row__content">
-              <span class="case-row__eyebrow">Design system · Proptech</span>
               <h2 class="case-row__title">Building the foundation for a scalable design system</h2>
               <p class="case-row__outcome">Led the foundations layer of Boomin's design system (Mosaic) — colour, type, grid, space, shadow and icons — reducing design and dev debt across the product team.</p>
               <div class="case-metrics">
@@ -382,7 +367,6 @@
               </picture>
             </div>
             <div class="case-row__content">
-              <span class="case-row__eyebrow">Mobile app</span>
               <h2 class="case-row__title">Pantry app</h2>
               <p class="case-row__outcome">A mobile app for managing food inventory and tracking expiry — case study in progress.</p>
               <span class="coming-soon-pill">Coming soon</span>
