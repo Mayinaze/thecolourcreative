@@ -15,15 +15,6 @@
       padding-bottom: 64px;
     }
 
-    .cases-header__eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 12px;
-    }
-
     .cases-header__title {
       font-size: 52px;
       font-weight: 700;
@@ -48,11 +39,13 @@
     }
 
     .case-row {
-      padding-bottom: 56px;
+      padding-bottom: 72px;
     }
     .case-row + .case-row {
       border-top: 1px solid var(--color-border);
-      padding-top: 56px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      padding-top: 72px;
     }
     .case-row:last-child {
       padding-bottom: 0;
@@ -206,8 +199,8 @@
 
     /* ── Responsive ── */
     @media (max-width: 1024px) {
-      .case-row { padding-bottom: 44px; }
-      .case-row + .case-row { padding-top: 44px; }
+      .case-row { padding-bottom: 56px; }
+      .case-row + .case-row { padding-top: 56px; }
       .case-row,
       .case-row--reverse { gap: 32px; }
     }
@@ -217,8 +210,8 @@
       .cases-header__title { font-size: 34px; }
       .cases-header__subtitle { font-size: 16px; }
 
-      .case-row { padding-bottom: 32px; }
-      .case-row + .case-row { padding-top: 32px; }
+      .case-row { padding-bottom: 40px; }
+      .case-row + .case-row { padding-top: 40px; }
 
       /* Stack to single column — image always on top, drop alternating order */
       .case-row,
@@ -266,7 +259,6 @@
     <!-- ── Page header ── -->
     <section class="cases-header">
       <div class="container container--flush">
-        <p class="cases-header__eyebrow">Case studies</p>
         <h1 class="cases-header__title">Work that earns its keep</h1>
         <p class="cases-header__subtitle">Selected work across design systems, SAAS and B2B products.</p>
       </div>
