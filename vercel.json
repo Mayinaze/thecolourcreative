@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    { "source": "/ux-ui-improvements", "destination": "/product-enhancements", "permanent": true },
+    { "source": "/ux-ui-improvements.html", "destination": "/product-enhancements.html", "permanent": true },
+    { "source": "/ux-ui-improvements/scheduler-modal-improvements", "destination": "/product-enhancements/scheduler-modal-improvements", "permanent": true },
+    { "source": "/ux-ui-improvements/scheduler-modal-improvements.html", "destination": "/product-enhancements/scheduler-modal-improvements.html", "permanent": true },
+    { "source": "/ux-ui-improvements/ai-smart-assign", "destination": "/product-enhancements/ai-smart-assign", "permanent": true },
+    { "source": "/ux-ui-improvements/ai-smart-assign.html", "destination": "/product-enhancements/ai-smart-assign.html", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.html",

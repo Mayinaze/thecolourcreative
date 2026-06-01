@@ -2003,3 +2003,63 @@ h1.page-hero-title {
   }
 }
 /* Fri May 29 19:10:04 UTC 2026 */
+
+/* ============================================
+   Breadcrumb
+   ============================================ */
+.breadcrumb {
+  margin-bottom: 32px;
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: var(--color-text-sub);
+}
+
+.breadcrumb__item + .breadcrumb__item::before {
+  content: '/';
+  color: var(--color-border);
+  margin: 0 8px;
+  font-size: 13px;
+}
+
+.breadcrumb__link {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.breadcrumb__link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+.breadcrumb__link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.breadcrumb__current {
+  color: var(--color-text-sub);
+}
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    margin-bottom: 24px;
+  }
+}
