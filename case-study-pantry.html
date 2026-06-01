@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Colour Creative — Pantry Case Study</title>
+  <meta name="description" content="Reducing food waste through a smarter household pantry — Pantry case study." />
+  <link rel="stylesheet" href="css/style.css?v=6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    /* What Changed callout — reused from product-enhancements detail pages */
+    .what-changed {
+      background: rgba(223, 20, 99, 0.08);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+    }
+    .what-changed__label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .what-changed__body {
+      font-size: 16px;
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    /* Before / After columns */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .before-after__label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .before-after__placeholder {
+      height: 280px;
+      background: #2A2728;
+      border: 1px solid #434343;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .before-after__placeholder-text {
+      font-size: 13px;
+      color: var(--color-text-sub);
+    }
+    /* Full-width copy — for sections without a visual column */
+    .cs-copy--full {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 768px) {
+      .before-after {
+        grid-template-columns: 1fr;
+      }
+      .before-after__placeholder {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       Navigation
+       ============================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <span class="nav__brand"><span>The</span> Colour Creative</span>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="/" class="nav__link">Home</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="/case-studies.html" class="nav__link active">Case studies</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="/playground.html" class="nav__link">Playground</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="/product-enhancements.html" class="nav__link">Product enhancements</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================
+       Main Content
+       ============================ -->
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="cs-hero">
+      <div class="container container--flush">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Home</a></li>
+            <li class="breadcrumb__item"><a href="/case-studies.html" class="breadcrumb__link">Case studies</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">Reducing food waste through a smarter household pantry</span></li>
+          </ol>
+        </nav>
+        <p class="cs-eyebrow">Personal project · App design &amp; development</p>
+        <h1 class="cs-hero__title">Reducing food waste through a smarter household pantry</h1>
+        <picture>
+          <source srcset="assets/pantry-app.webp" type="image/webp" />
+          <img src="assets/pantry-app.png" alt="Pantry app — inventory view showing items organised across fridge, freezer and cupboard with expiry tracking" class="cs-hero__image" loading="eager" decoding="async" fetchpriority="high" />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ── Project overview ── -->
+    <section class="cs-overview">
+      <div class="container container--flush">
+        <div class="cs-overview__divider" aria-hidden="true"></div>
+
+        <div class="cs-overview__grid">
+          <div class="cs-overview__left">
+            <p class="cs-eyebrow">Quick read</p>
+            <h2 class="cs-overview__title">Project overview</h2>
+            <div class="cs-overview__copy">
+              <p>
+                We had a simple, recurring problem: we'd open the fridge, have no idea what was about to go off, and end up defaulting to the same handful of meals — or worse, throwing food away that we'd forgotten about. No app we tried felt worth the overhead of maintaining it.
+              </p>
+              <p>
+                Pantry is the app I built to close that loop. Scan a receipt and your shopping gets added automatically. The app tracks what you have across fridge, freezer, and cupboard, surfaces anything about to expire, and suggests meals based on what's actually there. Log a meal and the ingredients are deducted. It's a tight, deliberate habit loop — nothing more.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-overview__cards">
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M20.0095 10.8511C22.2552 10.8511 24.0757 12.6716 24.0757 14.9172C24.0757 17.1629 22.2552 18.9834 20.0095 18.9834C17.7638 18.9834 15.9434 17.1629 15.9434 14.9172C15.9434 12.6716 17.7638 10.8511 20.0095 10.8511Z" stroke="#EB216F" stroke-width="1.7022"/>
+                <path d="M13.9374 25.5707L13.5386 26.9382C13.2162 28.0436 14.0452 29.149 15.1966 29.149H24.8226C25.974 29.149 26.803 28.0436 26.4806 26.9382L26.0818 25.5707C25.2946 22.872 22.8208 21.0166 20.0096 21.0166C17.1984 21.0166 14.7246 22.872 13.9374 25.5707Z" stroke="#EB216F" stroke-width="1.7022"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Responsibilities</p>
+                <p class="cs-info-card__value">Product strategy, UX design, frontend development, AI integration</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M12 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M24 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M15 15L15 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M21 15L21 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M27 15L27 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M18 12L18 27" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Target users</p>
+                <p class="cs-info-card__value">Two-person household — initially just me and my partner</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M10.8495 22.7429H29.1504" stroke="#EB216F" stroke-width="1.69904" stroke-linecap="round"/>
+                <path d="M11.7645 19.9978L14.6634 15.6495C15.0255 15.1062 15.8239 15.1062 16.1861 15.6495L18.1699 18.6252M19.0849 19.9978L18.1699 18.6252M18.1699 18.6252L22.3706 12.1331C22.7467 11.5519 23.6071 11.5826 23.9407 12.1892L28.2354 19.9978" stroke="#EB216F" stroke-width="1.69904" stroke-linecap="round"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Status</p>
+                <p class="cs-info-card__value">In active daily use — core habit loop shipped, Cook page in progress</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Problem statement ── -->
+    <section class="cs-problem">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-problem__grid">
+          <div class="cs-problem__copy cs-copy--full">
+            <p class="cs-eyebrow">Problem statement</p>
+            <h2 class="cs-problem__title">We couldn't cook confidently from what we had — because we didn't know what we had.</h2>
+            <div class="cs-problem__body">
+              <p>
+                Without a reliable view of what was in the fridge, freezer, or cupboard, every meal decision started from scratch. Expiry dates were invisible until it was too late. Meal planning happened independently of actual inventory, leading to duplicate buying, forgotten leftovers, and the same handful of meals on repeat.
+              </p>
+              <p>
+                Every app we tried solved part of the problem but created new friction in the process. Maintaining them felt like a second job. The overhead wasn't worth it, so they were abandoned — and the original problem remained.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Current known pains</h3>
+            <ul class="cs-pain-list">
+              <li>No visibility into what was in the fridge, freezer, or cupboard without physically checking</li>
+              <li>Expiry dates went unnoticed until it was too late</li>
+              <li>Meal planning happened independently of actual inventory</li>
+              <li>Duplicate buying — restocking things we already had</li>
+              <li>Leftovers forgotten at the back of the fridge</li>
+              <li>Existing apps felt like admin — too much friction to keep accurate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Discovery & Research ── -->
+    <section class="cs-discovery">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-discovery__grid">
+          <div class="cs-discovery__copy">
+            <p class="cs-eyebrow">Discovery &amp; research</p>
+            <h2 class="cs-discovery__title">
+              Validating the right problem.<br />
+              Building the right thing.
+            </h2>
+            <div class="cs-discovery__body">
+              <p>
+                Unlike a typical product project, I was both the designer and the primary user. Research looked different — rather than formal interviews, it was honest observation of our own household behaviour over time. The problem wasn't hypothetical. We were living it.
+              </p>
+              <p>
+                Before writing a line of code, I defined what a successful V1 had to do: close a single loop. Scan a receipt → inventory updates → cook something before it expires → inventory reflects what was used. Every feature that didn't serve that loop was deferred.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Scope decisions made upfront</h3>
+            <ul class="cs-pain-list">
+              <li><strong>Two users, one shared pantry</strong> — no accounts, no auth overhead until the core habit loop was proven</li>
+              <li><strong>Web app (PWA)</strong> — accessible immediately from both phones, saveable to home screen, no App Store submission</li>
+              <li><strong>Static meal library first, AI for edge cases</strong> — pre-generated JSON library keeps the common case fast and free; Claude API reserved for sparse pantry situations</li>
+              <li><strong>No photos on meal cards</strong> — AI-generated images look wrong, stock images need a database, clean typography carries the cards better</li>
+            </ul>
+          </div>
+          <div class="cs-discovery__visual">
+            <picture>
+              <source srcset="assets/pantry-app.webp" type="image/webp" />
+              <img src="assets/pantry-app.png" alt="Pantry app inventory view" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Test & Validate / Design decisions ── -->
+    <section class="cs-discovery">
+      <div class="container container--flush">
+        <div class="cs-discovery__grid">
+          <div class="cs-discovery__copy cs-copy--full">
+            <p class="cs-eyebrow">Test &amp; validate</p>
+            <h2 class="cs-discovery__title">
+              Designing in the open.<br />
+              Iterating from real use.
+            </h2>
+            <div class="cs-discovery__body">
+              <p>
+                The first real user feedback didn't come from a usability session — it came from my partner using the app for the first time. She scanned a receipt, the pantry populated as expected, and then she did something I hadn't designed for: she wanted to split a quantity across two locations. Two loaves of bread — one for the cupboard, one for the freezer. The app had no way to do that.
+              </p>
+              <p>
+                That single moment shaped one of the most interesting design problems in the project: how do you let someone divide an item between storage locations without adding complexity to the main pantry view?
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Split item feature</h3>
+            <div class="cs-discovery__body">
+              <p>
+                Rather than adding a top-level UI control, the split action was hidden behind a swipe gesture. Short swipe reveals two actions (Delete + Split); long swipe still commits delete. The Split action only appears for items with quantity greater than 1 — single-quantity items show Delete only, with Split hidden entirely. This keeps the interface clean for the common case.
+              </p>
+            </div>
+            <div class="what-changed">
+              <p class="what-changed__label">What Changed</p>
+              <p class="what-changed__body">A single swipe-to-delete became a two-action gesture — short swipe reveals Delete and Split, long swipe still commits delete. The Split action is hidden entirely for single-quantity items, keeping the interface clean for the common case.</p>
+            </div>
+            <div class="before-after">
+              <div class="before-after__col">
+                <p class="before-after__label">Before</p>
+                <div class="before-after__placeholder">
+                  <span class="before-after__placeholder-text">Screenshot coming soon</span>
+                </div>
+              </div>
+              <div class="before-after__col">
+                <p class="before-after__label">After</p>
+                <div class="before-after__placeholder">
+                  <span class="before-after__placeholder-text">Screenshot coming soon</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="cs-problem__pains-title">CTA in the split drawer</h3>
+            <div class="cs-discovery__body">
+              <p>
+                The save button went through two iterations. "Save changes" felt generic. "Split item" was better but still abstract. The final version uses a dynamic CTA tied to the destination selection: "Move to Freezer", "Move to Fridge", "Move to Cupboard". The button communicates the outcome before the user taps it.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Settings async flash fix</h3>
+            <div class="cs-discovery__body">
+              <p>
+                An early bug caused a visible layout jump when navigating to Settings — caused by a Supabase <code>getUser()</code> call re-authenticating on every navigation. Fixed by switching to <code>getSession()</code> (local cache) and a shared auth context, instantly resolving the layout shift on return visits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Solution ── -->
+    <section class="cs-solution">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-solution__grid">
+          <div class="cs-solution__copy cs-copy--full">
+            <p class="cs-eyebrow">Solution</p>
+            <h2 class="cs-solution__title">Design &amp; Build</h2>
+            <div class="cs-solution__body">
+              <p>Pantry is built around a single core loop: know what you have → cook before it expires → keep the pantry accurate. Every design and development decision was made in service of making that loop feel effortless.</p>
+              <h3 class="cs-problem__pains-title">Receipt scanning with Claude AI</h3>
+              <p>Photograph a supermarket receipt and Claude parses the items, infers storage locations (fridge / freezer / cupboard), and estimates expiry dates based on category. The result goes to a review screen before committing to the pantry — giving the user a chance to correct anything before it's saved.</p>
+              <h3 class="cs-problem__pains-title">Live inventory across three locations</h3>
+              <p>The pantry view organises items across Fridge, Freezer, and Cupboard via a sticky segmented control. Items approaching expiry are surfaced first. Long-life items suppress the expiry field entirely — showing it would be noise, not signal.</p>
+              <h3 class="cs-problem__pains-title">Meal suggestions weighted toward expiry</h3>
+              <p>The Cook tab surfaces meals that use the most at-risk ingredients first. A static pre-generated meal library handles the common case locally; the Claude API is reserved for edge cases like a sparse or unusual pantry. This keeps the feature fast and cost-effective.</p>
+              <h3 class="cs-problem__pains-title">Personalised onboarding</h3>
+              <p>A five-step flow that collects cuisine preferences, dietary requirements, cooking confidence, and spice tolerance before the user reaches the pantry. Optional seed data populates the pantry with example items, so the app never feels empty on first use.</p>
+              <h3 class="cs-problem__pains-title">Core principles that shaped every decision</h3>
+              <ul class="cs-pain-list">
+                <li><strong>Narrow scope first</strong> — prove the habit loop before adding users, features, or complexity</li>
+                <li><strong>Hide complexity, don't disable it</strong> — swipe actions hidden when irrelevant, not greyed out</li>
+                <li><strong>Static over dynamic where possible</strong> — pre-generated meal library avoids repeated AI costs</li>
+                <li><strong>Convert at display time, never at write time</strong> — unit conversions happen on read to prevent data corruption</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How it was built — AI-assisted development ── -->
+    <section class="cs-discovery">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-discovery__grid">
+          <div class="cs-discovery__copy cs-copy--full">
+            <p class="cs-eyebrow">How it was built</p>
+            <h2 class="cs-discovery__title">
+              Claude as collaborator,<br />
+              not just a tool.
+            </h2>
+            <div class="cs-discovery__body">
+              <p>
+                Every feature in Pantry was shipped through a deliberate workflow: design decisions made conversationally with Claude, translated into precise implementation prompts, then executed in Claude Code against the real codebase. The toolchain — GitHub, Supabase, and Vercel — meant every decision had somewhere to land immediately.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">The workflow</h3>
+            <ul class="cs-pain-list">
+              <li><strong>Define the problem conversationally</strong> — new features started as a conversation, exploring options and making decisions. The split item feature is a good example: my partner found the gap, I described it conversationally, and through back-and-forth we landed on the interaction model before a line of code was written</li>
+              <li><strong>Translate decisions into Claude Code prompts</strong> — each agreed design decision was turned into a precise, implementation-ready prompt referencing existing components, specifying exact behaviour, and defining what was explicitly out of scope</li>
+              <li><strong>Ship via Claude Code</strong> — Claude Code executed the prompt against the live codebase, reading existing patterns, writing to the right files, and maintaining consistency with the established design system</li>
+              <li><strong>Infrastructure that stays out of the way</strong> — GitHub for version control, Supabase for real-time sync between both users' devices, Vercel for zero-config deployment on every push to main</li>
+            </ul>
+            <div class="what-changed">
+              <p class="what-changed__label">What Changed</p>
+              <p class="what-changed__body">Design decisions made conversationally, translated into precise Claude Code prompts, and shipped against the live codebase — compressing the gap between idea and working product from weeks to days.</p>
+            </div>
+            <p class="cs-outcomes__closing">Built on Next.js · TypeScript · Tailwind CSS · Supabase · Claude API · Vercel</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Metrics ── -->
+    <section class="cs-metrics">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-metrics__intro">
+          <p class="cs-eyebrow">Metrics</p>
+          <h2 class="cs-metrics__title">A habit loop that actually works</h2>
+          <p class="cs-metrics__lead">
+            Personal project — no revenue metrics. What matters is that we open it without thinking about it. That habit is harder to design than any individual feature.
+          </p>
+        </div>
+
+        <div class="cs-metrics__grid">
+          <div class="cs-metric-card">
+            <img src="assets/Activate.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">Daily use</p>
+            <p class="cs-metric-card__label">Core habit loop working</p>
+            <p class="cs-metric-card__desc">Both users open the app multiple times a week — the core habit loop is working</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/percent.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">~90%</p>
+            <p class="cs-metric-card__label">Static library coverage</p>
+            <p class="cs-metric-card__desc">Meal suggestions served from the pre-generated library without an API call</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/Add.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">70–90%</p>
+            <p class="cs-metric-card__label">Estimated AI cost reduction</p>
+            <p class="cs-metric-card__desc">Static-first approach versus a fully dynamic AI-powered suggestion model</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Outcomes / Learnings ── -->
+    <section class="cs-outcomes">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-outcomes__grid">
+          <div class="cs-outcomes__copy">
+            <p class="cs-eyebrow">Learnings &amp; reflection</p>
+            <h2 class="cs-outcomes__title">What I set out to prove</h2>
+            <div class="cs-outcomes__body">
+              <p>
+                That a focused, single-loop app used daily by two real people is worth more than a feature-rich app nobody opens. Pantry validates that. We use it. It changed a small but real behaviour in our household.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">What changed</h3>
+            <ul class="cs-pain-list">
+              <li>We're wasting noticeably less food — items that would have been forgotten now get surfaced before they expire</li>
+              <li>Meal decisions feel more grounded — we cook from what's actually there rather than defaulting to memory</li>
+              <li>The split item feature was designed entirely from observed real-world use, not assumptions</li>
+              <li>AI-assisted development compressed the gap between "wouldn't it be nice if" and "we use this daily" to a matter of weeks</li>
+            </ul>
+            <h3 class="cs-problem__pains-title">What I learned</h3>
+            <ul class="cs-pain-list">
+              <li><strong>Your own frustration is a valid research method</strong> — the problem was real, the scope was constrained, and the solution was designed for actual behaviour, not hypothetical users</li>
+              <li><strong>Ship to real users early, even if that's just one person</strong> — my partner found a genuine gap in the first session. No amount of solo testing would have caught it</li>
+              <li><strong>Hiding complexity is a product decision, not just a UI decision</strong> — the split feature is only surfaced when it's relevant; showing it always would have added noise to every interaction</li>
+              <li><strong>Validation isn't always formal</strong> — the proof here is that we open the app without thinking about it. That habit is harder to design than any individual feature</li>
+              <li><strong>Claude Code as implementation handoff</strong> — using detailed Claude Code prompts as the primary mechanism for shipping features meant I could move from design decision to working code faster than any previous personal project</li>
+            </ul>
+            <p class="cs-outcomes__closing">
+              I'd build the Cook page sooner. Meal suggestions are where the app shifts from inventory tool to decision-making assistant — and that shift changes how often people reach for it. The habit loop gets stickier when the app solves "what should we eat tonight?", not just "what do we have."
+            </p>
+          </div>
+          <div class="cs-outcomes__visual" aria-hidden="true">
+            <picture>
+              <source srcset="assets/Done.webp" type="image/webp" />
+              <img src="assets/Done.png" alt="" class="cs-done-bubble" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       Next case study
+       ============================ -->
+  <a href="/case-study-conditional-logic.html" class="next-case-study" aria-label="Next case study: Reducing form complexity to improve data accuracy">
+    <div class="container">
+      <p class="next-case-study__eyebrow">Next case study</p>
+      <div class="next-case-study__row">
+        <h2 class="next-case-study__title">Reducing form complexity to improve data accuracy</h2>
+        <span class="next-case-study__arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__brand"><span class="brand-the">The</span> <span class="brand-colour">Colour</span> Creative</span>
+        <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
+        <div class="footer__links">
+          <a href="/" class="footer__link">Home</a>
+          <a href="/case-studies.html" class="footer__link">Case studies</a>
+          <a href="/playground.html" class="footer__link">Playground</a>
+          <a href="/product-enhancements.html" class="footer__link">Product enhancements</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  (function () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const main = document.querySelector('main');
+
+    function mainQuery(selector) {
+      return Array.from(main.querySelectorAll(selector));
+    }
+
+    const headings    = mainQuery('.cs-problem__title, .cs-discovery__title, .cs-solution__title, .cs-metrics__title, .cs-outcomes__title, .cs-overview__title');
+    const subHeadings = mainQuery('.cs-problem__pains-title');
+    const bodyParas   = mainQuery('.cs-problem__body p, .cs-discovery__body p, .cs-solution__body p, .cs-outcomes__body p, .cs-metrics__lead, .cs-overview__copy p');
+    const listItems   = mainQuery('.cs-pain-list li');
+    const images      = mainQuery('picture, .cs-solution__visual img, .cs-done-bubble');
+
+    const heroSkip = new Set(main.querySelectorAll('.cs-hero *'));
+
+    function shouldAnimate(el) {
+      return !heroSkip.has(el);
+    }
+
+    [...headings, ...subHeadings, ...bodyParas, ...listItems, ...images]
+      .filter(shouldAnimate)
+      .forEach(el => gsap.set(el, { opacity: 0, y: 24 }));
+
+    images.filter(shouldAnimate).forEach(el => gsap.set(el, { opacity: 0, y: 16 }));
+
+    headings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      });
+    });
+
+    subHeadings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
+    });
+
+    bodyParas.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        delay: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      });
+    });
+
+    const lists = mainQuery('.cs-pain-list');
+    lists.forEach(list => {
+      const items = Array.from(list.querySelectorAll('li'));
+      gsap.to(items, {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        delay: 0.2,
+        ease: 'power2.out',
+        stagger: 0.08,
+        scrollTrigger: { trigger: list, start: 'top 85%', once: true },
+      });
+    });
+
+    images.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      });
+    });
+
+    // Metric cards — all text values, just fade in
+    mainQuery('.cs-metric-card__value').forEach(el => {
+      gsap.set(el, { opacity: 0 });
+      gsap.to(el, { opacity: 1, duration: 0.5, scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+    });
+
+  })();
+  </script>
+</body>
+</html>
