@@ -71,13 +71,13 @@ function initMobileNav() {
   }
 
   // ── Mobile floating pill nav ──────────────────────────────────
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = window.location.pathname;
 
   const navItems = [
-    { href: 'index.html',              label: 'Home' },
-    { href: 'case-studies.html',       label: 'Case studies' },
-    { href: 'playground.html',         label: 'Playground' },
-    { href: 'product-enhancements.html', label: 'Product enhancements' },
+    { href: '/',                              label: 'Home' },
+    { href: '/case-studies.html',             label: 'Case studies' },
+    { href: '/playground.html',               label: 'Playground' },
+    { href: '/product-enhancements.html',     label: 'Product enhancements' },
   ];
 
   // Overlay
@@ -97,9 +97,9 @@ function initMobileNav() {
     pill.className = 'mob-nav-pill';
     pill.textContent = item.label;
 
-    const href = item.href;
-    if (href === currentPage ||
-       (currentPage === '' && href === 'index.html')) {
+    if (item.href === '/'
+        ? (currentPath === '/' || currentPath === '/index.html')
+        : currentPath === item.href || currentPath === item.href.replace('.html', '')) {
       pill.classList.add('active');
     }
 
