@@ -60,7 +60,7 @@
   --transition-med:    0.3s ease;
 
   /* Mobile top offset — single source of truth for all page headers on mobile */
-  --page-header-top-mobile: 32px;
+  --page-header-top-mobile: 48px;
 }
 
 /* ============================================
@@ -1850,7 +1850,7 @@ h1.page-hero-title {
 
 @media (max-width: 768px) {
   .cs-hero {
-    padding-top: 32px;
+    padding-top: var(--page-header-top-mobile);
     padding-bottom: 48px;
   }
   .cs-hero__title {
