@@ -99,11 +99,11 @@
       line-height: 1.7;
     }
 
-    /* ── Before / After columns ── */
+    /* ── Before / After stacked ── */
     .before-after {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 40px;
       margin-bottom: 24px;
     }
 
@@ -201,10 +201,6 @@
         font-size: 16px;
       }
 
-      .before-after {
-        grid-template-columns: 1fr;
-      }
-
       .before-after__placeholder {
         height: 240px;
       }
@@ -271,15 +267,11 @@
           <div class="before-after">
             <div class="before-after__col">
               <p class="before-after__label">Before</p>
-              <div class="before-after__placeholder">
-                <span class="before-after__placeholder-text">Screenshot placeholder</span>
-              </div>
+              <img src="../assets/Allocation.png" alt="Before — the original transfer of work drawer" style="width:100%;border-radius:8px;" loading="lazy" />
             </div>
             <div class="before-after__col">
               <p class="before-after__label">After</p>
-              <div class="before-after__placeholder">
-                <span class="before-after__placeholder-text">Screenshot placeholder</span>
-              </div>
+              <img src="../assets/allocation-AI.png" alt="After — AI Smart Assign surfacing ranked suggestions" style="width:100%;border-radius:8px;" loading="lazy" />
             </div>
           </div>
 
