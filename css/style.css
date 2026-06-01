@@ -2062,4 +2062,7 @@ h1.page-hero-title {
   .breadcrumb {
     margin-bottom: 24px;
   }
+  .breadcrumb__item:last-child {
+    display: none;
+  }
 }
