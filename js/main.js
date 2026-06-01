@@ -77,7 +77,7 @@ function initMobileNav() {
     { href: 'index.html',              label: 'Home' },
     { href: 'case-studies.html',       label: 'Case studies' },
     { href: 'playground.html',         label: 'Playground' },
-    { href: 'ux-ui-improvements.html', label: 'UX/UI improvements' },
+    { href: 'product-enhancements.html', label: 'Product enhancements' },
   ];
 
   // Overlay

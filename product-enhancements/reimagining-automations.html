@@ -133,24 +133,6 @@
       color: var(--color-text-sub);
     }
 
-    /* ── Impact stat ── */
-    .impact-stat {
-      font-size: 14px;
-      color: var(--color-text-sub);
-      font-style: italic;
-    }
-
-    /* ── Hackathon win callout (prominent) ── */
-    .impact-win {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--color-text);
-      background: rgba(223, 20, 99, 0.06);
-      border-radius: 6px;
-      padding: 12px 16px;
-      display: inline-block;
-    }
-
     /* ── Section divider ── */
     .section-divider {
       width: 100%;
@@ -181,6 +163,71 @@
       color: var(--color-text);
     }
 
+    /* ── Quote bubbles (new component) ── */
+    .quote-section__intro {
+      margin-bottom: 48px;
+    }
+
+    .quote-bubbles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quote-bubble {
+      background: var(--color-surface-2);
+      border-radius: 16px;
+      padding: 32px 36px 28px;
+      max-width: 52%;
+    }
+
+    .quote-bubble--left {
+      align-self: flex-start;
+    }
+
+    .quote-bubble--right {
+      align-self: flex-end;
+    }
+
+    .quote-bubble + .quote-bubble {
+      margin-top: 28px;
+    }
+
+    .quote-bubble::before {
+      content: '\201C';
+      display: block;
+      font-size: 72px;
+      line-height: 0.65;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .quote-bubble__text {
+      font-size: 16px;
+      color: var(--color-text);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .quote-bubble__text::after {
+      content: '\201D';
+      color: var(--color-accent);
+      font-size: 1.3em;
+      line-height: 0;
+      vertical-align: -0.25em;
+      margin-left: 3px;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .quote-bubble__attribution {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-sub);
+      margin: 16px 0 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 1024px) {
       .detail-header__title {
@@ -207,6 +254,17 @@
 
       .before-after__placeholder {
         height: 240px;
+      }
+
+      .quote-bubble,
+      .quote-bubble--left,
+      .quote-bubble--right {
+        max-width: 100%;
+        align-self: stretch;
+      }
+
+      .quote-bubble + .quote-bubble {
+        margin-top: 16px;
       }
     }
   </style>
@@ -279,11 +337,68 @@
             </div>
           </div>
 
-          <p class="impact-stat">Multiple testers asked unprompted for customisable columns — validating the extensible, column-based direction for surfacing more automation data over time.</p>
-
-          <p class="impact-win">80% of users preferred the redesigned table · 50 respondents, unmoderated preference test</p>
-
         </article>
+
+        <!-- ── Divider ── -->
+        <div class="section-divider"></div>
+
+        <!-- ── Metrics ── -->
+        <section class="reveal">
+          <div class="cs-metrics__intro">
+            <p class="cs-eyebrow">Metrics</p>
+            <h2 class="cs-metrics__title">Validating the table layout with real users</h2>
+            <p class="cs-metrics__lead">Before building, I tested the redesigned table against the existing card layout in an unmoderated preference study. The result was decisive — and the reasoning behind it pointed clearly at why the table scales better.</p>
+          </div>
+          <div class="cs-metrics__grid">
+            <div class="cs-metric-card">
+              <img src="../assets/percent.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+              <p class="cs-metric-card__value" style="color: var(--color-accent)">80%</p>
+              <p class="cs-metric-card__label">Preferred the table</p>
+              <p class="cs-metric-card__desc">40 of 50 respondents chose the redesigned table layout over the original cards</p>
+            </div>
+            <div class="cs-metric-card">
+              <img src="../assets/Activate.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+              <p class="cs-metric-card__value cs-metric-card__value--text" style="color: var(--color-accent)">Scannability</p>
+              <p class="cs-metric-card__label">The top reason cited</p>
+              <p class="cs-metric-card__desc">Users repeatedly pointed to seeing more automations at once, faster scanning, and less scrolling</p>
+            </div>
+            <div class="cs-metric-card">
+              <img src="../assets/Add.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+              <p class="cs-metric-card__value cs-metric-card__value--text" style="color: var(--color-accent)">Customisable columns</p>
+              <p class="cs-metric-card__label">Most-requested addition</p>
+              <p class="cs-metric-card__desc">Testers asked, unprompted, to toggle which columns they see — validating the extensible direction</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Divider ── -->
+        <div class="section-divider"></div>
+
+        <!-- ── What users said ── -->
+        <section class="reveal">
+          <div class="quote-section__intro">
+            <p class="cs-eyebrow">What users said</p>
+            <h2 class="improvement__title">In their own words</h2>
+          </div>
+          <div class="quote-bubbles">
+
+            <div class="quote-bubble quote-bubble--left reveal">
+              <p class="quote-bubble__text">More info in the overview, all fitting one screen, easier to manage.</p>
+              <p class="quote-bubble__attribution">Survey participant</p>
+            </div>
+
+            <div class="quote-bubble quote-bubble--right reveal">
+              <p class="quote-bubble__text">Less scrolling, easier to see all in a glance, well organized, simple, clean, and consolidated.</p>
+              <p class="quote-bubble__attribution">Survey participant</p>
+            </div>
+
+            <div class="quote-bubble quote-bubble--left reveal">
+              <p class="quote-bubble__text">Cleaner, seems to also match the other table interfaces.</p>
+              <p class="quote-bubble__attribution">Survey participant</p>
+            </div>
+
+          </div>
+        </section>
 
         <!-- ── Footer nav ── -->
         <nav class="detail-footer-nav" aria-label="Improvement navigation">
