@@ -163,42 +163,30 @@
       color: var(--color-text);
     }
 
-    /* ── Quote bubbles (new component) ── */
-    .quote-section__intro {
-      margin-bottom: 48px;
+    /* ── Quote bubbles (reusable component) ── */
+    .quote-section__heading {
+      margin-bottom: 40px;
     }
 
     .quote-bubbles {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
     .quote-bubble {
       background: var(--color-surface-2);
       border-radius: 16px;
-      padding: 32px 36px 28px;
-      max-width: 52%;
-    }
-
-    .quote-bubble--left {
-      align-self: flex-start;
-    }
-
-    .quote-bubble--right {
-      align-self: flex-end;
-    }
-
-    .quote-bubble + .quote-bubble {
-      margin-top: 28px;
+      padding: 28px 32px 24px;
     }
 
     .quote-bubble::before {
       content: '\201C';
       display: block;
-      font-size: 72px;
-      line-height: 0.65;
+      font-size: 64px;
+      line-height: 0.6;
       color: var(--color-accent);
-      margin-bottom: 16px;
+      margin-bottom: 8px;
       font-family: Georgia, 'Times New Roman', serif;
     }
 
@@ -207,16 +195,6 @@
       color: var(--color-text);
       line-height: 1.7;
       margin: 0;
-    }
-
-    .quote-bubble__text::after {
-      content: '\201D';
-      color: var(--color-accent);
-      font-size: 1.3em;
-      line-height: 0;
-      vertical-align: -0.25em;
-      margin-left: 3px;
-      font-family: Georgia, 'Times New Roman', serif;
     }
 
     .quote-bubble__attribution {
@@ -256,15 +234,8 @@
         height: 240px;
       }
 
-      .quote-bubble,
-      .quote-bubble--left,
-      .quote-bubble--right {
-        max-width: 100%;
-        align-self: stretch;
-      }
-
-      .quote-bubble + .quote-bubble {
-        margin-top: 16px;
+      .quote-bubbles {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -376,24 +347,26 @@
 
         <!-- ── What users said ── -->
         <section class="reveal">
-          <div class="quote-section__intro">
-            <p class="cs-eyebrow">What users said</p>
-            <h2 class="improvement__title">In their own words</h2>
-          </div>
+          <h2 class="improvement__title quote-section__heading">What users said</h2>
           <div class="quote-bubbles">
 
-            <div class="quote-bubble quote-bubble--left reveal">
+            <div class="quote-bubble">
               <p class="quote-bubble__text">More info in the overview, all fitting one screen, easier to manage.</p>
               <p class="quote-bubble__attribution">Survey participant</p>
             </div>
 
-            <div class="quote-bubble quote-bubble--right reveal">
+            <div class="quote-bubble">
               <p class="quote-bubble__text">Less scrolling, easier to see all in a glance, well organized, simple, clean, and consolidated.</p>
               <p class="quote-bubble__attribution">Survey participant</p>
             </div>
 
-            <div class="quote-bubble quote-bubble--left reveal">
+            <div class="quote-bubble">
               <p class="quote-bubble__text">Cleaner, seems to also match the other table interfaces.</p>
+              <p class="quote-bubble__attribution">Survey participant</p>
+            </div>
+
+            <div class="quote-bubble">
+              <p class="quote-bubble__text">Clear who created the automation, what project it is related to, and active/inactive. Looks clean too.</p>
               <p class="quote-bubble__attribution">Survey participant</p>
             </div>
 
