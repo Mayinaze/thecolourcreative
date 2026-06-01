@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Colour Creative — AI Smart Assign | Product Enhancements</title>
-  <meta name="description" content="AI-powered work reassignment — surfacing the best-fit people ranked by role, skills and availability." />
+  <title>The Colour Creative — Reimagining Automations | Product Enhancements</title>
+  <meta name="description" content="Redesigning the automations manage tab from chunky vertical cards into a scalable table layout — validated by an 80% preference win in user testing." />
   <link rel="stylesheet" href="../css/style.css?v=7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -245,51 +245,49 @@
           <ol class="breadcrumb__list">
             <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Home</a></li>
             <li class="breadcrumb__item"><a href="/product-enhancements.html" class="breadcrumb__link">Product enhancements</a></li>
-            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">AI Smart Assign</span></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">Reimagining Automations</span></li>
           </ol>
         </nav>
 
         <!-- ── Page header ── -->
         <header class="detail-header reveal">
-          <span class="detail-header__label">Scheduler</span>
-          <h1 class="detail-header__title">AI Smart Assign</h1>
-          <p class="detail-header__context">An AI-powered enhancement to the transfer of work flow — automatically recommending the best-fit people to take on reassigned work, ranked by role, skills and availability. Built in a four-day, AI-themed company hackathon and shipped to production, where it took first place.</p>
+          <span class="detail-header__label">Automations</span>
+          <h1 class="detail-header__title">Reimagining Automations</h1>
+          <p class="detail-header__context">The automations manage tab originally listed every automation as a large vertical card. As teams scaled to dozens of automations, the layout became slow to scan — lots of scrolling, lots of back-and-forth, and a heavy footprint that limited how much could ever be surfaced per automation. I redesigned it as a table and ran a preference test against the existing card layout to validate the direction with real users.</p>
         </header>
 
-        <!-- ── Improvement 01 ── -->
+        <!-- ── Improvement ── -->
         <article class="improvement reveal">
 
-          <h2 class="improvement__title">Letting AI find the right fit</h2>
+          <h2 class="improvement__title">A layout built to scale</h2>
 
-          <p class="improvement__problem">When reassigning work from one person to another inside the transfer of work drawer, users had to manually scan the entire list of people — checking each individual's role, skills and current availability by hand to judge who could realistically take it on. The process was slow, easy to get wrong, and got harder as teams grew.</p>
+          <p class="improvement__problem">The existing card layout gave each automation a large, spacious row — comfortable, but only a few fit on screen at once and there was no room to grow.</p>
 
           <div class="what-changed">
             <p class="what-changed__label">What Changed</p>
-            <p class="what-changed__body">AI Smart Assign reads the work being transferred and the person it's moving from, then evaluates the wider team against three signals — role, skills and current availability. The best-fit people are ranked and surfaced at the top of the drawer, so users can assign the work directly from the suggestion without leaving the flow. The full list of people remains below for complete control. Built end-to-end across a four-day, AI-themed company hackathon — from brainstorm to shipped feature — it took first place and went straight to production.</p>
+            <p class="what-changed__body">I redesigned the manage tab as a table: a compact row per automation with dedicated columns for the automation, who created it, the related project(s), and an active toggle. The denser layout fits far more on screen, scans faster, aligns with the table patterns used elsewhere in the product, and — critically — leaves room to surface more metadata over time by turning columns on and off, rather than overwhelming a card. I tested the new table against the original cards in an unmoderated preference study (50 respondents) to confirm the direction before building.</p>
           </div>
 
           <div class="before-after">
             <div class="before-after__col">
-              <p class="before-after__label">Before</p>
-              <div class="before-after__placeholder">
-                <span class="before-after__placeholder-text">Screenshot placeholder</span>
-              </div>
+              <p class="before-after__label">Before — the original card layout</p>
+              <img src="../assets/card.png" alt="Before — the original card layout" style="width:100%;border-radius:8px;" loading="lazy" />
             </div>
             <div class="before-after__col">
-              <p class="before-after__label">After</p>
-              <div class="before-after__placeholder">
-                <span class="before-after__placeholder-text">Screenshot placeholder</span>
-              </div>
+              <p class="before-after__label">After — the redesigned table layout</p>
+              <img src="../assets/table.png" alt="After — the redesigned table layout" style="width:100%;border-radius:8px;" loading="lazy" />
             </div>
           </div>
 
-          <p class="impact-win">Shipped to production · first place, company hackathon</p>
+          <p class="impact-stat">Multiple testers asked unprompted for customisable columns — validating the extensible, column-based direction for surfacing more automation data over time.</p>
+
+          <p class="impact-win">80% of users preferred the redesigned table · 50 respondents, unmoderated preference test</p>
 
         </article>
 
         <!-- ── Footer nav ── -->
         <nav class="detail-footer-nav" aria-label="Improvement navigation">
-          <a href="/product-enhancements/reimagining-automations.html" class="detail-footer-nav__next">Next improvement →</a>
+          <a href="/product-enhancements/scheduler-modal-improvements.html" class="detail-footer-nav__next">Next improvement →</a>
         </nav>
 
       </div>
