@@ -97,11 +97,16 @@ function initMobileNav() {
     pill.className = 'mob-nav-pill';
     pill.textContent = item.label;
 
-    if (item.href === '/'
-        ? (currentPath === '/' || currentPath === '/index.html')
-        : currentPath === item.href || currentPath === item.href.replace('.html', '')) {
-      pill.classList.add('active');
+    let pillActive;
+    if (item.href === '/') {
+      pillActive = currentPath === '/' || currentPath === '/index.html';
+    } else {
+      const base = item.href.replace('.html', '');
+      pillActive = currentPath === item.href
+        || currentPath === base
+        || currentPath.startsWith(base + '/');
     }
+    if (pillActive) pill.classList.add('active');
 
     pill.addEventListener('click', () => closeMobNav());
     pillsContainer.appendChild(pill);
@@ -160,16 +165,21 @@ function initMobileNav() {
 // Active Nav Link
 // ============================================
 function initActiveNav() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = window.location.pathname;
   const links = document.querySelectorAll('.nav__link');
 
   links.forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage ||
-       (currentPage === '' && href === 'index.html') ||
-       (currentPage === 'index.html' && href === 'index.html')) {
-      link.classList.add('active');
+    let isActive;
+    if (href === '/') {
+      isActive = currentPath === '/' || currentPath === '/index.html';
+    } else {
+      const base = href.replace('.html', '');
+      isActive = currentPath === href
+        || currentPath === base
+        || currentPath.startsWith(base + '/');
     }
+    if (isActive) link.classList.add('active');
   });
 }
 
