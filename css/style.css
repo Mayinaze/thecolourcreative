@@ -58,6 +58,9 @@
   /* Transitions */
   --transition-fast:   0.2s ease;
   --transition-med:    0.3s ease;
+
+  /* Mobile top offset — single source of truth for all page headers on mobile */
+  --page-header-top-mobile: 32px;
 }
 
 /* ============================================
@@ -817,7 +820,7 @@ h1.page-hero-title {
 }
 
 @media (max-width: 768px) {
-  .pg-hero { padding-top: 32px; padding-bottom: 40px; }
+  .pg-hero { padding-top: var(--page-header-top-mobile); padding-bottom: 40px; }
   .pg-hero__title { font-size: 34px; margin-bottom: 16px; }
   h1.page-hero-title { font-size: 32px; }
   .pg-hero__subtitle { font-size: 15px; }
@@ -1195,7 +1198,7 @@ h1.page-hero-title {
 
   /* ── Hero ── */
   .hero {
-    padding-top: 32px;
+    padding-top: var(--page-header-top-mobile);
   }
 
   .hero__name {
