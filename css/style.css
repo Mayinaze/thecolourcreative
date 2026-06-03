@@ -1100,7 +1100,26 @@ h1.page-hero-title {
   transition: transform 0.25s ease, opacity 0.15s ease;
 }
 
-/* Close X state */
+/* Close X state — outline style so solid pink is reserved for active pill */
+.mob-nav-fab.open {
+  background: transparent;
+  border: 1px solid #DF1463;
+  box-shadow: none;
+}
+
+.mob-nav-fab.open:hover {
+  background: rgba(223, 20, 99, 0.12);
+}
+
+.mob-nav-fab.open:active {
+  background: rgba(223, 20, 99, 0.12);
+  transform: scale(0.93);
+}
+
+.mob-nav-fab.open .mob-nav-fab__icon span {
+  background: #DF1463;
+}
+
 .mob-nav-fab.open .mob-nav-fab__icon span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
