@@ -983,6 +983,8 @@ h1.page-hero-title {
 .reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
 .reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.24s; }
 .reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.36s; }
+.reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.48s; }
+.reveal-stagger.visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.60s; }
 
 
 /* ============================================
