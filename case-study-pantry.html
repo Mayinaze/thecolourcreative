@@ -309,12 +309,7 @@
                 The save button went through two iterations. "Save changes" felt generic. "Split item" was better but still abstract. The final version uses a dynamic CTA tied to the destination selection: "Move to Freezer", "Move to Fridge", "Move to Cupboard". The button communicates the outcome before the user taps it.
               </p>
             </div>
-            <h3 class="cs-problem__pains-title">Settings async flash fix</h3>
-            <div class="cs-discovery__body">
-              <p>
-                An early bug caused a visible layout jump when navigating to Settings — caused by a Supabase <code>getUser()</code> call re-authenticating on every navigation. Fixed by switching to <code>getSession()</code> (local cache) and a shared auth context, instantly resolving the layout shift on return visits.
-              </p>
-            </div>
+
           </div>
         </div>
       </div>
