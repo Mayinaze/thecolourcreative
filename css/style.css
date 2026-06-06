@@ -2087,6 +2087,17 @@ h1.page-hero-title {
 /* ============================================
    Quote Bubbles — user feedback grid
    ============================================ */
+
+/* improvement__title — used as the quote section heading */
+.improvement__title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #F9F9F9;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
 .quote-section__heading {
   margin-bottom: 40px;
 }
