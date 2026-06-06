@@ -1,0 +1,10 @@
+name: pages build and deployment
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No-op
+        run: echo "Site is deployed via Vercel. GitHub Pages is disabled."
