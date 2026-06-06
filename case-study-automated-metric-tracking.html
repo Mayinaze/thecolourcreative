@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Colour Creative — Automated Metric Tracking Tool</title>
+  <meta name="description" content="Automating metric tracking without losing design judgement — a self-initiated internal tool case study." />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- ============================
+       Navigation
+       ============================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <span class="nav__brand"><span>The</span> Colour Creative</span>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="/" class="nav__link">Home</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="/case-studies.html" class="nav__link active">Case studies</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="/playground.html" class="nav__link">Playground</a>
+      </li>
+      <li class="nav__item">
+        <div class="nav__divider" aria-hidden="true"></div>
+        <a href="/product-enhancements.html" class="nav__link">Product enhancements</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================
+       Main Content
+       ============================ -->
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="cs-hero">
+      <div class="container container--flush">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Home</a></li>
+            <li class="breadcrumb__item"><a href="/case-studies.html" class="breadcrumb__link">Case studies</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">Automating metric tracking without losing design judgement</span></li>
+          </ol>
+        </nav>
+        <p class="cs-eyebrow">Internal tool — Metric tracking</p>
+        <h1 class="cs-hero__title">Automating metric tracking without losing design judgement</h1>
+        <picture>
+          <source srcset="assets/metric-tracking-hero.webp" type="image/webp" />
+          <img src="assets/metric-tracking-hero.png" alt="Automated metric tracking tool — annotated output table" class="cs-hero__image" loading="eager" decoding="async" fetchpriority="high" />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ── Project overview ── -->
+    <section class="cs-overview">
+      <div class="container container--flush">
+        <div class="cs-overview__divider" aria-hidden="true"></div>
+
+        <div class="cs-overview__grid">
+          <div class="cs-overview__left">
+            <p class="cs-eyebrow">Quick read</p>
+            <h2 class="cs-overview__title">Project overview</h2>
+            <div class="cs-overview__copy">
+              <p>
+                Reforge's TARS framework — Target, Adopted, Retained, Satisfied — defines what a successful feature looks like. But it only works if the right events are tracked in the first place, and setting up that tracking was the slowest, most manual part of shipping any new feature. I built a tool that automates the grunt work while keeping me as the decision-maker on what gets measured.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-overview__cards">
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M20.0095 10.8511C22.2552 10.8511 24.0757 12.6716 24.0757 14.9172C24.0757 17.1629 22.2552 18.9834 20.0095 18.9834C17.7638 18.9834 15.9434 17.1629 15.9434 14.9172C15.9434 12.6716 17.7638 10.8511 20.0095 10.8511Z" stroke="#EB216F" stroke-width="1.7022"/>
+                <path d="M13.9374 25.5707L13.5386 26.9382C13.2162 28.0436 14.0452 29.149 15.1966 29.149H24.8226C25.974 29.149 26.803 28.0436 26.4806 26.9382L26.0818 25.5707C25.2946 22.872 22.8208 21.0166 20.0096 21.0166C17.1984 21.0166 14.7246 22.872 13.9374 25.5707Z" stroke="#EB216F" stroke-width="1.7022"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Responsibilities</p>
+                <p class="cs-info-card__value">Concept, design, build (self-initiated)</p>
+              </div>
+            </div>
+
+            <div class="cs-info-card">
+              <svg class="cs-info-card__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" fill="#181818"/>
+                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#272727"/>
+                <path d="M12 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M24 18V21" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M15 15L15 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M21 15L21 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M27 15L27 24" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M18 12L18 27" stroke="#EB216F" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              <div class="cs-info-card__text">
+                <p class="cs-info-card__label">Target users</p>
+                <p class="cs-info-card__value">Designers, PMs and developers setting up feature analytics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Problem statement ── -->
+    <section class="cs-problem">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-problem__grid">
+          <div class="cs-problem__copy">
+            <p class="cs-eyebrow">Problem statement</p>
+            <h2 class="cs-problem__title">Setting up tracking was slow, manual, and easy to skip under pressure.</h2>
+            <div class="cs-problem__body">
+              <p>
+                Before launching anything, I needed to define what to track so the TARS funnel could be measured. The hard part was never the tagging — it was identifying what deserved tracking and communicating it clearly to developers. I tried annotating flows, then building tables by hand: screenshotting each component, highlighting what to track, writing up event names and rationale one by one. It worked, but it was slow, repetitive, and didn't scale.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">Current known pains</h3>
+            <ul class="cs-pain-list">
+              <li>Identifying what to track was manual and subjective</li>
+              <li>Screenshotting and highlighting each component by hand</li>
+              <li>Writing event names and rationale one by one</li>
+              <li>Tracking got rushed or skipped under deadline pressure</li>
+              <li>Inconsistent event naming across features</li>
+              <li>Handoff to devs was a separate manual step</li>
+            </ul>
+          </div>
+          <div class="cs-problem__visual">
+            <picture>
+              <source srcset="assets/metric-tracking-before.webp" type="image/webp" />
+              <img src="assets/metric-tracking-before.png" alt="BEFORE — manual screenshot-and-highlight table" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Approach ── -->
+    <section class="cs-discovery">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-discovery__grid">
+          <div class="cs-discovery__copy">
+            <p class="cs-eyebrow">Approach</p>
+            <h2 class="cs-discovery__title">Automate the labour, not the decision.</h2>
+            <div class="cs-discovery__body">
+              <p>
+                I didn't want to hand the decision over to automation. Choosing what to measure is a design and product judgement call. The goal was to remove the manual labour around the decision, not the decision itself.
+              </p>
+            </div>
+          </div>
+          <div class="cs-discovery__visual"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Solution ── -->
+    <section class="cs-solution">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-solution__grid">
+          <div class="cs-solution__copy">
+            <p class="cs-eyebrow">Solution</p>
+            <h2 class="cs-solution__title">Design &amp; Build</h2>
+            <div class="cs-solution__body">
+              <p>
+                Using Claude Code, I built a tool that reads a Figma file via the Figma MCP, locates the relevant components, and extracts them as SVGs into a structured table. For each component it draws a box around exactly what to track and surfaces the event name, the rationale for why it's worth tracking, a priority level, and where the developer needs to implement it. It outputs either an HTML page or a CSV.
+              </p>
+              <h3 class="cs-problem__pains-title">Core principles</h3>
+              <ul class="cs-pain-list">
+                <li>Designer stays the decision-maker on what's tracked</li>
+                <li>Every tracked item carries a reason and a priority</li>
+                <li>Output doubles as a dev handoff with implementation location</li>
+                <li>HTML output is editable, not static</li>
+              </ul>
+              <p>
+                The HTML version isn't just a spec to hand off — it's a working surface. Rows can be edited inline, deleted, or re-prioritised, and you can upload your own images. That turns a static tracking doc into a collaboration artefact: I attach it to a developer task, but it also becomes where I brainstorm with developers, PMs and the wider team — here's what I want to track, what are your thoughts? The plan and the conversation live in the same place.
+              </p>
+            </div>
+          </div>
+          <div class="cs-solution__visual">
+            <picture>
+              <source srcset="assets/metric-tracking-after.webp" type="image/webp" />
+              <img src="assets/metric-tracking-after.png" alt="AFTER — the tool's generated output" loading="lazy" />
+            </picture>
+            <picture>
+              <source srcset="assets/metric-tracking-inline-edit.webp" type="image/webp" />
+              <img src="assets/metric-tracking-inline-edit.png" alt="Inline editing in action" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Metrics ── -->
+    <section class="cs-metrics">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-metrics__intro">
+          <p class="cs-eyebrow">Metrics</p>
+          <h2 class="cs-metrics__title">Faster setup, more reliable tracking</h2>
+          <p class="cs-metrics__lead">
+            Automating the manual parts of tracking setup freed up time, reduced errors, and made instrumentation something that ships with every feature — not just when there's bandwidth.
+          </p>
+        </div>
+
+        <div class="cs-metrics__grid">
+          <div class="cs-metric-card">
+            <img src="assets/Trophy.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">~90 → 15 min</p>
+            <p class="cs-metric-card__label">Faster setup</p>
+            <p class="cs-metric-card__desc">Initial tracking setup per feature went from a manual screenshot-and-annotate task to a quick review</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/percent.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">Every feature</p>
+            <p class="cs-metric-card__label">Tracking by default</p>
+            <p class="cs-metric-card__desc">Consistent event naming and complete coverage now ship with every new feature, not just when there's time</p>
+          </div>
+          <div class="cs-metric-card">
+            <img src="assets/Add.svg" alt="" class="cs-metric-card__icon" aria-hidden="true" />
+            <p class="cs-metric-card__value cs-metric-card__value--text">1 artefact</p>
+            <p class="cs-metric-card__label">Plan + collaboration</p>
+            <p class="cs-metric-card__desc">The editable HTML output doubles as a live collaboration surface for devs and PMs, not just a handoff doc</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Outcomes ── -->
+    <section class="cs-outcomes">
+      <div class="container container--flush">
+        <div class="cs-section-divider" aria-hidden="true"></div>
+        <div class="cs-outcomes__grid">
+          <div class="cs-outcomes__copy">
+            <p class="cs-eyebrow">Outcomes</p>
+            <h2 class="cs-outcomes__title">Learnings and reflection</h2>
+            <div class="cs-outcomes__body">
+              <p>
+                Automating the tracking setup removed one of the most friction-heavy steps in launching a feature. What used to take the best part of a day — annotating flows, building tables manually, writing rationale — became a guided review of a generated output.
+              </p>
+              <p>
+                The shift in focus from producing the plan to reviewing it changed how tracking conversations happened. It became easier to involve devs and PMs earlier, and the shared artefact meant everyone was working from the same source of truth.
+              </p>
+            </div>
+            <h3 class="cs-problem__pains-title">What changed</h3>
+            <ul class="cs-pain-list">
+              <li>Tracking setup went from hours to minutes</li>
+              <li>Instrumentation now consistent across features</li>
+              <li>The plan became a shared team artefact</li>
+            </ul>
+            <h3 class="cs-problem__pains-title">What I learned</h3>
+            <ul class="cs-pain-list">
+              <li>Automating the labour while keeping the judgement is the right line to draw</li>
+              <li>A reusable output format saves more time than any single setup</li>
+              <li>Making tracking easy is what makes it actually happen</li>
+            </ul>
+          </div>
+          <div class="cs-outcomes__visual" aria-hidden="true">
+            <picture>
+              <source srcset="assets/Done.webp" type="image/webp" />
+              <img src="assets/Done.png" alt="" class="cs-done-bubble" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       Next case study
+       ============================ -->
+  <a href="/case-study-conditional-logic.html" class="next-case-study" aria-label="Next case study: Reducing form complexity to improve data accuracy">
+    <div class="container">
+      <p class="next-case-study__eyebrow">Next case study</p>
+      <div class="next-case-study__row">
+        <h2 class="next-case-study__title">Reducing form complexity to improve data accuracy</h2>
+        <span class="next-case-study__arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__brand"><span class="brand-the">The</span> <span class="brand-colour">Colour</span> Creative</span>
+        <p class="footer__copy">&copy; 2026 Jake. All rights reserved.</p>
+        <div class="footer__links">
+          <a href="/" class="footer__link">Home</a>
+          <a href="/case-studies.html" class="footer__link">Case studies</a>
+          <a href="/playground.html" class="footer__link">Playground</a>
+          <a href="/product-enhancements.html" class="footer__link">Product enhancements</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  (function () {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const main = document.querySelector('main');
+
+    function mainQuery(selector) {
+      return Array.from(main.querySelectorAll(selector));
+    }
+
+    const headings    = mainQuery('.cs-problem__title, .cs-discovery__title, .cs-solution__title, .cs-metrics__title, .cs-outcomes__title, .cs-overview__title');
+    const subHeadings = mainQuery('.cs-problem__pains-title');
+    const bodyParas   = mainQuery('.cs-problem__body p, .cs-discovery__body p, .cs-solution__body p, .cs-outcomes__body p, .cs-metrics__lead, .cs-overview__copy p');
+    const listItems   = mainQuery('.cs-pain-list li');
+    const images      = mainQuery('picture, .cs-hifi__image, .cs-solution__visual img, .cs-done-bubble');
+
+    // All metric values on this page use --text so the counter query returns nothing
+    const statEls = mainQuery('.cs-metric-card__value:not(.cs-metric-card__value--text)');
+
+    const heroSkip = new Set(main.querySelectorAll('.cs-hero *'));
+
+    function shouldAnimate(el) {
+      return !heroSkip.has(el);
+    }
+
+    [...headings, ...subHeadings, ...bodyParas, ...listItems, ...images]
+      .filter(shouldAnimate)
+      .forEach(el => gsap.set(el, { opacity: 0, y: 24 }));
+
+    images.filter(shouldAnimate).forEach(el => gsap.set(el, { opacity: 0, y: 16 }));
+    statEls.forEach(el => gsap.set(el, { opacity: 0 }));
+
+    headings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      });
+    });
+
+    subHeadings.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
+    });
+
+    bodyParas.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        delay: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      });
+    });
+
+    const lists = mainQuery('.cs-pain-list');
+    lists.forEach(list => {
+      const items = Array.from(list.querySelectorAll('li'));
+      gsap.to(items, {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        delay: 0.2,
+        ease: 'power2.out',
+        stagger: 0.08,
+        scrollTrigger: { trigger: list, start: 'top 85%', once: true },
+      });
+    });
+
+    images.filter(shouldAnimate).forEach(el => {
+      gsap.to(el, {
+        opacity: 1, y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      });
+    });
+
+    statEls.forEach(el => {
+      gsap.to(el, { opacity: 1, duration: 0.5, scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
+    });
+
+  })();
+  </script>
+</body>
+</html>

@@ -227,6 +227,34 @@
       .case-row__title { font-size: 26px; }
       .case-row__read { width: 100%; justify-content: center; }
     }
+
+    /* ── Action group (Read + Watch demo) ── */
+    .case-row__actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Watch demo — tertiary text action, non-functional placeholder ── */
+    .case-row__watch-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--color-text-sub);
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.55;
+    }
+
+    .case-row__watch-demo svg {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .case-row__actions { width: 100%; justify-content: center; }
+      .case-row__read { width: auto; }
+    }
   </style>
 </head>
 <body>
@@ -306,7 +334,15 @@
                 </div>
               </div>
               <p class="case-row__context">Discovery, research &amp; design · Teamwork (SAAS)</p>
-              <span class="case-row__read">Read case study →</span>
+              <div class="case-row__actions">
+                <span class="case-row__read">Read case study →</span>
+                <span class="case-row__watch-demo" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4.5 2.5L13.5 8L4.5 13.5V2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+                  Watch demo
+                </span>
+              </div>
             </div>
           </a>
 
@@ -336,7 +372,15 @@
                 </div>
               </div>
               <p class="case-row__context">Discovery, research, strategy &amp; design · Teamwork (B2B)</p>
-              <span class="case-row__read">Read case study →</span>
+              <div class="case-row__actions">
+                <span class="case-row__read">Read case study →</span>
+                <span class="case-row__watch-demo" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4.5 2.5L13.5 8L4.5 13.5V2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+                  Watch demo
+                </span>
+              </div>
             </div>
           </a>
 
@@ -366,7 +410,15 @@
                 </div>
               </div>
               <p class="case-row__context">Design system architecture &amp; foundations · Boomin (Web &amp; App)</p>
-              <span class="case-row__read">Read case study →</span>
+              <div class="case-row__actions">
+                <span class="case-row__read">Read case study →</span>
+                <span class="case-row__watch-demo" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4.5 2.5L13.5 8L4.5 13.5V2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+                  Watch demo
+                </span>
+              </div>
             </div>
           </a>
 
@@ -396,7 +448,15 @@
                 </div>
               </div>
               <p class="case-row__context">Product strategy, design &amp; development · Personal project</p>
-              <span class="case-row__read">Read case study →</span>
+              <div class="case-row__actions">
+                <span class="case-row__read">Read case study →</span>
+                <span class="case-row__watch-demo" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4.5 2.5L13.5 8L4.5 13.5V2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+                  Watch demo
+                </span>
+              </div>
             </div>
           </a>
 
