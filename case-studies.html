@@ -171,14 +171,14 @@
       align-self: flex-start;
       padding: 10px 20px;
       border-radius: 8px;
-      color: var(--color-text);
+      color: #F9F9F9;
       font-size: 14px;
       font-weight: 500;
-      background: #262223;
+      background: #DF1463;
       transition: background var(--transition-fast);
     }
     .case-row:hover .case-row__read {
-      background: #302b2c;
+      background: #C00F54;
     }
 
     /* ── Headline row (first) — taller image ── */
@@ -225,7 +225,7 @@
       .case-row--reverse .case-row__content { order: 2; }
 
       .case-row__title { font-size: 26px; }
-      .case-row__read { width: 100%; justify-content: center; }
+      .case-row__read { display: flex; width: 100%; justify-content: center; }
     }
 
     /* ── Action group (Read + Watch demo) ── */
@@ -253,7 +253,6 @@
 
     @media (max-width: 768px) {
       .case-row__actions { width: 100%; justify-content: center; }
-      .case-row__read { width: auto; }
     }
   </style>
 </head>
