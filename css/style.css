@@ -979,12 +979,8 @@ h1.page-hero-title {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
-.reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
-.reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.24s; }
-.reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.36s; }
-.reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.48s; }
-.reveal-stagger.visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.60s; }
+/* transition-delay is set per-child by initScrollReveal() in main.js */
+.reveal-stagger.visible > * { opacity: 1; transform: none; }
 
 
 /* ============================================

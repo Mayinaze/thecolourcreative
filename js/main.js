@@ -12,6 +12,14 @@ function initScrollReveal() {
 
   if (!targets.length) return;
 
+  // Set stagger delays dynamically so any number of children "just works" —
+  // no CSS nth-child rule needed per child count
+  document.querySelectorAll('.reveal-stagger').forEach(group => {
+    Array.from(group.children).forEach((child, i) => {
+      child.style.transitionDelay = `${i * 0.12}s`;
+    });
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
