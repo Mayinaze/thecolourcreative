@@ -857,7 +857,7 @@ h1.page-hero-title {
   .pg-figma-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1 / 1;
     height: auto !important;
   }
 
