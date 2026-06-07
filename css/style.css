@@ -1257,6 +1257,7 @@ h1.page-hero-title {
 
   .footer__links {
     flex-direction: column;
+    align-items: flex-start;
     gap: 12px;
   }
 
