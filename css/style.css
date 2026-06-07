@@ -1255,6 +1255,11 @@ h1.page-hero-title {
     gap: 16px;
   }
 
+  .footer__links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
   /* ── 404 ── */
   .not-found__nav-links {
     flex-wrap: wrap;
