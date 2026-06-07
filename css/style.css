@@ -849,7 +849,7 @@ h1.page-hero-title {
   }
 
   .pg-card--figma {
-    padding: 16px !important;
+    padding: 24px !important;
     height: auto !important;
     min-height: unset !important;
   }
@@ -857,7 +857,7 @@ h1.page-hero-title {
   .pg-figma-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 443 / 700;
     height: auto !important;
   }
 
