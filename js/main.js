@@ -484,6 +484,116 @@ function initAvatarNav() {
 }
 
 // ============================================
+// Analytics — Vercel Web Analytics custom events
+// ============================================
+function initAnalytics() {
+  function track(props) {
+    try {
+      if (typeof window.va === 'function') window.va('event', props);
+    } catch (_) {}
+  }
+
+  // Delegated click handler — covers all page types
+  document.addEventListener('click', (e) => {
+    const cardLink   = e.target.closest('a.card__link');
+    const caseRow    = e.target.closest('a.case-row');
+    const uxuiCard   = e.target.closest('a.uxui-card');
+    const nextCase   = e.target.closest('a.next-case-study');
+    const navLink    = e.target.closest('.nav__link');
+    const footerLink = e.target.closest('.footer__link');
+
+    if (cardLink) {
+      const titleEl = cardLink.querySelector('.card__title');
+      track({
+        name:        'case_study_card_click',
+        destination: cardLink.getAttribute('href') || '',
+        title:       titleEl ? titleEl.textContent.trim() : (cardLink.getAttribute('aria-label') || ''),
+      });
+    } else if (caseRow) {
+      const titleEl = caseRow.querySelector('.case-row__title');
+      track({
+        name:        'case_study_card_click',
+        destination: caseRow.getAttribute('href') || '',
+        title:       titleEl ? titleEl.textContent.trim() : (caseRow.getAttribute('aria-label') || ''),
+      });
+    } else if (uxuiCard) {
+      const href = uxuiCard.getAttribute('href') || '';
+      track({
+        name:        'product_enhancement_click',
+        destination: href,
+        placeholder: href === '#' || href === '',
+      });
+    } else if (nextCase) {
+      track({
+        name:        'next_case_study_click',
+        destination: nextCase.getAttribute('href') || '',
+      });
+    } else if (navLink) {
+      track({
+        name:        'nav_click',
+        destination: navLink.getAttribute('href') || '',
+        location:    'nav',
+      });
+    } else if (footerLink) {
+      track({
+        name:        'nav_click',
+        destination: footerLink.getAttribute('href') || '',
+        location:    'footer',
+      });
+    }
+  });
+
+  // Scroll depth — case study pages only
+  if (window.location.pathname.includes('case-study-')) {
+    const fired = new Set();
+    let scrollTimer = null;
+
+    window.addEventListener('scroll', () => {
+      if (scrollTimer) return;
+      scrollTimer = setTimeout(() => {
+        scrollTimer = null;
+        const scrolled = window.scrollY || document.documentElement.scrollTop;
+        const total    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const pct      = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+
+        [25, 50, 75, 100].forEach(m => {
+          if (!fired.has(m) && pct >= m) {
+            fired.add(m);
+            track({ name: 'scroll_depth', depth: m, page: window.location.pathname });
+          }
+        });
+      }, 200);
+    }, { passive: true });
+  }
+
+  // Playground — Figma iframe interaction (cross-origin: detect via blur + mouseenter)
+  if (window.location.pathname.includes('playground')) {
+    const iframes = document.querySelectorAll('.pg-figma-wrapper iframe');
+    if (iframes.length) {
+      let mouseOnIframe = false;
+      let debounce      = null;
+
+      function fireInteraction() {
+        if (debounce) return;
+        debounce = setTimeout(() => { debounce = null; }, 500);
+        track({ name: 'playground_figma_interaction' });
+      }
+
+      iframes.forEach(iframe => {
+        iframe.addEventListener('mouseenter', () => { mouseOnIframe = true; });
+        iframe.addEventListener('mouseleave', () => { mouseOnIframe = false; });
+        iframe.addEventListener('focus', fireInteraction);
+      });
+
+      // Click into cross-origin iframe causes window to lose focus
+      window.addEventListener('blur', () => {
+        if (mouseOnIframe) fireInteraction();
+      });
+    }
+  }
+}
+
+// ============================================
 // Init all
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -495,4 +605,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavScroll();
   initCustomCursor();
   initAvatarNav();
+  initAnalytics();
 });
