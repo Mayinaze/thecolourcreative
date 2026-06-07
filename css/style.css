@@ -688,6 +688,23 @@ h1.page-hero-title {
   color: var(--color-accent);
 }
 
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-sub);
+  transition: color var(--transition-fast);
+}
+
+.footer__social-link:hover {
+  color: var(--color-accent);
+}
+
 /* ============================================
    Playground Page
    ============================================ */
@@ -2026,6 +2043,56 @@ h1.page-hero-title {
   }
 }
 /* Fri May 29 19:10:04 UTC 2026 */
+
+/* ============================================
+   Case Studies list — metrics strip
+   ============================================ */
+.case-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 4px 0;
+}
+
+.case-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 24px;
+  border-right: 1px solid var(--color-border);
+  min-width: 0;
+}
+
+.case-metric:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.case-metric__value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-accent);
+  line-height: 1.2;
+}
+
+.case-metric__label {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .case-metrics {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .case-metric {
+    border-right: none;
+    padding-right: 0;
+  }
+}
 
 /* ============================================
    Breadcrumb
