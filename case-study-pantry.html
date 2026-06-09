@@ -3,9 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/avatar.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <title>The Colour Creative — Pantry Case Study</title>
   <meta name="description" content="Reducing food waste through a smarter household pantry — Pantry case study." />
-  <link rel="stylesheet" href="css/style.css?v=7" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://thecolourcreative.co.uk/case-study-pantry.html" />
+  <meta property="og:title" content="Reducing food waste through a smarter household pantry — The Colour Creative" />
+  <meta property="og:description" content="A personal project exploring how smarter defaults and timely nudges can help households reduce food waste." />
+  <meta property="og:image" content="https://thecolourcreative.co.uk/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reducing food waste through a smarter household pantry — The Colour Creative" />
+  <meta name="twitter:description" content="A personal project exploring how smarter defaults and timely nudges can help households reduce food waste." />
+  <meta name="twitter:image" content="https://thecolourcreative.co.uk/assets/og-image.png" />
+  <link rel="stylesheet" href="css/style.css?v=10" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <style>
@@ -71,6 +84,10 @@
       }
     }
   </style>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -119,8 +136,8 @@
         <p class="cs-eyebrow">Personal project · App design &amp; development</p>
         <h1 class="cs-hero__title">Reducing food waste through a smarter household pantry</h1>
         <picture>
-          <source srcset="assets/pantry-app.webp" type="image/webp" />
-          <img src="assets/pantry-app.png" alt="Pantry app — inventory view showing items organised across fridge, freezer and cupboard with expiry tracking" class="cs-hero__image" loading="eager" decoding="async" fetchpriority="high" />
+          <source srcset="assets/shared/pantry-app.webp" type="image/webp" />
+          <img src="assets/shared/pantry-app.png" alt="Pantry app — inventory view showing items organised across fridge, freezer and cupboard with expiry tracking" class="cs-hero__image" loading="eager" decoding="async" fetchpriority="high" />
         </picture>
       </div>
     </section>
@@ -251,8 +268,8 @@
           </div>
           <div class="cs-discovery__visual">
             <picture>
-              <source srcset="assets/pantry-app.webp" type="image/webp" />
-              <img src="assets/pantry-app.png" alt="Pantry app inventory view" loading="lazy" />
+              <source srcset="assets/case-studies/pantry/pantry-discovery.webp" type="image/webp" />
+              <img src="assets/case-studies/pantry/pantry-discovery.png" alt="Pantry app alongside a Waitrose receipt — the real household context that drove the project" loading="lazy" />
             </picture>
           </div>
         </div>
@@ -290,15 +307,17 @@
             <div class="before-after">
               <div class="before-after__col">
                 <p class="before-after__label">Before</p>
-                <div class="before-after__placeholder">
-                  <span class="before-after__placeholder-text">Screenshot coming soon</span>
-                </div>
+                <picture>
+                  <source srcset="assets/case-studies/pantry/pantry-before.webp" type="image/webp" />
+                  <img src="assets/case-studies/pantry/pantry-before.png" alt="Pantry app — single swipe revealing only a delete action" style="width:100%;border-radius:8px;" loading="lazy" />
+                </picture>
               </div>
               <div class="before-after__col">
                 <p class="before-after__label">After</p>
-                <div class="before-after__placeholder">
-                  <span class="before-after__placeholder-text">Screenshot coming soon</span>
-                </div>
+                <picture>
+                  <source srcset="assets/case-studies/pantry/pantry-after.webp" type="image/webp" />
+                  <img src="assets/case-studies/pantry/pantry-after.png" alt="Pantry app — short swipe revealing Delete and Split actions; split drawer open with Move to Freezer CTA" style="width:100%;border-radius:8px;" loading="lazy" />
+                </picture>
               </div>
             </div>
             <h3 class="cs-problem__pains-title">CTA in the split drawer</h3>
@@ -307,12 +326,7 @@
                 The save button went through two iterations. "Save changes" felt generic. "Split item" was better but still abstract. The final version uses a dynamic CTA tied to the destination selection: "Move to Freezer", "Move to Fridge", "Move to Cupboard". The button communicates the outcome before the user taps it.
               </p>
             </div>
-            <h3 class="cs-problem__pains-title">Settings async flash fix</h3>
-            <div class="cs-discovery__body">
-              <p>
-                An early bug caused a visible layout jump when navigating to Settings — caused by a Supabase <code>getUser()</code> call re-authenticating on every navigation. Fixed by switching to <code>getSession()</code> (local cache) and a shared auth context, instantly resolving the layout shift on return visits.
-              </p>
-            </div>
+
           </div>
         </div>
       </div>
@@ -488,6 +502,22 @@
           <a href="/playground.html" class="footer__link">Playground</a>
           <a href="/product-enhancements.html" class="footer__link">Product enhancements</a>
         </div>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/the_colour_creative" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/thecolourcreative" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M7 10v7M7 7v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M11 17v-4c0-1.5 1-2 2-2s2 .5 2 2v4M11 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -497,93 +527,6 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-  (function () {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const main = document.querySelector('main');
-
-    function mainQuery(selector) {
-      return Array.from(main.querySelectorAll(selector));
-    }
-
-    const headings    = mainQuery('.cs-problem__title, .cs-discovery__title, .cs-solution__title, .cs-metrics__title, .cs-outcomes__title, .cs-overview__title');
-    const subHeadings = mainQuery('.cs-problem__pains-title');
-    const bodyParas   = mainQuery('.cs-problem__body p, .cs-discovery__body p, .cs-solution__body p, .cs-outcomes__body p, .cs-metrics__lead, .cs-overview__copy p');
-    const listItems   = mainQuery('.cs-pain-list li');
-    const images      = mainQuery('picture, .cs-solution__visual img, .cs-done-bubble');
-
-    const heroSkip = new Set(main.querySelectorAll('.cs-hero *'));
-
-    function shouldAnimate(el) {
-      return !heroSkip.has(el);
-    }
-
-    [...headings, ...subHeadings, ...bodyParas, ...listItems, ...images]
-      .filter(shouldAnimate)
-      .forEach(el => gsap.set(el, { opacity: 0, y: 24 }));
-
-    images.filter(shouldAnimate).forEach(el => gsap.set(el, { opacity: 0, y: 16 }));
-
-    headings.filter(shouldAnimate).forEach(el => {
-      gsap.to(el, {
-        opacity: 1, y: 0,
-        duration: 0.7,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      });
-    });
-
-    subHeadings.filter(shouldAnimate).forEach(el => {
-      gsap.to(el, {
-        opacity: 1, y: 0,
-        duration: 0.6,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-      });
-    });
-
-    bodyParas.filter(shouldAnimate).forEach(el => {
-      gsap.to(el, {
-        opacity: 1, y: 0,
-        duration: 0.7,
-        delay: 0.2,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      });
-    });
-
-    const lists = mainQuery('.cs-pain-list');
-    lists.forEach(list => {
-      const items = Array.from(list.querySelectorAll('li'));
-      gsap.to(items, {
-        opacity: 1, y: 0,
-        duration: 0.6,
-        delay: 0.2,
-        ease: 'power2.out',
-        stagger: 0.08,
-        scrollTrigger: { trigger: list, start: 'top 85%', once: true },
-      });
-    });
-
-    images.filter(shouldAnimate).forEach(el => {
-      gsap.to(el, {
-        opacity: 1, y: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      });
-    });
-
-    // Metric cards — all text values, just fade in
-    mainQuery('.cs-metric-card__value').forEach(el => {
-      gsap.set(el, { opacity: 0 });
-      gsap.to(el, { opacity: 1, duration: 0.5, scrollTrigger: { trigger: el, start: 'top 80%', once: true } });
-    });
-
-  })();
-  </script>
+  <script src="js/reveal.js"></script>
 </body>
 </html>

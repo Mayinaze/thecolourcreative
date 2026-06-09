@@ -688,6 +688,23 @@ h1.page-hero-title {
   color: var(--color-accent);
 }
 
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-sub);
+  transition: color var(--transition-fast);
+}
+
+.footer__social-link:hover {
+  color: var(--color-accent);
+}
+
 /* ============================================
    Playground Page
    ============================================ */
@@ -849,7 +866,7 @@ h1.page-hero-title {
   }
 
   .pg-card--figma {
-    padding: 16px !important;
+    padding: 24px !important;
     height: auto !important;
     min-height: unset !important;
   }
@@ -857,7 +874,7 @@ h1.page-hero-title {
   .pg-figma-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 443 / 700;
     height: auto !important;
   }
 
@@ -979,10 +996,8 @@ h1.page-hero-title {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
-.reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
-.reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.24s; }
-.reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.36s; }
+/* transition-delay is set per-child by initScrollReveal() in main.js */
+.reveal-stagger.visible > * { opacity: 1; transform: none; }
 
 
 /* ============================================
@@ -1255,6 +1270,12 @@ h1.page-hero-title {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
   /* ── 404 ── */
@@ -2024,6 +2045,56 @@ h1.page-hero-title {
 /* Fri May 29 19:10:04 UTC 2026 */
 
 /* ============================================
+   Case Studies list — metrics strip
+   ============================================ */
+.case-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 4px 0;
+}
+
+.case-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 24px;
+  border-right: 1px solid var(--color-border);
+  min-width: 0;
+}
+
+.case-metric:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.case-metric__value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-accent);
+  line-height: 1.2;
+}
+
+.case-metric__label {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .case-metrics {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .case-metric {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+/* ============================================
    Breadcrumb
    ============================================ */
 .breadcrumb {
@@ -2083,5 +2154,67 @@ h1.page-hero-title {
   }
   .breadcrumb__item:last-child {
     display: none;
+  }
+}
+
+/* ============================================
+   Quote Bubbles — user feedback grid
+   ============================================ */
+
+/* improvement__title — used as the quote section heading */
+.improvement__title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #F9F9F9;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.quote-section__heading {
+  margin-bottom: 40px;
+}
+
+.quote-bubbles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.quote-bubble {
+  background: var(--color-surface-2);
+  border-radius: 16px;
+  padding: 28px 32px 24px;
+}
+
+.quote-bubble::before {
+  content: '\201C';
+  display: block;
+  font-size: 64px;
+  line-height: 0.6;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.quote-bubble__text {
+  font-size: 16px;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.quote-bubble__attribution {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-sub);
+  margin: 16px 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 768px) {
+  .quote-bubbles {
+    grid-template-columns: 1fr;
   }
 }
