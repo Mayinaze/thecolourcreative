@@ -7,16 +7,16 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <title>The Colour Creative — Case studies</title>
-  <meta name="description" content="Selected work across design systems, SAAS and B2B products — case studies by Jake at The Colour Creative." />
+  <title>The Colour Creative: Case studies</title>
+  <meta name="description" content="Selected work across design systems, SAAS and B2B products: case studies by Jake at The Colour Creative." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thecolourcreative.co.uk/case-studies.html" />
-  <meta property="og:title" content="Case Studies — The Colour Creative" />
-  <meta property="og:description" content="Selected work across design systems, SAAS and B2B products — case studies by Jake at The Colour Creative." />
+  <meta property="og:title" content="Case Studies: The Colour Creative" />
+  <meta property="og:description" content="Selected work across design systems, SAAS and B2B products: case studies by Jake at The Colour Creative." />
   <meta property="og:image" content="https://thecolourcreative.co.uk/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Case Studies — The Colour Creative" />
-  <meta name="twitter:description" content="Selected work across design systems, SAAS and B2B products — case studies by Jake at The Colour Creative." />
+  <meta name="twitter:title" content="Case Studies: The Colour Creative" />
+  <meta name="twitter:description" content="Selected work across design systems, SAAS and B2B products: case studies by Jake at The Colour Creative." />
   <meta name="twitter:image" content="https://thecolourcreative.co.uk/assets/og-image.png" />
   <link rel="stylesheet" href="css/style.css?v=10" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,7 +64,7 @@
       padding-bottom: 0;
     }
 
-    /* ── Row — 2-col grid, DOM order = media then content (kept consistent) ── */
+    /* Row: 2-col grid, DOM order = media then content (kept consistent) */
     .case-row {
       display: grid;
       grid-template-columns: 52% 48%;
@@ -78,14 +78,14 @@
     .case-row__media { order: 1; }
     .case-row__content { order: 2; }
 
-    /* Reverse modifier — image-right / content-left */
+    /* Reverse modifier: image-right / content-left */
     .case-row--reverse {
       grid-template-columns: 48% 52%;
     }
     .case-row--reverse .case-row__media { order: 2; }
     .case-row--reverse .case-row__content { order: 1; }
 
-    /* ── Media — no card treatment, images sit on page bg ── */
+    /* Media: no card treatment, images sit on page bg */
     .case-row__media {
       border-radius: 20px;
       overflow: hidden;
@@ -100,7 +100,7 @@
       transition: transform var(--transition-med);
     }
 
-    /* Shared hover state — media lifts + image scales */
+    /* Shared hover state: media lifts + image scales */
     .case-row:hover .case-row__media {
       transform: translateY(-6px);
       box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
@@ -159,7 +159,7 @@
       background: #C00F54;
     }
 
-    /* ── Headline row (first) — taller image ── */
+    /* Headline row (first): taller image */
     .case-row--headline {
       padding-bottom: 8px;
     }
@@ -167,7 +167,7 @@
       aspect-ratio: 16 / 11;
     }
 
-    /* ── Coming soon row — muted, non-interactive ── */
+    /* Coming soon row: muted, non-interactive */
     .case-row--coming-soon .case-row__media {
       opacity: 0.5;
     }
@@ -191,7 +191,7 @@
       .case-row { padding-bottom: 56px; }
       .case-row + .case-row { padding-top: 56px; }
 
-      /* Stack to single column — image always on top, drop alternating order */
+      /* Stack to single column: image always on top, drop alternating order */
       .case-row,
       .case-row--reverse {
         grid-template-columns: 1fr;
@@ -214,7 +214,7 @@
       flex-wrap: wrap;
     }
 
-    /* ── Watch demo — tertiary text action, non-functional placeholder ── */
+    /* Watch demo: tertiary text action, non-functional placeholder */
     .case-row__watch-demo {
       display: inline-flex;
       align-items: center;
@@ -289,7 +289,7 @@
       <div class="container container--flush">
         <div class="case-list">
 
-          <!-- Row 1 — HEADLINE — Conditional Logic (image-left) -->
+          <!-- Row 1: HEADLINE, Conditional Logic (image-left) -->
           <a href="/case-study-conditional-logic.html" class="case-row case-row--headline" aria-label="Read case study: Reducing form complexity to improve data accuracy">
             <div class="case-row__media">
               <picture>
@@ -321,7 +321,7 @@
             </div>
           </a>
 
-          <!-- Row 2 — Public Holidays (image-right) -->
+          <!-- Row 2: Public Holidays (image-right) -->
           <a href="/case-study-public-holidays.html" class="case-row case-row--reverse" aria-label="Read case study: Solving availability to restore planning confidence">
             <div class="case-row__media">
               <picture>
@@ -353,17 +353,17 @@
             </div>
           </a>
 
-          <!-- Row 3 — Boomin Design System (image-left) -->
+          <!-- Row 3: Boomin Design System (image-left) -->
           <a href="/case-study-boomin-design-system.html" class="case-row" aria-label="Read case study: Building the foundation for a scalable design system">
             <div class="case-row__media">
               <picture>
                 <source srcset="assets/shared/project-2.webp" type="image/webp" />
-                <img src="assets/shared/project-2.png" alt="Boomin design system Mosaic — component library overview in Figma" loading="lazy" decoding="async" />
+                <img src="assets/shared/project-2.png" alt="Boomin design system Mosaic: component library overview in Figma" loading="lazy" decoding="async" />
               </picture>
             </div>
             <div class="case-row__content">
               <h2 class="case-row__title">Building the foundation for a scalable design system</h2>
-              <p class="case-row__outcome">Led the foundations layer of Boomin's design system (Mosaic) — colour, type, grid, space, shadow and icons — reducing design and dev debt across the product team.</p>
+              <p class="case-row__outcome">Led the foundations layer of Boomin's design system (Mosaic): colour, type, grid, space, shadow and icons, reducing design and dev debt across the product team.</p>
               <div class="case-metrics">
                 <div class="case-metric">
                   <span class="case-metric__value">Faster adoption</span>
@@ -385,7 +385,7 @@
             </div>
           </a>
 
-          <!-- Row 4 — Pantry (image-right) -->
+          <!-- Row 4: Pantry (image-right) -->
           <a href="/case-study-pantry.html" class="case-row case-row--reverse" aria-label="Read case study: Reducing food waste through a smarter household pantry">
             <div class="case-row__media">
               <picture>
@@ -395,7 +395,7 @@
             </div>
             <div class="case-row__content">
               <h2 class="case-row__title">Reducing food waste through a smarter household pantry</h2>
-              <p class="case-row__outcome">A mobile-first app that closes the loop between what you buy, what's about to expire, and what you can cook tonight — designed, built and used daily.</p>
+              <p class="case-row__outcome">A mobile-first app that closes the loop between what you buy, what's about to expire, and what you can cook tonight, designed, built and used daily.</p>
               <div class="case-metrics">
                 <div class="case-metric">
                   <span class="case-metric__value">Daily use</span>
@@ -417,17 +417,17 @@
             </div>
           </a>
 
-          <!-- Row 5 — Automated metric tracking (image-left) -->
+          <!-- Row 5: Automated metric tracking (image-left) -->
           <a href="/case-study-automated-metric-tracking.html" class="case-row" aria-label="Read case study: Automating metric tracking with AI">
             <div class="case-row__media">
               <picture>
                 <source srcset="assets/shared/TARS-updated.webp" type="image/webp" />
-                <img src="assets/shared/TARS-updated.png" alt="Automated metric tracking tool — TARS tracking plan output" loading="lazy" decoding="async" />
+                <img src="assets/shared/TARS-updated.png" alt="Automated metric tracking tool: TARS tracking plan output" loading="lazy" decoding="async" />
               </picture>
             </div>
             <div class="case-row__content">
               <h2 class="case-row__title">Automating metric tracking with AI</h2>
-              <p class="case-row__outcome">An internal tool that turns a Figma file into a ready-to-hand-off tracking plan — what to measure, why, and where.</p>
+              <p class="case-row__outcome">An internal tool that turns a Figma file into a ready-to-hand-off tracking plan: what to measure, why, and where.</p>
               <div class="case-metrics">
                 <div class="case-metric">
                   <span class="case-metric__value">~90 → 10 min</span>
@@ -487,7 +487,7 @@
 
   <script src="js/main.js"></script>
 
-  <!-- GSAP + ScrollTrigger — case row reveal -->
+  <!-- GSAP + ScrollTrigger: case row reveal -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
