@@ -156,6 +156,32 @@ ul {
 }
 
 /* ============================================
+   Skip link — first focusable element in <body>,
+   off-screen until keyboard focus lands on it
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 8px;
+  z-index: 10000;
+  background: var(--color-accent);
+  color: #F9F9F9;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 8px;
+  outline: 2px solid #F9F9F9;
+  outline-offset: 2px;
+}
+
+/* ============================================
    Navigation
    ============================================ */
 .nav {
@@ -197,7 +223,9 @@ ul {
   font-size: var(--font-size-nav);
   font-weight: 400;
   padding: 0 20px;
-  transition: color var(--transition-fast);
+  /* Transparent by default so .active's border doesn't shift nav height */
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
   white-space: nowrap;
 }
 
@@ -205,9 +233,11 @@ ul {
   color: var(--color-accent);
 }
 
+/* Current-page indicator: colour + weight + underline, not colour alone */
 .nav__link.active {
   color: var(--color-accent);
   font-weight: 700;
+  border-bottom-color: var(--color-accent);
 }
 
 .nav__divider {
@@ -999,6 +1029,29 @@ h1.page-hero-title {
 /* transition-delay is set per-child by initScrollReveal() in main.js */
 .reveal-stagger.visible > * { opacity: 1; transform: none; }
 
+/* Reduced motion — force all reveal targets visible.
+   js/main.js and js/reveal.js also early-return before hiding
+   anything when this preference is set; !important here only
+   guards against GSAP's inline gsap.set() styles, which would
+   otherwise beat a plain rule (matches the existing !important
+   precedent used for the playground mobile overrides below). */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > *,
+  .cs-problem__title, .cs-discovery__title, .cs-solution__title,
+  .cs-metrics__title, .cs-outcomes__title, .cs-overview__title,
+  .cs-problem__pains-title,
+  .cs-problem__body p, .cs-discovery__body p, .cs-solution__body p,
+  .cs-outcomes__body p, .cs-metrics__lead, .cs-overview__copy p,
+  picture, .cs-hifi__image, .cs-solution__visual img, .cs-done-bubble,
+  .cs-pain-list li,
+  .cs-metric-card__value {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 
 /* ============================================
    Responsive — Tablet (≤ 1024px)
@@ -1328,11 +1381,16 @@ h1.page-hero-title {
     transition: border-color 200ms ease, color 200ms ease;
   }
 
-  .mobile-back:hover,
+  .mobile-back:hover {
+    color: #F9F9F9;
+    border-color: #686868;
+  }
+
   .mobile-back:focus-visible {
     color: #F9F9F9;
     border-color: #686868;
-    outline: none;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 }
 
@@ -2142,6 +2200,32 @@ h1.page-hero-title {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+/* ============================================
+   Focus-visible — consolidated ring for interactive
+   elements that don't already have a bespoke style
+   above (.case-row, .next-case-study, .breadcrumb__link,
+   .mobile-back). Same accent-outline pattern, offset
+   tuned by component size: 8px for full-card/row links
+   (matches .case-row), 2px for compact/inline elements
+   (matches .breadcrumb__link).
+   ============================================ */
+.card:focus-visible,
+.card__link:focus-visible,
+.uxui-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 8px;
+}
+
+.nav__link:focus-visible,
+.badge:focus-visible,
+.footer__link:focus-visible,
+.footer__social-link:focus-visible,
+.mob-nav-fab:focus-visible,
+.mob-nav-pill:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .breadcrumb__current {

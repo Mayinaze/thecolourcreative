@@ -206,27 +206,12 @@
       .case-row__read { display: flex; width: 100%; justify-content: center; }
     }
 
-    /* ── Action group (Read + Watch demo) ── */
+    /* ── Action group (Read case study CTA) ── */
     .case-row__actions {
       display: flex;
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
-    }
-
-    /* Watch demo: tertiary text action, non-functional placeholder */
-    .case-row__watch-demo {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: var(--color-text-sub);
-      font-size: 14px;
-      font-weight: 500;
-      opacity: 0.55;
-    }
-
-    .case-row__watch-demo svg {
-      flex-shrink: 0;
     }
 
     @media (max-width: 768px) {
@@ -239,6 +224,8 @@
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <span class="nav__brand"><span>The</span> Colour Creative</span>
@@ -264,7 +251,7 @@
     </ul>
   </nav>
 
-  <main>
+  <main id="main" tabindex="-1">
 
     <!-- ── Page header ── -->
     <section class="cases-header">
