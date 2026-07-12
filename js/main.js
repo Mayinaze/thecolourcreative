@@ -12,6 +12,12 @@ function initScrollReveal() {
 
   if (!targets.length) return;
 
+  // Reduced motion — skip the observer entirely, show everything now
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    targets.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
   // Set stagger delays dynamically so any number of children "just works" —
   // no CSS nth-child rule needed per child count
   document.querySelectorAll('.reveal-stagger').forEach(group => {
@@ -104,6 +110,11 @@ function initMobileNav() {
     pill.href      = item.href;
     pill.className = 'mob-nav-pill';
     pill.textContent = item.label;
+    // Hidden (opacity/pointer-events only) while closed — also pull it out
+    // of the tab order and the a11y tree so keyboard/AT users don't land
+    // on invisible links before the nav is opened.
+    pill.setAttribute('tabindex', '-1');
+    pill.setAttribute('aria-hidden', 'true');
 
     let pillActive;
     if (item.href === '/') {
@@ -126,6 +137,7 @@ function initMobileNav() {
   const fab = document.createElement('button');
   fab.className   = 'mob-nav-fab';
   fab.setAttribute('aria-label', 'Open navigation');
+  fab.setAttribute('aria-expanded', 'false');
   fab.innerHTML = `
     <span class="mob-nav-fab__icon">
       <span></span><span></span><span></span>
@@ -139,12 +151,18 @@ function initMobileNav() {
     fab.classList.add('open');
     overlay.classList.add('open');
     fab.setAttribute('aria-label', 'Close navigation');
+    fab.setAttribute('aria-expanded', 'true');
 
     const pills = pillsContainer.querySelectorAll('.mob-nav-pill');
     pills.forEach((pill, i) => {
       pill.style.transitionDelay = `${i * 50}ms`;
       pill.classList.add('visible');
+      pill.setAttribute('tabindex', '0');
+      pill.removeAttribute('aria-hidden');
     });
+
+    // Move focus into the now-visible panel
+    if (pills.length) pills[0].focus();
   }
 
   function closeMobNav() {
@@ -152,13 +170,19 @@ function initMobileNav() {
     fab.classList.remove('open');
     overlay.classList.remove('open');
     fab.setAttribute('aria-label', 'Open navigation');
+    fab.setAttribute('aria-expanded', 'false');
 
     const pills = pillsContainer.querySelectorAll('.mob-nav-pill');
     const total = pills.length;
     pills.forEach((pill, i) => {
       pill.style.transitionDelay = `${(total - 1 - i) * 40}ms`;
       pill.classList.remove('visible');
+      pill.setAttribute('tabindex', '-1');
+      pill.setAttribute('aria-hidden', 'true');
     });
+
+    // Return focus to the trigger
+    fab.focus();
   }
 
   fab.addEventListener('click', (e) => {
@@ -167,6 +191,10 @@ function initMobileNav() {
   });
 
   overlay.addEventListener('click', closeMobNav);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) closeMobNav();
+  });
 }
 
 // ============================================

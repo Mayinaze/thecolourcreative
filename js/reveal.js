@@ -42,6 +42,17 @@
     '.cs-metric-card__value:not(.cs-metric-card__value--text)'
   )];
 
+  // Reduced motion — show everything immediately, no ScrollTrigger, no
+  // count-up. Must happen before any gsap.set(...opacity:0...) below,
+  // since GSAP's inline styles would otherwise beat any plain CSS fallback.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const allEls = [...headings, ...subHeadings, ...bodyParas, ...images];
+    if (allEls.length) gsap.set(allEls, { opacity: 1, y: 0 });
+    if (statEls.length) gsap.set(statEls, { opacity: 1 });
+    main.querySelectorAll('.cs-pain-list li').forEach(li => gsap.set(li, { opacity: 1, y: 0 }));
+    return;
+  }
+
   // ─────────────────────────────────────────────
   // Set initial invisible state via JS only.
   // If GSAP never loads the early-return above fires,
