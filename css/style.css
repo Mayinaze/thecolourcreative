@@ -175,7 +175,7 @@ ul {
   transition: top var(--transition-fast);
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
   top: 8px;
   outline: 2px solid #F9F9F9;
   outline-offset: 2px;
