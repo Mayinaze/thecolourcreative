@@ -233,7 +233,7 @@ ul {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(50% - 20px);
+  width: calc(70% - 28px);
   bottom: -4px;
   height: 2px;
   background-color: var(--color-accent);
