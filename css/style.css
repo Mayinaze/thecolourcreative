@@ -234,7 +234,7 @@ ul {
   left: 20px;
   right: 20px;
   bottom: -4px;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-accent);
   opacity: 0;
   transition: opacity var(--transition-fast);
