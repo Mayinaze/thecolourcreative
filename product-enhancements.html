@@ -70,7 +70,7 @@
     }
 
     .uxui-card__illustration {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 3 / 2;
       width: 100%;
       background: #2A2728;
       border: 1px solid #434343;
@@ -79,6 +79,15 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .uxui-card__illustration img,
+    .uxui-card__illustration picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
     .uxui-card__illustration-label {
