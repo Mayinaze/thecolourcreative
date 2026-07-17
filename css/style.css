@@ -219,25 +219,38 @@ ul {
 }
 
 .nav__link {
+  position: relative;
   color: #FFF0F5;
   font-size: var(--font-size-nav);
   font-weight: 400;
   padding: 0 20px;
-  /* Transparent by default so .active's border doesn't shift nav height */
-  border-bottom: 2px solid transparent;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+  transition: color var(--transition-fast);
   white-space: nowrap;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: -4px;
+  height: 2px;
+  background-color: var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
 }
 
 .nav__link:hover {
   color: var(--color-accent);
 }
 
-/* Current-page indicator: colour + weight + underline, not colour alone */
+/* Current-page indicator: weight + underline, not colour */
 .nav__link.active {
-  color: var(--color-accent);
   font-weight: 700;
-  border-bottom-color: var(--color-accent);
+}
+
+.nav__link.active::after {
+  opacity: 1;
 }
 
 .nav__divider {
