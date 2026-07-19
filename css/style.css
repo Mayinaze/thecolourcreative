@@ -1796,6 +1796,10 @@ h1.page-hero-title {
   padding-top: 80px;
 }
 
+.cs-solution__visual img {
+  border-radius: 12px;
+}
+
 /* ── High-fidelity image ── */
 .cs-hifi {
   padding-top: 0;
