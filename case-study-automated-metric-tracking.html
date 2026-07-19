@@ -92,7 +92,7 @@
             <h2 class="cs-overview__title">Project overview</h2>
             <div class="cs-overview__copy">
               <p>
-                Reforge's TARS framework (Target, Adopted, Retained, Satisfied) defines what a successful feature looks like. But it only works if the right events are tracked in the first place, and setting up that tracking was the slowest, most manual part of shipping any new feature. I built a tool that automates the grunt work while keeping me as the decision-maker on what gets measured.
+                Created a metric tracking system that helped designers, developers and project managers decide what features to track and how to track them. When using the TARS framework to track feature success, it became obvious that teams needed to do the setup work themselves before handing over to the data team. I created a Claude skill that removed that manual process, while still leaving the user in control of deciding what to track, but with the upfront "why" behind tracking something. It converted a laborious manual process into an efficient, automated flow that avoided the blank canvas and improved delivery.
               </p>
             </div>
           </div>
@@ -142,17 +142,17 @@
             <h2 class="cs-problem__title">Setting up tracking was slow, manual, and easy to skip under pressure.</h2>
             <div class="cs-problem__body">
               <p>
-                Before launching anything, I needed to define what to track so the TARS funnel could be measured. The hard part was never the tagging. It was identifying what deserved tracking and communicating it clearly to developers. I tried annotating flows, then building tables by hand: screenshotting each component, highlighting what to track, writing up event names and rationale one by one. It worked, but it was slow, repetitive, and didn't scale.
+                Having experienced the problem myself first hand, tracking event triggers with features was time consuming for me, developers, and the various colleagues involved. Deciding what to track and why turned into a few hours of making sure we were tracking the right thing. However, the hard part was never the tagging. It was communicating to the team what we should tag and what that ultimately looked like. I tried annotating flows, building tables in Excel, and screenshotting each component to give enough context to the team, writing up the why. It worked, but it was slow, repetitive, and it didn't scale.
               </p>
             </div>
             <h3 class="cs-problem__pains-title">Current known pains</h3>
             <ul class="cs-pain-list">
-              <li>Identifying what to track was manual and subjective</li>
-              <li>Screenshotting and highlighting each component by hand</li>
-              <li>Writing event names and rationale one by one</li>
-              <li>Tracking got rushed or skipped under deadline pressure</li>
-              <li>Inconsistent event naming across features</li>
-              <li>Handoff to devs was a separate manual step</li>
+              <li>Identifying what to track was manual effort</li>
+              <li>Screenshotting and highlighting each component in Figma</li>
+              <li>Not knowing what was a priority to track</li>
+              <li>Tracking was sometimes half-implemented due to time constraints</li>
+              <li>Inconsistent event names across features</li>
+              <li>Handoff to development was a separate manual step</li>
             </ul>
           </div>
           <div class="cs-problem__visual">
@@ -175,9 +175,17 @@
             <h2 class="cs-discovery__title">Automate the labour, not the decision.</h2>
             <div class="cs-discovery__body">
               <p>
-                I didn't want to hand the decision over to automation. Choosing what to measure is a design and product judgement call. The goal was to remove the manual labour around the decision, not the decision itself.
+                I had witnessed the problem first hand: working with the team this way wasn't efficient or reliable. I needed a better, more consistent way to tackle this. I decided to brain dump my ideas into a Claude project, capturing everything from the people involved to the pains I'd witnessed in my earlier iterations of tracking. The goal was to remove the manual labour of the tracking process, not the decision.
               </p>
             </div>
+            <h3 class="cs-problem__pains-title">Who needed what</h3>
+            <ul class="cs-pain-list">
+              <li>Developers needed to understand what to track and the priority</li>
+              <li>Product (design/PM) needed to understand the why behind tracking, and whether it was meaningful when measuring the feature's success</li>
+              <li>The data team needed to build dashboards based on the data we tracked, and needed visibility into it</li>
+              <li>Scalability: anyone else using the skill would need onboarding or additional support</li>
+              <li>The user leveraging the skill needed to remain in control and make the decision</li>
+            </ul>
           </div>
           <div class="cs-discovery__visual">
             <picture>
@@ -199,7 +207,7 @@
             <h2 class="cs-solution__title">Design &amp; Build</h2>
             <div class="cs-solution__body">
               <p>
-                Using Claude Code, I built a tool that reads a Figma file via the Figma MCP, locates the relevant components, and extracts them as SVGs into a structured table. For each component it draws a box around exactly what to track and surfaces the event name, the rationale for why it's worth tracking, a priority level, and where the developer needs to implement it. It outputs either an HTML page or a CSV.
+                Using Claude, I built a skill called TARS-tracking that talks to the Figma MCP. Thinking back to the manual process of capturing component screenshots, I got Claude to read a Figma file, isolate the specific components, and extract them as SVGs into a structured table. For each component, Claude suggests the event name, the rationale for why it's worth tracking, a priority on what needs to be tracked, and where it needs to be implemented. Giving the user full control, I iterated quickly and added functionality so users can change table fields, customise elements, and delete entire rows. This table was split into four categories: Discovery, Retention, Activation, and Error + Friction.
               </p>
               <h3 class="cs-problem__pains-title">Core principles</h3>
               <ul class="cs-pain-list">
@@ -209,7 +217,7 @@
                 <li>HTML output is editable, not static</li>
               </ul>
               <p>
-                The HTML version isn't just a spec to hand off, it's a working surface. Rows can be edited inline, deleted, or re-prioritised, and you can upload your own images. That turns a static tracking doc into a collaboration artefact: I attach it to a developer task, but it also becomes where I brainstorm with developers, PMs and the wider team: here's what I want to track, what are your thoughts? The plan and the conversation live in the same place.
+                This turned what was once a static tracking Excel spreadsheet into a fully customisable, dynamic, working HTML page. It became the source of truth we could share with the wider team when discussing the feature's tracking. The plan and the conversation lived in one place.
               </p>
             </div>
           </div>
