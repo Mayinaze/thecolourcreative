@@ -1710,6 +1710,7 @@ h1.page-hero-title {
   width: 100%;
   max-width: 580px;
   height: auto;
+  border-radius: 12px;
 }
 
 /* ── Idea → concept → test ── */
